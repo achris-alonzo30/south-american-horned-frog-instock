@@ -1,0 +1,30 @@
+@use "./colors" as *;
+@use "./variables" as *;
+@use "./typography" as *;
+
+/* -----------------------------------------------------------*/
+/* --------------- Mixins for responsive design --------------*/
+/* -----------------------------------------------------------*/
+// Mixin for desktop screens (1280px and greater)
+@mixin desktop {
+  @media only screen and (min-width: $desktop-screen-width) {
+    @content;
+  }
+}
+
+// Mixin for tablet screens (768px to 1279px)
+@mixin tablet {
+  @media only screen and (min-width: $tablet-screen-width) {
+    @content;
+  }
+}
+
+// Mixin for mobile screens (767px and below)
+@mixin mobile {
+  @media only screen and (max-width: $mobile-cutoff-width) {
+    @content;
+  }
+}
+
+
+
