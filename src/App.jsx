@@ -1,6 +1,7 @@
 import './App.scss'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { WarehouseList } from './component/WarehouseList/WarehouseList'
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route>
+        <Route path="/" element={<WarehouseList />}>
           
         </Route>
       </Routes>
