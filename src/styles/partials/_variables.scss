@@ -1,6 +1,46 @@
+// Screen Width
+
 $mobile-screen-width: "320px";
 $mobile-cutoff-width: "767px";
-$tablet-screen-width: "768px"; 
-$tablet-cutoff-width: "1279px"; 
-$desktop-screen-width: "1280px"; 
-$desktop-cutoff-width: "1920px"; 
+$tablet-screen-width: "768px";
+$tablet-cutoff-width: "1279px";
+$desktop-screen-width: "1280px";
+$desktop-cutoff-width: "1920px";
+
+
+// Font Sizes
+
+$fontsize-td-page-header: 2rem;
+$fontsize-td-sub-header: 1.5rem;
+$fontsize-td-llb: .875rem;
+$fontsize-td-table-header: 0.75rem;
+$fontsize-td-body-large: 1rem;
+$fontsize-td-body-medium: .875rem;
+$fontsize-td-body-small: .75rem;
+
+$fontsize-mob-page-header: 1.75rem;
+$fontsize-mob-sub-header: 1.25rem;
+$fontsize-mob-llb: .8125rem;
+$fontsize-mob-table-header: .6875rem;
+$fontsize-mob-body-large: .9375rem;
+$fontsize-mob-body-medium: .8125rem;
+$fontsize-mob-body-small: .6875rem;
+
+
+// Line Heights
+
+$lh-td-page-header: 2.5rem;
+$lh-td-sub-header: 2rem;
+$lh-td-llb: 1.375rem; //labels, links, buttons
+$lh-td-table-header: 1.125rem;
+$lh-td-body-large: 1.75rem;
+$lh-td-body-medium: 1.375rem;
+$lh-td-body-small: 1.125rem;
+
+$lh-mob-page-header: 2.25rem;
+$lh-mob-sub-header: 1.75rem;
+$lh-mob-llb: 1.25rem; //labels, links, buttons
+$lh-mob-table-header: 1rem;
+$lh-mob-body-large: 1.625rem;
+$lh-mob-body-medium: 1.25rem;
+$lh-mob-body-small: 1rem;
