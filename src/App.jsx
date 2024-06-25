@@ -1,17 +1,22 @@
+import "./App.scss";
+
+import { 
+  Route, 
+  Routes, 
+  BrowserRouter 
+} from "react-router-dom";
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Warehouses } from "./pages/Warehouses/Warehouses";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-
-import "./App.scss";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route>
+        <Route path="/" element={<Warehouses />}>
           <Route
             path="/warehouse/:warehouseId/edit"
             element={<EditWarehouse />}
