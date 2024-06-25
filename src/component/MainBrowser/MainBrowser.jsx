@@ -2,11 +2,20 @@ import "./MainBrowser.scss";
 
 import searchIcon from "../../assets/icons/search-24px.svg";
 import { DynamicButton } from "../DynamicButton/DynamicButton";
+import { useNavigate } from "react-router-dom";
 
-export const MainBrowser = ({ 
+export const MainBrowser = ({
+  
+  children,
   browserName,
-  children 
+  
 }) => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  }
+
   return (
     <main className="card">
       <section className="card__header">
