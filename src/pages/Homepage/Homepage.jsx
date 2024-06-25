@@ -1,4 +1,6 @@
-export const Warehouses = () => {
+import "./Homepage.scss"
+
+export const Homepage = () => {
   return (
     <main className="card">
       <section className="card__header">
