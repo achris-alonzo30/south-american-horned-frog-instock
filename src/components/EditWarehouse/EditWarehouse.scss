@@ -20,4 +20,8 @@
 .edit-wh__form {
     display: flex;
     flex-direction: column;
+
+    @include tablet{
+        flex-direction: row;
+    }
 }
