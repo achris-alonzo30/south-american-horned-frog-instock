@@ -1,20 +1,20 @@
-import './App.scss'
+import "./App.scss";
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { WarehouseList } from './component/WarehouseList/WarehouseList'
+import { 
+  Route, 
+  Routes, 
+  BrowserRouter } from "react-router-dom";
+
+import { Warehouses } from "./pages/Warehouses";
 
 function App() {
-
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<WarehouseList />}>
-          
-        </Route>
+        <Route path="/" element={<Warehouses />}></Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
