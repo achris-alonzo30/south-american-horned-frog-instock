@@ -1,6 +1,7 @@
 import './App.scss'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import EditWarehouse from './components/EditWarehouse'
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route>
-          
+        <Route path='/warehouse/:warehouseId/edit' element={<EditWarehouse />}/>
         </Route>
       </Routes>
     </BrowserRouter>
