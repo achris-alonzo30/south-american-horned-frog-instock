@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/colors" as *;
 
-.search-bar {
+.field {
     width: 100%;
     display: flex;
     position: relative;
@@ -33,5 +33,25 @@
     &__icon {
         right: 1rem;
         position: absolute;
+    }
+
+    &__radio {
+        gap: 0.5rem;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        @include dynamicFont(400, .8125rem, 1.25rem, $graphite);
+
+        @include tablet {
+            @include dynamicFont(400, .875rem, 1.375rem, $graphite);
+        }
+
+        &--inactive {
+            @include dynamicFont(400, .8125rem, 1.25rem, $slate);
+
+            @include tablet {
+                @include dynamicFont(400, .875rem, 1.375rem, $slate);
+            }
+        }
     }
 }

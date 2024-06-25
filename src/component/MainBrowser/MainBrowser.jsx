@@ -43,6 +43,7 @@ export const MainBrowser = ({
             placeholder="Search..."
           />
           <DynamicButton variant="add" />
+          
         </aside>
       </section>
 
