@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+/* -------------------------------------------------------------------------- */
+/*                        Mixin for Breakpoints                               */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                               Mixin for Font                               */
+/* -------------------------------------------------------------------------- */
+.default-button-styles, .secondary, .destructive, .primary {
+  gap: 0.5rem;
+  display: flex;
+  height: 2.25rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  font-family: "Titillium Web", sans-serif;
+}
+@media only screen and (min-width: 768px) {
+  .default-button-styles, .secondary, .destructive, .primary {
+    height: 2.375rem;
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.375rem;
+    font-family: "Titillium Web", sans-serif;
+  }
+}
+
+.primary {
+  border: none;
+  background-color: #2E66E5;
+}
+.primary:hover {
+  background-color: #232940;
+  transition: all 0.2s ease-in-out;
+}
+
+.destructive {
+  border: none;
+  background-color: #C94515;
+}
+.destructive:hover {
+  background-color: #232940;
+  transition: all 0.2s ease-in-out;
+}
+
+.secondary {
+  border: none;
+  color: #5C667E;
+  border: 1px solid #BDC5D5;
+  background-color: #FFFFFF;
+}
+.secondary:hover {
+  color: #2E66E5;
+  border-color: #2E66E5;
+  transition: all 0.2s ease-in-out;
+}/*# sourceMappingURL=DynamicButton.css.map */

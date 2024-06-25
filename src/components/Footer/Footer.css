@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+/* -------------------------------------------------------------------------- */
+/*                        Mixin for Breakpoints                               */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                               Mixin for Font                               */
+/* -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+.footer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.footer__copywrite {
+  margin: 2.5rem 0;
+}
+@media only screen and (max-width: 767px) {
+  .footer__copywrite {
+    color: #5C667E;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    line-height: 1rem;
+    font-family: "Titillium Web", sans-serif;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .footer__copywrite {
+    color: #5C667E;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+    font-family: "Titillium Web", sans-serif;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .footer__copywrite {
+    margin: 3rem 0;
+  }
+}/*# sourceMappingURL=Footer.css.map */

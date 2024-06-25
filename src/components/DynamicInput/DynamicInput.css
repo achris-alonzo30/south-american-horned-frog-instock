@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+/* -------------------------------------------------------------------------- */
+/*                        Mixin for Breakpoints                               */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                               Mixin for Font                               */
+/* -------------------------------------------------------------------------- */
+.field {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.field__input {
+  width: 100%;
+  outline: none;
+  padding: 0 1rem;
+  height: 2.25rem;
+  border-radius: 20px;
+  border: 1px solid #BDC5D5;
+  color: #232940;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  font-family: "Titillium Web", sans-serif;
+}
+.field__input:focus {
+  border: 1px solid #2E66E5;
+}
+.field__input__error {
+  border: 1px solid #C94515;
+}
+@media only screen and (min-width: 768px) {
+  .field__input {
+    height: 2.375rem;
+    color: #232940;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+    font-family: "Titillium Web", sans-serif;
+  }
+}
+.field__icon {
+  right: 1rem;
+  position: absolute;
+}
+.field__radio {
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  color: #232940;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  font-family: "Titillium Web", sans-serif;
+}
+@media only screen and (min-width: 768px) {
+  .field__radio {
+    color: #232940;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+    font-family: "Titillium Web", sans-serif;
+  }
+}
+.field__radio--inactive {
+  color: #5C667E;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  font-family: "Titillium Web", sans-serif;
+}
+@media only screen and (min-width: 768px) {
+  .field__radio--inactive {
+    color: #5C667E;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+    font-family: "Titillium Web", sans-serif;
+  }
+}
+.field__select {
+  width: 100%;
+  outline: none;
+  padding: 0 1rem;
+  height: 2.25rem;
+  border-radius: 20px;
+  -moz-appearance: none;
+  border: 1px solid #BDC5D5;
+  -webkit-appearance: none;
+  background-position-x: 95%;
+  background-position-y: 0.3125rem;
+  background-repeat: no-repeat;
+  color: #232940;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  font-family: "Titillium Web", sans-serif;
+  background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+}
+.field__select:focus {
+  border: 1px solid #2E66E5;
+}
+.field__select__error {
+  border: 1px solid #C94515;
+}/*# sourceMappingURL=DynamicInput.css.map */
