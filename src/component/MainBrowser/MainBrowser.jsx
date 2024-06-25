@@ -24,7 +24,7 @@ export const MainBrowser = ({ children }) => {
               className="card__header--icon"
             />
           </div>
-          <DynamicButton variant="edit" />
+          <DynamicButton variant="add" />
         </aside>
       </section>
 

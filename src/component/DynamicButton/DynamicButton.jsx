@@ -6,7 +6,7 @@ export const DynamicButton = ({ variant }) => {
   switch (variant) {
     case "add":
       return (
-        <button className="button">
+        <button className="primary">
           <span>+</span>
           Add New Warehouse
         </button>
@@ -14,16 +14,24 @@ export const DynamicButton = ({ variant }) => {
 
     case "edit":
       return (
-        <button className="button">
+        <button className="primary">
           <img src={editIcon} alt="Pencil Icon" className="edit-button__icon" />
           Edit
         </button>
       );
 
     case "delete":
-      return;
+      return (
+        <button className="destructive">
+          Delete
+        </button>
+      );
 
     case "cancel":
-      return;
+      return (
+        <button className="secondary">
+          Cancel
+        </button>
+      );
   }
 };
