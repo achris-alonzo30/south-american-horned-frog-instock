@@ -1,8 +1,12 @@
 import "./MainBrowser.scss";
 
-import searchIcon from "../../assets/icons/search-24px.svg";
-import { DynamicButton } from "../DynamicButton/DynamicButton";
 import { useNavigate } from "react-router-dom";
+
+import searchIcon from "../../assets/icons/search-24px.svg";
+import arrowLeft from "../../assets/icons/arrow_back-24px.svg";
+
+import { DynamicButton } from "../DynamicButton/DynamicButton";
+
 
 export const MainBrowser = ({
   
@@ -20,6 +24,7 @@ export const MainBrowser = ({
     <main className="card">
       <section className="card__header">
         <aside className="card__header--title">
+            <img src={arrowLeft} alt="Arrow Point Left in Indigo Color" />
             <h1 className="card__header--pageName">{browserName}</h1>
         </aside>
 
