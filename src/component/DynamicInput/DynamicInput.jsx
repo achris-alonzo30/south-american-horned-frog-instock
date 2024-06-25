@@ -1,18 +1,26 @@
 import "./DynamicInput.scss";
 
-export const DynamicInput = () => {
+export const DynamicInput = ({ 
+    id,
+    icon,
+    placeholder,
+}) => {
   return (
     <div className="search-bar">
       <input
+        id={id}
+        name={id}
         type="text"
-        placeholder="Search..."
-        className="search-bar__input"
+        placeholder={placeholder}
+        className="search-bar__input search-bar__input--error"
       />
-      <img
-        src={searchIcon}
-        alt="Magnifying Glass Icon"
-        className="search-bar__icon"
-      />
+      {icon && (
+        <img
+          src={icon}
+          alt="Dynamic Icon"
+          className="search-bar__icon"
+        />
+      )}
     </div>
   );
 };

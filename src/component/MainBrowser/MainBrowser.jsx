@@ -2,7 +2,6 @@ import "./MainBrowser.scss";
 
 import { useNavigate } from "react-router-dom";
 
-import searchIcon from "../../assets/icons/search-24px.svg";
 import arrowLeft from "../../assets/icons/arrow_back-24px.svg";
 
 import { DynamicButton } from "../DynamicButton/DynamicButton";
