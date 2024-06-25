@@ -34,7 +34,48 @@ export const WarehouseList = () => {
         </aside>
       </section>
 
-      
+      <table className="table">
+        <thead className="table__header">
+          <tr className="table__header--row">
+            <th className="table__header--cells">
+              
+            </th>
+            <th className="table__header--cells">
+              
+            </th>
+            <th className="table__header--cells">
+              
+            </th>
+            <th className="table__header--cells">
+              
+            </th>
+            <th className="table__header--end">
+              
+            </th>
+          </tr>
+        </thead>
+
+        <tbody className="table__body">
+          <tr className="table__body--row">
+            <td className="table__data--cells table__data--location">
+              
+            </td>
+            <td className="table__data--cells table__data--name">
+              
+            </td>
+            <td className="table__data--cells table__data--address">
+             
+            </td>
+            <td className="table__data--cells table__data--contact">
+              
+            </td>
+            <td className="table__data--actions">
+              
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
     </main>
   );
 };
