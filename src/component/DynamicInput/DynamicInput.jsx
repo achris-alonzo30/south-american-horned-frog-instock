@@ -3,6 +3,7 @@ import "./DynamicInput.scss";
 export const DynamicInput = ({ 
     id,
     icon,
+    type,
     placeholder,
 }) => {
   return (
@@ -10,7 +11,7 @@ export const DynamicInput = ({
       <input
         id={id}
         name={id}
-        type="text"
+        type={type}
         placeholder={placeholder}
         className="search-bar__input search-bar__input--error"
       />

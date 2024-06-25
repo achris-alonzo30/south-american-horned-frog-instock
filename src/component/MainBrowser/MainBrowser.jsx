@@ -37,6 +37,7 @@ export const MainBrowser = ({
         {/* render this conditionally */}
         <aside className="card__header--search">
           <DynamicInput 
+            type="text"
             id="search"
             icon={searchIcon} 
             placeholder="Search..."

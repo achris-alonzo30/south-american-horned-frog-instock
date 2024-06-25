@@ -16,7 +16,7 @@
         border: 1px solid $cloud;
         @include dynamicFont(400, .8125rem, 1.25rem, $graphite);
 
-        &:focus-within {
+        &:focus {
             border: 1px solid $instock-indigo;
         }
 
