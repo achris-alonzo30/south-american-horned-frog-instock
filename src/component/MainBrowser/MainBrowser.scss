@@ -17,9 +17,9 @@
         @include tablet {
             display: flex;
             border-bottom: 0;
-            padding: 1rem 1.5rem;
             align-items: center;
             flex-direction: row;
+            padding: 1rem 1.5rem;
             justify-content: space-between;
         }
 

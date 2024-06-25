@@ -111,6 +111,11 @@
             text-decoration: none;
             @include dynamicFont(600, .8125rem, 1.25rem, $instock-indigo);
 
+            &:hover {
+                text-decoration: underline;
+                
+            }
+
             @include tablet {
                 @include dynamicFont(600, .875rem, 1.375rem, $instock-indigo);
             }

@@ -8,7 +8,14 @@ import arrowLeft from "../../assets/icons/arrow_back-24px.svg";
 import { DynamicButton } from "../DynamicButton/DynamicButton";
 import { DynamicInput } from "../DynamicInput/DynamicInput";
 
-export const MainBrowser = ({ children, browserName, isSearch }) => {
+export const MainBrowser = ({ 
+  isFooter,
+  isSearch,
+  children, 
+  arrowIcon, 
+  browserName,  
+  
+ }) => {
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -19,33 +26,37 @@ export const MainBrowser = ({ children, browserName, isSearch }) => {
     <section className="card">
       <section className="card__header">
         <aside className="card__header--title">
-          <img
-            src={arrowLeft}
-            onClick={goBack}
-            className="card__header--arrow"
-            alt="Arrow Point Left in Indigo Color"
-          />
+          {arrowIcon && (
+            <img
+              src={arrowLeft}
+              onClick={goBack}
+              className="card__header--arrow"
+              alt="Arrow Point Left in Indigo Color"
+            />
+          )}
+
           <h1 className="card__header--pageName">{browserName}</h1>
         </aside>
 
-        {/* render this conditionally */}
         <aside className="card__header--search">
-            <DynamicInput
-              type="text"
-              id="search"
-              icon={searchIcon}
-              placeholder="Search..."
-            />
-          <DynamicButton variant="add" addButtonName="Add New Warehouses" />
+          <DynamicInput
+            type="text"
+            id="search"
+            icon={searchIcon}
+            placeholder="Search..."
+          />
+          <DynamicButton variant="edit" addButtonName="Add New Warehouses" />
         </aside>
       </section>
 
       {children}
-      
-      <footer className="card__footer">
-        <DynamicButton variant="cancel" />
-        <DynamicButton variant="save" />
-      </footer>
+
+      {isFooter && (
+        <footer className="card__footer">
+          <DynamicButton variant="cancel" />
+          <DynamicButton variant="save" />
+        </footer>
+      )}
     </section>
   );
 };
