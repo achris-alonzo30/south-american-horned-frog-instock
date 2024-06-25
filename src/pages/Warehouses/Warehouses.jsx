@@ -8,9 +8,8 @@ export const Warehouses = () => {
     <main className="main">
       <MainBrowser 
         browserName="Warehouses" 
-        isFooter
       >
-        
+        <WarehouseList />
       </MainBrowser>
     </main>
   );
