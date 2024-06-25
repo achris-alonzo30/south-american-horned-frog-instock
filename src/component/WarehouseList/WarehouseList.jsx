@@ -27,7 +27,10 @@ export const WarehouseList = () => {
               className="card__header--icon"
             />
           </div>
-          
+          <button className="card__header--searchButton">
+            <span>+</span>
+            Add New Warehouse
+          </button>
         </aside>
       </section>
 
