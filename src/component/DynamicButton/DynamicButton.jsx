@@ -1,6 +1,6 @@
 import "./DynamicButton.scss";
 
-import editIcon from "../../assets/icons/edit-24px.svg";
+import editIcon from "../../assets/icons/edit_white-24px.svg";
 
 export const DynamicButton = ({ 
     variant, 
