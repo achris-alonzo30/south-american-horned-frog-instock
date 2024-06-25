@@ -1,11 +1,11 @@
 import "./EditWarehouse.scss"
 import axios from "axios"
-import {useNavigate} from 'react-router-dom'
-import {useState, useParams} from 'react'
+import {useNavigate, useParams} from 'react-router-dom'
+import {useState} from 'react'
 
-export default EditWarehouse = ({warehouse}) => {
+const EditWarehouse = ({warehouse}) => {
 
-    const {warehouseId} = useParams();
+    const { warehouseId } = useParams();
 
     const [whName, setWhName] = useState(warehouse.name)
     const [whAddress, setAddress] = useState(warehouse.address)
@@ -32,17 +32,25 @@ export default EditWarehouse = ({warehouse}) => {
             whCountry: whCountry,
             contactName: contactName,
             contactPosition: contactPosition,
-            contactPhn: contactPhn
+            contactPhn: contactPhn,
+            contactEmail: contactEmail
+
         }
 
         try {
             const response = await axios.post(`${api_url}`, warehouseEditInfo)
-            alert("Your submission was successful!");
-            navigate('/');
+            alert("We have successfully edited your warehouse information!");
+            navigate(-1);
+
         } catch (error) {
             console.error("UPLOAD_PAGE", error)
         }
     };
+
+    const cancelHandler = (event) => {
+        event.preventDefault();
+        navigate('/');
+    }
 
     return(
         <>
@@ -68,13 +76,14 @@ export default EditWarehouse = ({warehouse}) => {
             <input className = "edit-wh-input" type="text" id="wh-contact-phn" value={contactPhn} onChange={(event) => setContactPhn(event.target.value)} placeholder = "Phone Number"/>
             <label className = "edit-wh-label" htmlFor="wh-email">Email </label>
             <input className = "edit-wh-input" type="text" id="wh-email" value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} placeholder = "Email"/>
+
+            <div className = "cancel-submit__container">
+                <button type="cancel" className="edit-wh__cancel-button" onClick={cancelHandler}>Cancel</button>
+                <button type="submit" className="edit-wh__submit-button">Submit</button>
+            </div>
         </form>
         </>
-
-
-
-
     )
-
-
 }
+
+export default EditWarehouse;

@@ -1,6 +1,20 @@
 $mobile-screen-width: "320px";
 $mobile-cutoff-width: "767px";
-$tablet-screen-width: "768px"; 
-$tablet-cutoff-width: "1279px"; 
-$desktop-screen-width: "1280px"; 
-$desktop-cutoff-width: "1920px"; 
+$tablet-screen-width: "768px";
+$tablet-cutoff-width: "1279px";
+$desktop-screen-width: "1280px";
+$desktop-cutoff-width: "1920px";
+
+
+
+$fontsize-td-page-header: 2.0625rem;
+$fontsize-td-section-header: .75rem;
+$fontsize-td-sub-header: .875rem;
+$fontsize-td-body: .875rem;
+$fontsize-td-button-label: .75rem;
+
+$fontsize-mob-page-header: 1.5rem;
+$fontsize-mob-section-header: .75rem;
+$fontsize-mob-sub-header: .8125rem;
+$fontsize-mob-body: 0.8125rem;
+$fontsize-mob-button-label: .625rem;

@@ -1,0 +1,10 @@
+
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.edit-wh__header {
+    @include dynamicFont($weight, $size, $line-height, $color)
+}
