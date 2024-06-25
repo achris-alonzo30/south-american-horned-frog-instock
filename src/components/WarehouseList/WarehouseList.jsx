@@ -254,7 +254,7 @@ export const WarehouseList = () => {
               WAREHOUSE
             </h4>
             <Link to="/" className="table__data--link">
-              Manhattan
+              <p className="table__data--text">Manhattan</p>
               <img src={chevronRight} alt="Arrow Point To Right" />
             </Link>
           </td>
@@ -286,12 +286,12 @@ export const WarehouseList = () => {
             <img
               src={trashIcon}
               alt="Garbage Red Color Icon"
-              className="table__content--delete"
+              className="table__data--delete"
             />
             <img
               src={editIcon}
               alt="Garbage Red Color Icon"
-              className="table__content--edit"
+              className="table__data--edit"
             />
           </td>
           
