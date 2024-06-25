@@ -26,7 +26,7 @@
 
         &--title {
             @include dynamicFont(600, 1.75rem, 2.25rem, $instock-black);
-        
+
             @include tablet {
                 flex: 0.6;
                 @include dynamicFont(600, 2rem, 2.5rem, $instock-black);

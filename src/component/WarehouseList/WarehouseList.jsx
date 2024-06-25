@@ -1,42 +1,37 @@
+import "./WarehouseList.scss";
+
+import { Link } from "react-router-dom";
+
+import editIcon from "../../assets/icons/edit-24px.svg";
+import searchIcon from "../../assets/icons/search-24px.svg";
+import trashIcon from "../../assets/icons/delete_outline-24px.svg";
+import chevronRight from "../../assets/icons/chevron_right-24px.svg";
+import sortIcon from "../../assets/icons/sort-24px.svg";
+
 export const WarehouseList = () => {
   return (
-    <main className="table">
-      <section className="table__header">
-        <h1 className="table__header--title">Warehouses</h1>
-        <aside className="table__header--search">
-          <div className="table__header--searchbar">
-            <input type="text" placeholder="Search..." />
+    <main className="card">
+      <section className="card__header">
+        <h1 className="card__header--title">Warehouses</h1>
+
+        <aside className="card__header--search">
+          <div className="card__header--searchBar">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="card__header--input"
+            />
+            <img
+              src={searchIcon}
+              alt="Magnifying Glass Icon"
+              className="card__header--icon"
+            />
           </div>
-          <button className="table_header--searchbutton">
-            Add New Warehouse
-          </button>
+          
         </aside>
       </section>
-      <section className="table__content">
-        <aside className="table__content--details">
-          <hgroup className="table__content--detail">
-            <h2>WAREHOUSE</h2>
-            <p>Manhattan</p>
-          </hgroup>
-          <hgroup>
-            <h2>CONTACT NAME</h2>
-            <p>Parmin Aujla</p>
-          </hgroup>
-          <hgroup>
-            <h2>ADDRESS</h2>
-            <p>33 Pearl Street SW, Washington, USA</p>
-          </hgroup>
-          <hgroup>
-            <h2>CONTACT INFORMATION</h2>
-            <p>+1 (647) 504-0911</p>
-            <p>gylon@instock.com</p>
-          </hgroup>
-          <aside className="table__content--actions">
-            <button>Delete</button>
-            <button>Edit</button>
-          </aside>
-        </aside>
-      </section>
+
+      
     </main>
   );
 };
