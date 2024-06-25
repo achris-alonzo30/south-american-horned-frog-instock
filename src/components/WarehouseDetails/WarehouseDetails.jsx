@@ -12,7 +12,7 @@ function WarehouseDetails() {
   const getWarehouseInventory = async (warehouseId) => {
     try {
       let res = await axios.get(
-        `http://localhost:8080/warehouses/:warehouseId/inventories`
+        "http://localhost:8080/warehouses/" + { warehouseId } + "/inventories"
       );
       setCurrentWarehouse(res.data);
     } catch (err) {
