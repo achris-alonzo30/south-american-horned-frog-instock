@@ -1,0 +1,57 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+
+.default-button-styles {
+    gap: 0.5rem;
+    display: flex;
+    height: 2.25rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    @include dynamicFont(600, .8125rem, 1.25rem, $white);
+
+    @include tablet {
+        height: 2.375rem;
+        @include dynamicFont(600, .875rem, 1.375rem, $white);
+    }
+}
+
+.primary {
+    border: none;
+    @extend .default-button-styles;
+    background-color: $instock-indigo;
+    
+    &:hover {
+        background-color: $graphite;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+.destructive{
+    border: none;
+    background-color: $red;
+    @extend .default-button-styles;
+
+    &:hover {
+        background-color: $graphite;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+.secondary {
+    border: none;
+    color: $slate;
+    border: 1px solid $cloud;
+    @extend .default-button-styles;
+    background-color: $white;
+
+    &:hover {
+        
+        color: $instock-indigo;
+        border-color: $instock-indigo;
+        transition: all 0.2s ease-in-out;
+    }
+}
