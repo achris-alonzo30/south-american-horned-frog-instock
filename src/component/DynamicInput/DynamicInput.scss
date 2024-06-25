@@ -1,0 +1,28 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+
+.search-bar {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    &__input {
+        width: 100%;
+        padding: 0 1rem;
+        height: 2.25rem;
+        border-radius: 20px;
+        border: 1px solid $cloud;
+        @include dynamicFont(400, .8125rem, 1.25rem, $graphite);
+
+        @include tablet {
+            height: 2.375rem;
+            @include dynamicFont(400, .875rem, 1.375rem, $graphite);
+        }
+    }
+
+    &--icon {
+        right: 1rem;
+        position: absolute;
+    }
+}

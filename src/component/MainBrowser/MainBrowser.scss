@@ -85,25 +85,5 @@
             right: 1rem;
             position: absolute;
         }
-
-        &--searchButton {
-            gap: 0.5rem;
-            border: none;
-            display: flex;
-            height: 2.25rem;
-            padding: 0 1rem;
-            white-space: nowrap;
-            border-radius: 20px;
-            align-items: center;
-            justify-content: center;
-            background-color: $instock-indigo;
-            @include dynamicFont(400, .8125rem, 1.25rem, $white);
-
-            @include tablet {
-                height: 2.375rem;
-                @include dynamicFont(400, .875rem, 1.375rem, $white);
-            }
-
-        }
     }
 }

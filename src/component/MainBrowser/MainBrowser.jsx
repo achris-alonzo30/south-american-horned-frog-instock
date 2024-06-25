@@ -12,7 +12,7 @@ export const MainBrowser = ({
   
   children,
   browserName,
-  
+  isSearch,
 }) => {
   const navigate = useNavigate();
 
@@ -33,6 +33,7 @@ export const MainBrowser = ({
             <h1 className="card__header--pageName">{browserName}</h1>
         </aside>
 
+        {/* render this conditionally */}
         <aside className="card__header--search">
           <div className="card__header--searchBar">
             <input
