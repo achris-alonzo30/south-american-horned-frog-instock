@@ -8,9 +8,9 @@ export const DynamicInput = ({
   placeholder,
   disabled = false,
 }) => {
-  if (radioName) {
+  if (type === "radio") {
     return (
-      <label
+      <div
         htmlFor={id}
         className={`field__radio ${disabled && "field__radio--inactive"}`}
       >
@@ -22,7 +22,7 @@ export const DynamicInput = ({
           className="field__radio--button"
         />
         {radioName}
-      </label>
+      </div>
     );
   } else {
     return (
