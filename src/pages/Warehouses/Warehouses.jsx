@@ -5,7 +5,7 @@ import { WarehouseList } from '../../component/WarehouseList/WarehouseList';
 
 export const Warehouses = () => {
   return (
-    <MainBrowser>
+    <MainBrowser browserName="Warehouses">
       <WarehouseList />
     </MainBrowser>
   );

@@ -3,12 +3,15 @@ import "./MainBrowser.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import { DynamicButton } from "../DynamicButton/DynamicButton";
 
-export const MainBrowser = ({ children }) => {
+export const MainBrowser = ({ 
+  browserName,
+  children 
+}) => {
   return (
     <main className="card">
       <section className="card__header">
         <aside className="card__header--title">
-            <h1 className="card__header--pageName">Warehouses</h1>
+            <h1 className="card__header--pageName">{browserName}</h1>
         </aside>
 
         <aside className="card__header--search">

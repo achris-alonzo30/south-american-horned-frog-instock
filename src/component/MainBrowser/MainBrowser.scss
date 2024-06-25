@@ -31,6 +31,7 @@
         }
 
         &--pageName {
+            text-transform: capitalize;
             @include dynamicFont(600, 1.75rem, 2.25rem, $instock-black);
         
             @include tablet {
