@@ -2,11 +2,19 @@ import "./DynamicButton.scss";
 
 import editIcon from "../../assets/icons/edit-24px.svg";
 
-export const DynamicButton = ({ variant }) => {
+export const DynamicButton = ({ 
+    variant, 
+    type = "button", 
+    onClick = () => {} 
+}) => {
   switch (variant) {
     case "add":
       return (
-        <button className="primary">
+        <button 
+            type={type}
+            onClick={onClick}
+            className="primary" 
+        >
           <span>+</span>
           Add New Warehouse
         </button>
@@ -14,7 +22,11 @@ export const DynamicButton = ({ variant }) => {
 
     case "edit":
       return (
-        <button className="primary">
+        <button 
+            type={type}
+            onClick={onClick}
+            className="primary"
+        >
           <img src={editIcon} alt="Pencil Icon" className="edit-button__icon" />
           Edit
         </button>
@@ -22,14 +34,22 @@ export const DynamicButton = ({ variant }) => {
 
     case "delete":
       return (
-        <button className="destructive">
+        <button 
+            type={type}
+            onClick={onClick}
+            className="destructive"
+        >
           Delete
         </button>
       );
 
     case "cancel":
       return (
-        <button className="secondary">
+        <button 
+            type={type}
+            onClick={onClick}
+            className="secondary"
+        >
           Cancel
         </button>
       );
