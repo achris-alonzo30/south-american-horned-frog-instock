@@ -1,0 +1,25 @@
+@import "../../styles/partials/mixin";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/variables";
+
+.footer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__copywrite {
+    margin: 2.5rem 0;
+
+    @include mobile {
+      @include dynamicFont(400, 0.6875rem, 1rem, $slate);
+    }
+    @include tablet {
+      @include dynamicFont(400, 0.75rem, 1.125rem, $slate);
+    }
+    @include desktop {
+      margin: 3rem 0;
+    }
+  }
+}
