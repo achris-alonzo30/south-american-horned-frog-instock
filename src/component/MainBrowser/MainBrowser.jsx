@@ -16,7 +16,7 @@ export const MainBrowser = ({ children, browserName, isSearch }) => {
   };
 
   return (
-    <main className="card">
+    <section className="card">
       <section className="card__header">
         <aside className="card__header--title">
           <img
@@ -41,10 +41,11 @@ export const MainBrowser = ({ children, browserName, isSearch }) => {
       </section>
 
       {children}
+      
       <footer className="card__footer">
         <DynamicButton variant="cancel" />
         <DynamicButton variant="save" />
       </footer>
-    </main>
+    </section>
   );
 };
