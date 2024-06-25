@@ -9,12 +9,11 @@ import { DynamicButton } from "../DynamicButton/DynamicButton";
 import { DynamicInput } from "../DynamicInput/DynamicInput";
 
 export const MainBrowser = ({ 
-  isFooter,
+  isFooter = false,
   isSearch,
   children, 
   arrowIcon, 
   browserName,  
-  
  }) => {
   const navigate = useNavigate();
 
@@ -39,13 +38,14 @@ export const MainBrowser = ({
         </aside>
 
         <aside className="card__header--search">
+          {/* Hide class: visibility*/}
           <DynamicInput
             type="text"
             id="search"
             icon={searchIcon}
             placeholder="Search..."
           />
-          <DynamicButton variant="edit" addButtonName="Add New Warehouses" />
+          <DynamicButton variant="add" addButtonName="Add New Warehouses" />
         </aside>
       </section>
 

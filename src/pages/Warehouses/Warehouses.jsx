@@ -1,13 +1,16 @@
 import "./Warehouses.scss";
 
-import { MainBrowser } from "../../component/MainBrowser/MainBrowser";
-import { WarehouseList } from "../../component/WarehouseList/WarehouseList";
+import { MainBrowser } from "../../components/MainBrowser/MainBrowser";
+import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 
 export const Warehouses = () => {
   return (
     <main className="main">
-      <MainBrowser browserName="Warehouses">
-        <WarehouseList />
+      <MainBrowser 
+        browserName="Warehouses" 
+        isFooter
+      >
+        
       </MainBrowser>
     </main>
   );
