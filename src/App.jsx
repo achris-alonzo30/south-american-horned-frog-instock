@@ -5,13 +5,13 @@ import {
   Routes, 
   BrowserRouter } from "react-router-dom";
 
-import { Homepage } from "./pages/Homepage/Homepage";
+import { Warehouses } from "./pages/Warehouses/Warehouses";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/" element={<Warehouses />}></Route>
       </Routes>
     </BrowserRouter>
   );
