@@ -9,11 +9,20 @@
 
     &__input {
         width: 100%;
+        outline: none;
         padding: 0 1rem;
         height: 2.25rem;
         border-radius: 20px;
         border: 1px solid $cloud;
         @include dynamicFont(400, .8125rem, 1.25rem, $graphite);
+
+        &:focus-within {
+            border: 1px solid $instock-indigo;
+        }
+
+        &__error {
+            border: 1px solid $red;
+        }
 
         @include tablet {
             height: 2.375rem;
@@ -21,7 +30,7 @@
         }
     }
 
-    &--icon {
+    &__icon {
         right: 1rem;
         position: absolute;
     }

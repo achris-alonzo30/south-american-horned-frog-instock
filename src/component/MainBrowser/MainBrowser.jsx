@@ -2,9 +2,11 @@ import "./MainBrowser.scss";
 
 import { useNavigate } from "react-router-dom";
 
+import searchIcon from "../../assets/icons/search-24px.svg";
 import arrowLeft from "../../assets/icons/arrow_back-24px.svg";
 
 import { DynamicButton } from "../DynamicButton/DynamicButton";
+import { DynamicInput } from "../DynamicInput/DynamicInput";
 
 
 export const MainBrowser = ({
@@ -34,18 +36,11 @@ export const MainBrowser = ({
 
         {/* render this conditionally */}
         <aside className="card__header--search">
-          <div className="card__header--searchBar">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="card__header--input"
-            />
-            <img
-              src={searchIcon}
-              alt="Magnifying Glass Icon"
-              className="card__header--icon"
-            />
-          </div>
+          <DynamicInput 
+            id="search"
+            icon={searchIcon} 
+            placeholder="Search..."
+          />
           <DynamicButton variant="add" />
         </aside>
       </section>
