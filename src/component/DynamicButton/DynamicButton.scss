@@ -1,0 +1,29 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+
+.default-button-styles {
+    gap: 0.5rem;
+    border: none;
+    display: flex;
+    height: 2.25rem;
+    padding: 0 1rem;
+    white-space: nowrap;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    @include dynamicFont(400, .8125rem, 1.25rem, $white);
+
+    @include tablet {
+        height: 2.375rem;
+        @include dynamicFont(400, .875rem, 1.375rem, $white);
+    }
+}
+
+.default-button {
+    @extend .default-button-styles;
+    background-color: $instock-indigo;
+    
+    &:hover {
+        background-color: $graphite;
+    }
+}

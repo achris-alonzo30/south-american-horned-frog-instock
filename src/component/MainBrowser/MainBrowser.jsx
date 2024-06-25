@@ -1,6 +1,7 @@
 import "./MainBrowser.scss";
 
 import searchIcon from "../../assets/icons/search-24px.svg";
+import { DynamicButton } from "../DynamicButton/DynamicButton";
 
 export const MainBrowser = ({ children }) => {
   return (
@@ -23,13 +24,9 @@ export const MainBrowser = ({ children }) => {
               className="card__header--icon"
             />
           </div>
-          <button className="card__header--searchButton">
-            <span>+</span>
-            Add New Warehouse
-          </button>
+          <DynamicButton variant="edit" />
         </aside>
       </section>
-
 
       { children }
     </main>
