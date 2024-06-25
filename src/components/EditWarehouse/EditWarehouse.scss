@@ -85,16 +85,14 @@
 }
 
 .contact-details{
-    border-top:
+    border-top: 2px solid $slate;
+
+    @include tablet{
+        border-left: 2px solid $slate;
+    }
 
 }
 
 .warehouse-details{
-
+    border-top: 2px solid $slate;
 }
-
-.edit-wh__cancel-button{
-
-}
-
-.edit-wh__submit-button
