@@ -24,7 +24,12 @@ export const MainBrowser = ({
     <main className="card">
       <section className="card__header">
         <aside className="card__header--title">
-            <img src={arrowLeft} alt="Arrow Point Left in Indigo Color" />
+            <img 
+              src={arrowLeft} 
+              onClick={goBack}
+              className="card__header--arrow"
+              alt="Arrow Point Left in Indigo Color" 
+            />
             <h1 className="card__header--pageName">{browserName}</h1>
         </aside>
 

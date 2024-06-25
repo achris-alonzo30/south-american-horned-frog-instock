@@ -24,7 +24,15 @@
             justify-content: space-between;
         }
 
+        &--arrow {
+            cursor: pointer;
+        }
+
         &--title {
+            gap: 0.25rem;
+            display: flex;
+            align-items: center;
+
             @include tablet {
                 flex: 0.55;
             }
