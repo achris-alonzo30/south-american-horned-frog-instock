@@ -25,3 +25,76 @@
         flex-direction: row;
     }
 }
+
+.edit-wh__subheader {
+    font-family: 'Titillium Web';
+    @include dynamicFont(600, $fontsize-mob-page-header, $lh-mob-page-header, $instock-black);
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    @include tablet{
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        @include dynamicFont(600, $fontsize-td-sub-header, $lh-td-sub-header, $instock-black);
+    }
+}
+
+.edit-wh__label {
+    font-family: 'Titillium Web';
+    @include dynamicFont(600, $fontsize-mob-llb, $lh-mob-llb, $instock-black);
+    width: 100%;
+    padding-bottom: .25rem;
+    text-align: left;
+    @include tablet{
+        @include dynamicFont(600, $fontsize-td-llb, $lh-td-llb, $instock-black);
+        padding-bottom: 0.0313rem;
+        padding-top: 1rem;
+    }
+}
+
+.edit-wh__input {
+    font-family: 'Titillium Web';
+    @include dynamicFont(400, $fontsize-mob-llb, $lh-mob-llb, $instock-black);
+    width: 100%;
+    padding: 0.50rem;
+    text-align: left;
+    border-radius: 1.25rem;
+    border: 1px solid $slate;
+    height: 2.25rem;
+
+    @include tablet{
+        @include dynamicFont(600, $fontsize-td-llb, $lh-td-llb, $instock-black);
+        padding-bottom: 0.50rem;
+        height: 2.375rem;
+    }
+
+    &:active{
+        border-color: $instock-indigo
+    }
+
+
+    &::placeholder{
+        color: $slate;
+    }
+}
+
+.edit-wh__form-section{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+
+}
+
+.contact-details{
+    border-top:
+
+}
+
+.warehouse-details{
+
+}
+
+.edit-wh__cancel-button{
+
+}
+
+.edit-wh__submit-button
