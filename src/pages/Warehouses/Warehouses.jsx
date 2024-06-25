@@ -1,10 +1,12 @@
+import "./Warehouses.scss";
+
 import { MainBrowser } from "../../component/MainBrowser/MainBrowser";
-import "./Homepage.scss"
+import { WarehouseList } from '../../component/WarehouseList/WarehouseList';
 
 export const Warehouses = () => {
   return (
     <MainBrowser>
-
+      <WarehouseList />
     </MainBrowser>
   );
 };

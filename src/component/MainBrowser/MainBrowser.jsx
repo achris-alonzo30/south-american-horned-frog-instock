@@ -1,9 +1,13 @@
+import "./MainBrowser.scss";
+
+import searchIcon from "../../assets/icons/search-24px.svg";
+
 export const MainBrowser = ({ children }) => {
   return (
     <main className="card">
       <section className="card__header">
-        <aside>
-            <h1 className="card__header--title">Warehouses</h1>
+        <aside className="card__header--title">
+            <h1 className="card__header--pageName">Warehouses</h1>
         </aside>
 
         <aside className="card__header--search">
