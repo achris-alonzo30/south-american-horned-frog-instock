@@ -1,25 +1,26 @@
-import { useState } from "react";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 
 import "./App.scss";
 
-import Header from "./components/Header/Header";
-
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import EditWarehouse from './components/EditWarehouse/EditWarehouse'
-
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route>
-        <Route path='/warehouse/:warehouseId/edit' element={<EditWarehouse />}/>
+          <Route
+            path="/warehouse/:warehouseId/edit"
+            element={<EditWarehouse />}
+          />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
-  )
+  );
 }
 
 export default App;
