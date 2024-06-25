@@ -36,11 +36,15 @@ export const MainBrowser = ({ children, browserName, isSearch }) => {
               icon={searchIcon}
               placeholder="Search..."
             />
-          <DynamicButton variant="add" />
+          <DynamicButton variant="add" addButtonName="Add New Warehouses" />
         </aside>
       </section>
 
       {children}
+      <footer className="card__footer">
+        <DynamicButton variant="cancel" />
+        <DynamicButton variant="save" />
+      </footer>
     </main>
   );
 };

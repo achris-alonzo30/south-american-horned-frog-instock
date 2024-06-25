@@ -4,8 +4,9 @@ import editIcon from "../../assets/icons/edit_white-24px.svg";
 
 export const DynamicButton = ({ 
     variant, 
+    addButtonName,
     type = "button", 
-    onClick = () => {} 
+    onClick = () => {},
 }) => {
   switch (variant) {
     case "add":
@@ -16,9 +17,20 @@ export const DynamicButton = ({
             className="primary" 
         >
           <span>+</span>
-          Add New Warehouse
+          {addButtonName}
         </button>
       );
+
+      case "save":
+        return (
+          <button 
+              type={type}
+              onClick={onClick}
+              className="primary" 
+          >
+            Save
+          </button>
+        );
 
     case "edit":
       return (

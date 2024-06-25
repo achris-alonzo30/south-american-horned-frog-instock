@@ -65,6 +65,7 @@
         &--row {
             display: flex;
             flex-wrap: wrap;
+            z-index: 0;
 
             &:hover {
                 background-color: rgba(189, 197, 213, 0.5);
@@ -158,6 +159,11 @@
             }
         }
 
+        &--edit,
+        &--delete {
+            cursor: pointer;
+        }
+
         @include tablet {
             &--location {
                 order: 1;
@@ -180,5 +186,4 @@
             }
         }
     }
-
 }

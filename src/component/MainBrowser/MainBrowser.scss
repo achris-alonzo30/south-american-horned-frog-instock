@@ -41,7 +41,7 @@
         &--pageName {
             text-transform: capitalize;
             @include dynamicFont(600, 1.75rem, 2.25rem, $instock-black);
-        
+
             @include tablet {
                 @include dynamicFont(600, 2rem, 2.5rem, $instock-black);
             }
@@ -86,4 +86,14 @@
             position: absolute;
         }
     }
+
+    &__footer {
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        background-color: $light-grey;
+    }
+
 }
