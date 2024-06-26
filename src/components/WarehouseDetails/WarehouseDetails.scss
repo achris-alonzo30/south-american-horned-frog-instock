@@ -1,4 +1,3 @@
-
 @import "../../styles/partials/mixin";
 @import "../../styles/partials/colors";
 @import "../../styles/partials/typography";
@@ -18,5 +17,52 @@
         margin: auto;
         margin-top: -8rem;
         max-width: 63.75rem;
+    }
+}
+
+.card__details {
+    gap: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        padding: 1.5rem;
+    }
+
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &--contacts {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &--theader {
+        padding-bottom: 0.25rem;
+        @include dynamicFont(600, .6875rem, 1rem, $slate);
+
+        @include tablet {
+            @include dynamicFont(600, .75rem, 1.125rem, $slate);
+        }
+    }
+
+    &--content {
+        @include dynamicFont(400, .6875rem, 1rem, $instock-black);
+
+        @include tablet {
+            @include dynamicFont(400, .75rem, 1.125rem, $instock-black);
+        }
+    }
+
+    &--contactName {
+        flex: 1;
+    }
+
+    &--contactInfo {
+        flex: 1;
     }
 }
