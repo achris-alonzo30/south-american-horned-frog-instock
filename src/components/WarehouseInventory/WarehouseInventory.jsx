@@ -1,4 +1,4 @@
-import "./WarehouseDetails.scss";
+import "./WarehouseInventory.scss";
 
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -39,4 +39,4 @@ function WarehouseDetails() {
   );
 }
 
-export default WarehouseDetails;
+export default WarehouseInventory;

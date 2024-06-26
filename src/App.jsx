@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Warehouses } from "./pages/Warehouses/Warehouses";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import WarehouseInventory from "./components/WarehouseInventory/WarehouseInventory";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -20,7 +20,7 @@ function App() {
           />
           <Route
             path="/warehouse/:warehouseId/inventories"
-            element={<WarehouseDetails />}
+            element={<WarehouseInventory />}
           />
         </Route>
       </Routes>
