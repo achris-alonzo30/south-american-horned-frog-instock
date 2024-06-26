@@ -8,12 +8,14 @@ import arrowLeft from "../../assets/icons/arrow_back-24px.svg";
 import { DynamicButton } from "../DynamicButton/DynamicButton";
 import { DynamicInput } from "../DynamicInput/DynamicInput";
 
-export const MainBrowser = ({ 
+export const MainBrowser = ({
   isFooter = false,
   isSearch,
-  children, 
-  arrowIcon, 
-  browserName,  
+  children,
+  arrowIcon,
+  browserName,
+  isHeaderBorderVariable = false,
+  onCancel,
  }) => {
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ export const MainBrowser = ({
 
   return (
     <section className="card">
-      <section className="card__header">
+      <section className={isHeaderBorderVariable ? "card__header-variable" : "card__header"}>
         <aside className="card__header--title">
           {arrowIcon && (
             <img
@@ -53,8 +55,8 @@ export const MainBrowser = ({
 
       {isFooter && (
         <footer className="card__footer">
-          <DynamicButton variant="cancel" />
-          <DynamicButton variant="save" />
+          <DynamicButton variant="cancel" onClick={onCancel}/>
+          <DynamicButton variant="save"/>
         </footer>
       )}
     </section>
