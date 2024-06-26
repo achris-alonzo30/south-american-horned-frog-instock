@@ -20,6 +20,7 @@
 }
 
 .primary {
+    content: "";
     border: none;
     @extend .default-button-styles;
     background-color: $instock-indigo;

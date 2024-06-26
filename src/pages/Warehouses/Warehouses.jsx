@@ -1,16 +1,16 @@
 import "./Warehouses.scss";
 
-import { MainBrowser } from "../../components/MainBrowser/MainBrowser";
+import { Card } from "../../components/Card/Card";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 
 export const Warehouses = () => {
   return (
     <main className="main">
-      <MainBrowser 
+      <Card 
         browserName="Warehouses" 
       >
         <WarehouseList />
-      </MainBrowser>
+      </Card>
     </main>
   );
 };

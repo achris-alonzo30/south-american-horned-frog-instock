@@ -1,6 +1,6 @@
 import "./WarehouseDetails.scss";
 
-import { MainBrowser } from "../MainBrowser/MainBrowser";
+import { MainBrowser } from "../Card/Card";
 import { WarehouseList } from "../WarehouseList/WarehouseList";
 
 export const WarehouseDetails = () => {
