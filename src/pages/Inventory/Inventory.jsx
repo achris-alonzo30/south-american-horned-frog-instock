@@ -1,4 +1,4 @@
-import "./Invetory.scss";
+import "./Inventory.scss";
 
 import { useState, useEffect } from "react";
 import { getAllInventories } from "../../lib/api-inventories";
