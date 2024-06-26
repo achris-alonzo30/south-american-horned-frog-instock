@@ -1,30 +1,38 @@
-export const CardHeader = () => {
+import "./CardHeader.scss";
+
+import { useNavigate } from "react-router-dom";
+
+import arrowLeft from "../../assets/icons/arrow_back-24px.svg";
+
+export const CardHeader = ({ 
+  children, 
+  className, 
+  flexStyle,
+  browserName,
+  withArrow = false
+}) => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <section className="card__header">
-      <aside className="card__header--title">
-        {arrowIcon && (
+    <section className={`card-header ${flexStyle}`}>
+      <nav className="card-header__left">
+        {withArrow && (
           <img
             src={arrowLeft}
             onClick={goBack}
-            className="card__header--arrow"
+            className="card-header__left--arrow"
             alt="Arrow Point Left in Indigo Color"
           />
         )}
 
-        <h1 className="card__header--pageName">{browserName}</h1>
-      </aside>
+        <h1 className="card-header__left--title">{browserName}</h1>
+      </nav>
 
-      <aside className="card__header--search">
-        {/* Hide class: visibility*/}
-        <DynamicInput
-          type="text"
-          id="search"
-          icon={searchIcon}
-          placeholder="Search..."
-          className="visibility-hidden"
-        />
-        <DynamicButton variant="add" addButtonName="Add New Warehouses" />
-      </aside>
+      <nav className={`${(flexStyle === "flexCol") && "card-header__right"} ${className}`}>{children}</nav>
     </section>
   );
 };

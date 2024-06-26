@@ -20,15 +20,34 @@
 }
 
 .primary {
-    content: "";
     border: none;
     @extend .default-button-styles;
     background-color: $instock-indigo;
+
     
     &:hover {
         background-color: $graphite;
         transition: all 0.2s ease-in-out;
     }
+
+    &__text {
+        display: none;
+
+        @include tablet {
+            display: block;
+        }
+    }
+
+    &--edit {
+        @include mobile {
+            height: auto;
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+        
+    }
+
+
 }
 
 .destructive{
