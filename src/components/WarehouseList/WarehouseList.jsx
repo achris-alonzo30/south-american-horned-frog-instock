@@ -75,7 +75,7 @@ export const WarehouseList = ({ warehouses }) => {
                 <h4 className="table__data--header table__data--hidden ">
                   WAREHOUSE
                 </h4>
-                <Link to="/" className="table__data--link">
+                <Link to={`/warehouse/${id}`} className="table__data--link">
                   {warehouse_name}
                   <img src={chevronRight} alt="Arrow Point To Right" />
                 </Link>
@@ -112,6 +112,7 @@ export const WarehouseList = ({ warehouses }) => {
                 </hgroup>
               </td>
               <td className="table__data--actions">
+                
                 <img
                   src={trashIcon}
                   alt="Garbage Red Color Icon"
