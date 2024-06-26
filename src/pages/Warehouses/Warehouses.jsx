@@ -1,7 +1,7 @@
 import "./Warehouses.scss";
 
 import { useState, useEffect } from "react";
-import { getWarehouses } from "../../lib/api-warehouses";
+import { getAllWarehouse } from "../../lib/api-warehouses";
 
 import searchIcon from "../../assets/icons/search-24px.svg";
 
@@ -16,7 +16,7 @@ export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
-    getWarehouses(setWarehouses);
+    getAllWarehouse(setWarehouses);
   }, []);
 
   // Add Loading here
