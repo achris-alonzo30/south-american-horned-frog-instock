@@ -5,6 +5,7 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
+import { CardFooter } from "../../components/CardFooter/CardFooter";
 
 
 export const Warehouses = () => {
@@ -21,6 +22,10 @@ export const Warehouses = () => {
           <DynamicButton variant="add" addButtonName="Add New Warehouse" />
         </CardHeader>
         <WarehouseList />
+        <CardFooter>
+          <DynamicButton variant="cancel" />
+          <DynamicButton variant="save" />
+        </CardFooter>
       </Card>
     </main>
   );

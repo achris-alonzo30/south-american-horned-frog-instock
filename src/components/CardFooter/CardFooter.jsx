@@ -1,8 +1,11 @@
-export const CardFooter = () => {
+import "./CardFooter.scss"
+
+export const CardFooter = ({
+  children
+}) => {
     return (
-        <footer className="card__footer">
-          <DynamicButton variant="cancel" />
-          <DynamicButton variant="save" />
+        <footer className="card-footer">
+          {children}
         </footer>
     )
 }
