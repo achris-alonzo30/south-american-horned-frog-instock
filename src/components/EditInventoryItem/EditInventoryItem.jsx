@@ -24,6 +24,7 @@ const EditInventoryItem = ({item}) => {
         const itemEditInfo = {
             id: itemId,
             name: name,
+            category: category,
             description: description,
             inStock: stockStatus,
             warehouse: warehouse,
@@ -45,36 +46,42 @@ const EditInventoryItem = ({item}) => {
     }
 
     return(
-        <>
-        <h1 className = "edit-wh__header"> Edit Warehouse </h1>
-        <form className = "edit-wh__form" onSubmit = {submitHandler}>
+        <main className="main">
+            <MainBrowser browserName="Edit Inventory Item" isFooter={false} isHeaderBorderVariable={true}>
+                <form className = "edit-item__form" onClick = {saveHandler}>
+                    <div className = "details-sections">
+                        <div className ="edit-item__form-section warehouse-details">
+                            <h2 className = "edit-item__subheader"> Item Details</h2>
+                            <label className = "edit-item__label" htmlFor="item-name">Item Name</label>
+                            <input className = "edit-item__input" type="text" id="item-name" value={name} onChange={(event) => setName(event.target.value)} placeholder = "Item Name"/>
+                            <label className = "edit-item__label" htmlFor="item-desc">Description</label>
+                            <textarea className = "edit-item__textareaInput" id="item-desc" value={description} onChange={(event) => setAddress(event.target.value)} placeholder = "Item Description"/>
+                            <label className = "edit-wh__label" htmlFor="wh-city">Category</label>
+                            <DynamicInput id = "" icon = "" type="" radioName="" placeholder="" disabled = {false} />
+                            <input className = "edit-wh__input" type="text" id="wh-city" value={whCity} onChange={(event) => setCity(event.target.value)} placeholder = "City"/>
+                        </div>
 
-            <h2 className = "edit-wh__subheader"> Warehouse Details</h2>
-            <label className = "edit-wh-label" htmlFor="wh-name">Warehouse Name</label>
-            <input className = "edit-wh-input" type="text" id="wh-name" value={whName} onChange={(event) => setWhName(event.target.value)} placeholder = "Warehouse Name"/>
-            <label className = "edit-wh-label" htmlFor="wh-add">Street Address</label>
-            <input className = "edit-wh-input" type="text" id="wh-add" value={whAddress} onChange={(event) => setAddress(event.target.value)} placeholder = "Street Address"/>
-            <label className = "edit-wh-label" htmlFor="wh-city">City</label>
-            <input className = "edit-wh-input" type="text" id="wh-city" value={whCity} onChange={(event) => setCity(event.target.value)} placeholder = "City"/>
-            <label className = "edit-wh-label" htmlFor="wh-country">Warehouse Country</label>
-            <input className = "edit-wh-input" type="text" id="wh-country" value={whCountry}  onChange={(event) => setCountry(event.target.value)} placeholder = "Country"/>
+                        <div className ="edit-wh__form-section contact-details">
+                            <h2 className = "edit-wh__subheader"> Contact Details</h2>
+                            <label className = "edit-wh__label" htmlFor="wh-contact-name">Contact Name</label>
+                            <input className = "edit-wh__input" type="text" id="wh-name" value={contactName} onChange={(event) => setContactName(event.target.value)} placeholder = "Contact Name"/>
+                            <label className = "edit-wh__label" htmlFor="wh-contact-pstn">Contact Position</label>
+                            <input className = "edit-wh__input" type="text" id="wh-contact-pstn" value={contactPosition} onChange={(event) => setContactPosition(event.target.value)} placeholder = "Contact Position"/>
+                            <label className = "edit-wh__label" htmlFor="wh-contact-phn">Phone Number</label>
+                            <input className = "edit-wh__input" type="text" id="wh-contact-phn" value={contactPhn} onChange={(event) => setContactPhn(event.target.value)} placeholder = "Phone Number"/>
+                            <label className = "edit-wh__label" htmlFor="wh-email">Email </label>
+                            <input className = "edit-wh__input" type="text" id="wh-email" value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} placeholder = "Email"/>
+                        </div>
+                    </div>
 
-            <h2 className = "edit-wh__subheader"> Contact Details</h2>
-            <label className = "edit-wh-label" htmlFor="wh-contact-name">Contact Name</label>
-            <input className = "edit-wh-input" type="text" id="wh-name" value={contactName} onChange={(event) => setContactName(event.target.value)} placeholder = "Contact Name"/>
-            <label className = "edit-wh-label" htmlFor="wh-contact-pstn">Contact Position</label>
-            <input className = "edit-wh-input" type="text" id="wh-contact-pstn" value={contactPosition} onChange={(event) => setContactPosition(event.target.value)} placeholder = "Contact Position"/>
-            <label className = "edit-wh-label" htmlFor="wh-contact-phn">Phone Number</label>
-            <input className = "edit-wh-input" type="text" id="wh-contact-phn" value={contactPhn} onChange={(event) => setContactPhn(event.target.value)} placeholder = "Phone Number"/>
-            <label className = "edit-wh-label" htmlFor="wh-email">Email </label>
-            <input className = "edit-wh-input" type="text" id="wh-email" value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} placeholder = "Email"/>
+                    <div className = "cancel-submit__container">
+                        <DynamicButton variant="cancel" onClick = {cancelHandler} />
+                        <DynamicButton variant="save"/>
+                    </div>
+                </form>
+            </MainBrowser>
 
-            <div className = "cancel-submit__container">
-                <button type="cancel" className="edit-wh__cancel-button" onClick={cancelHandler}>Cancel</button>
-                <button type="submit" className="edit-wh__submit-button">Submit</button>
-            </div>
-        </form>
-        </>
+        </main>
     )
 }
 
