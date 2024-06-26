@@ -32,3 +32,13 @@ export const getSingleWarehouseInventories = async (fn, id) => {
         console.error(error)
     }
 }
+
+export const deleteWarehouse = async(id) => {
+    try {
+        const res = await axios.delete(`${API_WAREHOUSES_URL}/${id}`);
+
+        return fn(res.data);
+    } catch (error) {
+        console.error(error)
+    }
+}
