@@ -2,6 +2,13 @@ import "./Header.scss";
 import { Link } from "react-router-dom";
 
 function Header() {
+  let active = false;
+
+  const onClickHandler = () => {
+    active = !active;
+    console.log(active);
+  };
+
   return (
     <header className="header">
       <div className="header__content">
@@ -15,7 +22,13 @@ function Header() {
             Warehouses
           </button>
           <Link to="/inventory">
-            <button className="header__button header__button--inventory">
+            <button
+              className={`header__button header__button--inventory ${
+                active ? "header__button--active" : ""
+              }`}
+              // "header__button header__button--inventory "
+              onClick={onClickHandler}
+            >
               Inventory
             </button>
           </Link>
