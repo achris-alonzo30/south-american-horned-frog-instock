@@ -103,26 +103,21 @@ export const WarehouseList = ({ warehouses }) => {
                 </h2>
                 <hgroup>
                   <p className="table__data--content">{contact_phone}</p>
-                  <a
-                    href="mailto:paujla@instock.com"
-                    className="table__data--content"
+                  <Link
+                    to="mailto:paujla@instock.com"
+                    className="table__data--content table__data--email"
                   >
                     {contact_email}
-                  </a>
+                  </Link>
                 </hgroup>
               </td>
               <td className="table__data--actions">
-                
-                <img
-                  src={trashIcon}
-                  alt="Garbage Red Color Icon"
-                  className="table__content--delete"
-                />
-                <img
-                  src={editIcon}
-                  alt="Garbage Red Color Icon"
-                  className="table__content--edit"
-                />
+                <button className="table__data--delete">
+                  <img src={trashIcon} alt="Garbage Red Color Icon" />
+                </button>
+                <button className="table__data--edit">
+                  <img src={editIcon} alt="Garbage Red Color Icon" />
+                </button>
               </td>
             </tr>
           </tbody>
