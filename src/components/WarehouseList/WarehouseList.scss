@@ -21,14 +21,14 @@
         }
 
         &--cells {
+            padding: 1rem;
             text-align: start;
             display: table-cell;
-            padding: 0.5rem 1rem;
             vertical-align: middle;
             @include dynamicFont(600, .6875rem, 1rem, $slate);
 
             @include tablet {
-                padding: 0.5rem 1.5rem;
+                padding: 1rem 1rem 1rem 1.5rem;
                 @include dynamicFont(600, .75rem, 1.125rem, $slate);
             }
         }
