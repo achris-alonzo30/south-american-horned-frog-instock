@@ -2,12 +2,12 @@ import "./EditInventoryItem.scss"
 import axios from "axios"
 import {useNavigate, useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import {DynamicInput} from "../DynamicInput/DynamicInput"
-import {DynamicButton} from "../DynamicButton/DynamicButton"
-import {MainBrowser} from "../MainBrowser/MainBrowser"
+import DynamicInput from "../DynamicInput/DynamicInput"
+import DynamicButton from "../DynamicButton/DynamicButton"
+import Card from "../Card/Card";
+import CardHeader from "../CardHeader/CardHeader";
 
-
-const EditInventoryItem = (item) => {
+const EditInventoryItem = () => {
 
     const { itemId } = useParams();
     const navigate = useNavigate();
@@ -55,11 +55,7 @@ const EditInventoryItem = (item) => {
         };
 
         fetchInventoryItem();
-    }, [itemId, navigate]);
-
-    const mappedWarehouse = warehouseMap[item.warehouse_id]
-
-
+    }, [itemId]);
 
     const saveHandler = async (event) => {
         event.preventDefault();
@@ -71,11 +67,11 @@ const EditInventoryItem = (item) => {
             category: category,
             description: description,
             status: stockStatus,
-            warehouse_id: warehouse,
+            warehouse_id: warehouseId,
         }
 
         try {
-            const response = await axios.post(`${api_url}`, itemEditInfo)
+            await axios.put(`/api/inventories/${itemId}`, itemEditInfo);
             alert("We have successfully edited your item information!");
             navigate(-1);
 
@@ -100,10 +96,10 @@ const EditInventoryItem = (item) => {
             "Miami" : "7",
             "Boston" : "8"
         };
-        setWarehouse(event.target.value)
+
         const mappedWarehouseID = reverseMap[event.target.value]
+        setWarehouse(event.target.value)
         setWarehouseId(mappedWarehouseID)
-        console.log(mappedWarehouseID)
     }
 
     return(
