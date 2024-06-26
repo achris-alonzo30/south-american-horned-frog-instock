@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function WarehouseDetails() {
+function WarehouseInventory() {
   const [currentWarehouseInventory, setCurrentWarehouse] = useState(null);
 
   const { warehouseId } = useParams();
