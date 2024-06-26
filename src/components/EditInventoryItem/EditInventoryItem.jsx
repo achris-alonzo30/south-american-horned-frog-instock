@@ -7,18 +7,18 @@ import {DynamicButton} from "../DynamicButton/DynamicButton"
 import {MainBrowser} from "../MainBrowser/MainBrowser"
 
 
-const EditInventoryItem = () => {
+const EditInventoryItem = (item) => {
 
     // const { itemId } = useParams();
 
-    const item = {
-        id: "3",
-        item_name: "Laptop",
-        category: "Electronics",
-        description: "A high-end gaming laptop with the latest specifications.",
-        status: "In Stock",
-        warehouse_id: "3",
-    };
+    // const item = {
+    //     id: "3",
+    //     item_name: "Laptop",
+    //     category: "Electronics",
+    //     description: "A high-end gaming laptop with the latest specifications.",
+    //     status: "In Stock",
+    //     warehouse_id: "3",
+    // };
 
     const warehouseMap = {
         "1": "New York",
