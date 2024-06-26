@@ -1,64 +1,73 @@
 import "./EditWarehouse.scss"
 import axios from "axios"
 import {useNavigate, useParams} from 'react-router-dom'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {MainBrowser} from "../MainBrowser/MainBrowser"
 import { DynamicButton} from "../DynamicButton/DynamicButton"
 
 const EditWarehouse = () => {
 
-    const warehouse = {
-        id: "22",
-        name: "Sephora",
-        address: "123 Beauty St",
-        city: "Los Angeles",
-        country: "USA",
-        contactName: "Jane Doe",
-        contactPosition: "Warehouse Manager",
-        contactPhn: "123-456-7890",
-        contactEmail: "janedoe@sephora.com"
-    }
-
-
-    // const { warehouseId } = useParams();
-
-    const [whName, setWhName] = useState(warehouse.name)
-    const [whAddress, setAddress] = useState(warehouse.address)
-    const [whCity, setCity] = useState(warehouse.city)
-    const [whCountry, setCountry] = useState(warehouse.country)
-
-    const [contactName, setContactName] = useState(warehouse.contactName)
-    const [contactPosition, setContactPosition] = useState(warehouse.contactPosition)
-    const [contactPhn, setContactPhn] = useState(warehouse.contactPhn)
-    const [contactEmail, setContactEmail] = useState(warehouse.contactEmail)
-
-
+    const { warehouseId } = useParams();
     const navigate = useNavigate();
+
+
+    const [whName, setWhName] = useState('');
+    const [whAddress, setAddress] = useState('');
+    const [whCity, setCity] = useState('');
+    const [whCountry, setCountry] = useState('');
+
+    const [contactName, setContactName] = useState('');
+    const [contactPosition, setContactPosition] = useState('');
+    const [contactPhn, setContactPhn] = useState('');
+    const [contactEmail, setContactEmail] = useState('');
+
+    useEffect(() => {
+        const fetchWarehouse = async () => {
+            try {
+                const response = await axios.get(`/api/warehouses/${warehouseId}`);
+                const warehouse = response.data;
+                setWhName(warehouse.warehouse_name);
+                setAddress(warehouse.address);
+                setCity(warehouse.city);
+                setCountry(warehouse.country);
+                setContactName(warehouse.contact_name);
+                setContactPosition(warehouse.contact_position);
+                setContactPhn(warehouse.contact_phone);
+                setContactEmail(warehouse.contact_email);
+            } catch (error) {
+                console.error("Error fetching warehouse data", error);
+                alert("Error fetching warehouse data");
+            }
+        };
+
+        fetchWarehouse();
+    }, [warehouseId]);
+
 
     const saveHandler = async (event) => {
         event.preventDefault();
 
 
         const warehouseEditInfo = {
-            id: warehouse.id,
-            whName: whName,
-            whAddress: whAddress,
-            whCity: whCity,
-            whCountry: whCountry,
-            contactName: contactName,
-            contactPosition: contactPosition,
-            contactPhn: contactPhn,
-            contactEmail: contactEmail
-
-        }
+            warehouse_name: whName,
+            address: whAddress,
+            city: whCity,
+            country: whCountry,
+            contact_name: contactName,
+            contact_position: contactPosition,
+            contact_phone: contactPhn,
+            contact_email: contactEmail
+        };
 
         try {
-            const response = await axios.post(`${api_url}`, warehouseEditInfo)
+            const response = await axios.put(`/api/warehouses/${warehouseId}`, warehouseEditInfo);
             alert("We have successfully edited your warehouse information!");
             navigate(-1);
 
         } catch (error) {
-            console.error("UPLOAD_PAGE", error)
+            console.error("Error updating warehouse", error);
+            alert("Error updating warehouse");
+
         }
     };
 
@@ -70,7 +79,7 @@ const EditWarehouse = () => {
     return(
         <main className="main">
             <MainBrowser browserName="Edit Warehouse" isFooter={false} isHeaderBorderVariable={true}>
-                <form className = "edit-wh__form" onClick = {saveHandler}>
+                <form className = "edit-wh__form" onSubmit = {saveHandler}>
                     <div className = "details-sections">
                         <div className ="edit-wh__form-section warehouse-details">
                             <h2 className = "edit-wh__subheader"> Warehouse Details</h2>
