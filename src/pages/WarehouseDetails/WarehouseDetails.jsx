@@ -1,13 +1,13 @@
 import "./WarehouseDetails.scss";
 
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getWarehouseDetails, getSingleWarehouseInventories } from "../../lib/api-warehouses";
 
-import { Card } from "../Card/Card";
-import { CardHeader } from "../CardHeader/CardHeader";
-import { DynamicButton } from "../DynamicButton/DynamicButton";
-import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
+import { Card } from "../../components/Card/Card";
+import { CardHeader } from "../../components/CardHeader/CardHeader";
+import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 
 export const WarehouseDetails = () => {
@@ -22,8 +22,8 @@ export const WarehouseDetails = () => {
 
   if (!singleWarehouse && !warehouseInventory) return <LoadingSpinner />
 
-  console.log("Single Warehouse", singleWarehouse);
-  console.log("Warehouse Inventory", warehouseInventory);
+  const {id, warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = singleWarehouse;
+  
   return (
     <main className="main">
       <Card>
@@ -32,20 +32,24 @@ export const WarehouseDetails = () => {
         </CardHeader>
         <section className="card__details">
           <hgroup className="card__details--address">
-            <h4 className="card__details--theader">WAREHOUSE ADDRES:</h4>
-            <p className="card__details--content card__details--textWrap">33 Pearl Street SW, Washington, USA</p>
+            <h4 className="card__details--theader">WAREHOUSE ADDRESS:</h4>
+            <hgroup className="card__details--flex">
+              <p className="card__details--content">{address}</p>
+              <p className="card__details--content">{city}, {country}</p>
+            </hgroup>
+            
           </hgroup>
 
           <aside className="card__details--contacts">
             <hgroup className="card__details--contactName">
               <h4 className="card__details--theader">CONTACT NAME:</h4>
-              <p className="card__details--content">Graeme Lyon </p>
-              <p className="card__details--content">Warehouse Manager</p>
+              <p className="card__details--content">{contact_name}</p>
+              <p className="card__details--content">{contact_position}</p>
             </hgroup>
             <hgroup className="card__details--contactInfo">
               <h4 className="card__details--theader">CONTACT INFORMATION:</h4>
-              <p className="card__details--content">+1 (647) 504-0911</p>
-              <a href="mailto:glyon@instock.com" className="card__details--content">glyon@instock.com</a>
+              <p className="card__details--content card__details--margin">{contact_phone}</p>
+              <Link to="mailto:glyon@instock.com" className="card__details--content card__details--link">{contact_email}</Link>
             </hgroup>
           </aside>
         </section>

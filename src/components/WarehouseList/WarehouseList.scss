@@ -92,6 +92,12 @@
             }
         }
 
+        &--address {
+            display: flex;
+            flex-direction: column;
+
+        }
+
         &--header {
             text-align: left;
             display: table-cell;
@@ -109,6 +115,10 @@
                 text-decoration: underline;
                 text-decoration-color: $instock-indigo;
             }
+        }
+
+        &--margin {
+            margin-bottom: -0.3rem;
         }
 
         &--link {

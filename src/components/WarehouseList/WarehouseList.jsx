@@ -85,11 +85,11 @@ export const WarehouseList = ({ warehouses }) => {
                 </h2>
                 <p className="table__data--content">{contact_name}</p>
               </td>
-              <td className="table__data--cells table__data--address">
+              <td className="table__data--cells">
                 <h2 className="table__data--header table__data--hidden">
                   ADDRESS
                 </h2>
-                <hgroup>
+                <hgroup className="table__data--address">
                   <p className="table__data--content">{address}</p>
                   <p className="table__data--content">
                     {city}, {country}
@@ -101,7 +101,7 @@ export const WarehouseList = ({ warehouses }) => {
                   CONTACT INFORMATION
                 </h2>
                 <hgroup>
-                  <p className="table__data--content">{contact_phone}</p>
+                  <p className="table__data--content table__data--margin">{contact_phone}</p>
                   <Link
                     to="mailto:paujla@instock.com"
                     className="table__data--content table__data--email"

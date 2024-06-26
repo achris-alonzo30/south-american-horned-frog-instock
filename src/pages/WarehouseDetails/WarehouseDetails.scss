@@ -43,29 +43,22 @@
         }
     }
 
-    &--textWrap {
-        @include tablet {
-            width: 50%;
-        }
-
-        @include desktop {
-            width: 40%;
-        }
-        
-    }
-
     &--contacts {
         flex: 1;
         display: flex;
         justify-content: space-between;
     }
 
+    &--flex {
+        display: flex;
+    }
+
     &--theader {
         padding-bottom: 0.25rem;
-        @include dynamicFont(600, .6875rem, 1rem, $slate);
+        @include dynamicFont(400, .6875rem, 1rem, $slate);
 
         @include tablet {
-            @include dynamicFont(600, .75rem, 1.125rem, $slate);
+            @include dynamicFont(400, .75rem, 1.125rem, $slate);
         }
     }
 
@@ -86,6 +79,19 @@
     &--contactInfo {
         @include tablet {
             flex: 1;  
+        }
+    }
+
+    &--margin {
+        margin-bottom: -0.3rem;
+    }
+
+    &--link {
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+
         }
     }
 
