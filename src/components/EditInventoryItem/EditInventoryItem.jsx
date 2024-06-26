@@ -93,7 +93,7 @@ const EditInventoryItem = () => {
 
     return(
         <main className="main">
-            <MainBrowser browserName="Edit Inventory Item" isFooter={false} isHeaderBorderVariable={false}>
+            <MainBrowser browserName="Edit Inventory Item" isFooter={false} isHeaderBorderVariable={true}>
                 <form className = "edit-item__form" onSubmit = {saveHandler}>
                     <div className = "details-sections">
                         <div className ="edit-item__form-section item-details">
@@ -117,8 +117,8 @@ const EditInventoryItem = () => {
                             <label className = "edit-item__label" htmlFor="item-status">Status</label>
 
                             <div className = "item-status__container">
-                                <DynamicInput type="radio" radioName= "In Stock" disabled={true} />
-                                <DynamicInput type="radio" radioName="Out of Stock"/>
+                                <DynamicInput type="radio" radioName= "In Stock" checked={stockStatus === "In Stock"} onChange={() => setStockStatus("In Stock")}/>
+                                <DynamicInput type="radio" radioName="Out of Stock" checked={stockStatus === "Out of Stock"} onChange={() => setStockStatus("Out of Stock")} />
                             </div>
                             <label className = "edit-item__label" htmlFor="item-status">Warehouse</label>
                             <select className = "edit-item__select" value={warehouse} onChange={warehouseChangeHandler}>
@@ -138,7 +138,7 @@ const EditInventoryItem = () => {
                     </div>
 
                     <div className = "cancel-submit__container">
-                        <DynamicButton variant="cancel" onClick = {cancelHandler} />
+                        <DynamicButton variant="cancel"  onClick = {cancelHandler} />
                         <DynamicButton type="submit" variant="save"/>
                     </div>
                 </form>

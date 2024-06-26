@@ -7,6 +7,8 @@ export const DynamicInput = ({
   radioName,
   placeholder,
   disabled = false,
+  checked,
+  onChange,
 }) => {
   if (type === "radio") {
     return (
@@ -19,6 +21,9 @@ export const DynamicInput = ({
           name={id}
           type="radio"
           value={radioName}
+          checked={checked}
+          onChange={onChange}
+          disabled={disabled}
           className="field__radio--button"
         />
         {radioName}
