@@ -8,14 +8,9 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
-<<<<<<< HEAD
-import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
-import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
-=======
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
->>>>>>> develop
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
@@ -26,7 +21,6 @@ export const Warehouses = () => {
 
   // Add Loading here
   if (!warehouses) return <></>;
-
 
   return (
     <main className="main">
