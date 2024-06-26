@@ -4,6 +4,7 @@ export const DynamicInput = ({
   id,
   icon,
   type,
+  className,
   radioName,
   placeholder,
   disabled = false,
@@ -19,7 +20,7 @@ export const DynamicInput = ({
           name={id}
           type="radio"
           value={radioName}
-          className="field__radio--button"
+          className={`field__radio--button ${className}`}
         />
         {radioName}
       </div>
@@ -33,7 +34,7 @@ export const DynamicInput = ({
             name={id}
             type={type}
             placeholder={placeholder}
-            className="field__input field__input--error"
+            className={`field__input field__input--error ${className}`}
           />
           {icon && (
             <img src={icon} alt="Dynamic Icon" className="field__icon" />
