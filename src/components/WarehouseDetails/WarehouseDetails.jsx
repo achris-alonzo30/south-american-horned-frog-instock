@@ -1,14 +1,29 @@
 import "./WarehouseDetails.scss";
 
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getWarehouseDetails, getSingleWarehouseInventories } from "../../lib/api-warehouses";
+
 import { Card } from "../Card/Card";
-import searchIcon from "../../assets/icons/search-24px.svg";
-import { WarehouseList } from "../WarehouseList/WarehouseList";
 import { CardHeader } from "../CardHeader/CardHeader";
-import { CardFooter } from "../CardFooter/CardFooter";
-import { DynamicInput } from "../DynamicInput/DynamicInput";
 import { DynamicButton } from "../DynamicButton/DynamicButton";
+import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
+
 
 export const WarehouseDetails = () => {
+  const { warehouseId } = useParams();
+  const [singleWarehouse, setSingleWarehouse] = useState(null);
+  const [warehouseInventory, setWarehouseInventory] = useState([]);
+
+  useEffect(() => {
+    getWarehouseDetails(setSingleWarehouse, warehouseId);
+    getSingleWarehouseInventories(setWarehouseInventory, warehouseId);
+  }, [warehouseId]);
+
+  if (!singleWarehouse && !warehouseInventory) return <LoadingSpinner />
+
+  console.log("Single Warehouse", singleWarehouse);
+  console.log("Warehouse Inventory", warehouseInventory);
   return (
     <main className="main">
       <Card>
@@ -34,11 +49,7 @@ export const WarehouseDetails = () => {
             </hgroup>
           </aside>
         </section>
-        <WarehouseList />
-        <CardFooter>
-          <DynamicButton variant="cancel" type="" />
-          <DynamicButton variant="save" type="submit" />
-        </CardFooter>
+
       </Card>
     </main>
   );
