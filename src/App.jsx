@@ -1,10 +1,6 @@
 import "./App.scss";
 
-import { 
-  Route, 
-  Routes, 
-  BrowserRouter 
-} from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -17,12 +13,15 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Warehouses />}>
-          <Route
-            path="/warehouse/:warehouseId/edit"
-            element={<EditWarehouse />}
-          />
-        </Route>
+        <Route path="/" element={<Warehouses />} />
+        <Route
+          path="/warehouse/:warehouseId"
+          element={<WarehouseDetails />}
+        />
+        <Route
+          path="/warehouse/:warehouseId/edit"
+          element={<EditWarehouse />}
+        />
       </Routes>
       <Footer />
     </BrowserRouter>
