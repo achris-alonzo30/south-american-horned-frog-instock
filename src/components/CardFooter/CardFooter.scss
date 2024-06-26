@@ -1,0 +1,15 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+
+
+.card-footer {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    background-color: $light-grey;
+
+    @include tablet {
+        justify-content: flex-end;
+    }
+}
