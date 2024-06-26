@@ -101,13 +101,15 @@ export const WarehouseList = ({ warehouses }) => {
                 <h2 className="table__data--header table__data--hidden">
                   CONTACT INFORMATION
                 </h2>
-                <p className="table__data--content">{contact_phone}</p>
-                <a
-                  href="mailto:paujla@instock.com"
-                  className="table__data--content"
-                >
-                  {contact_email}
-                </a>
+                <hgroup>
+                  <p className="table__data--content">{contact_phone}</p>
+                  <a
+                    href="mailto:paujla@instock.com"
+                    className="table__data--content"
+                  >
+                    {contact_email}
+                  </a>
+                </hgroup>
               </td>
               <td className="table__data--actions">
                 <img
