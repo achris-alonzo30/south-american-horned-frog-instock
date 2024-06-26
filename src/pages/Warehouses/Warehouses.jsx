@@ -6,7 +6,8 @@ import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
-
+import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 
 export const Warehouses = () => {
   return (
