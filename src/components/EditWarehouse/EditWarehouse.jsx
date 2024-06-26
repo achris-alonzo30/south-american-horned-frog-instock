@@ -2,7 +2,8 @@ import "./EditWarehouse.scss"
 import axios from "axios"
 import {useNavigate, useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import {MainBrowser} from "../MainBrowser/MainBrowser"
+import Card from "../Card/Card"
+import CardHeader from "../CardHeader/CardHeader"
 import { DynamicButton} from "../DynamicButton/DynamicButton"
 
 const EditWarehouse = () => {
@@ -78,7 +79,8 @@ const EditWarehouse = () => {
 
     return(
         <main className="main">
-            <MainBrowser browserName="Edit Warehouse" isFooter={false} isHeaderBorderVariable={true}>
+             <Card>
+                <CardHeader flexStyle="flexRow" browserName="Edit Warehouse" withArrow />
                 <form className = "edit-wh__form" onSubmit = {saveHandler}>
                     <div className = "details-sections">
                         <div className ="edit-wh__form-section warehouse-details">
@@ -111,7 +113,7 @@ const EditWarehouse = () => {
                         <DynamicButton variant="save"/>
                     </div>
                 </form>
-            </MainBrowser>
+            </Card>
 
         </main>
     )
