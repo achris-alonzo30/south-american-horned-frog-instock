@@ -20,20 +20,46 @@
 }
 
 .primary {
+    width: 100%;
     border: none;
     @extend .default-button-styles;
     background-color: $instock-indigo;
+
+    @include tablet {
+        width: auto;
+    }
     
     &:hover {
         background-color: $graphite;
         transition: all 0.2s ease-in-out;
     }
+
+    &__text {
+        display: none;
+
+        @include tablet {
+            display: block;
+        }
+    }
+
+    &--edit {
+        @include mobile {
+            height: auto;
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+    }
 }
 
 .destructive{
+    width: 100%;
     border: none;
     background-color: $red;
     @extend .default-button-styles;
+
+    @include tablet {
+        width: auto;
+    }
 
     &:hover {
         background-color: $graphite;
@@ -42,14 +68,18 @@
 }
 
 .secondary {
+    width: 100%;
     border: none;
     color: $slate;
+    background-color: $white;
     border: 1px solid $cloud;
     @extend .default-button-styles;
-    background-color: $white;
+   
+    @include tablet {
+        width: auto;
+    }
 
     &:hover {
-        
         color: $instock-indigo;
         border-color: $instock-indigo;
         transition: all 0.2s ease-in-out;

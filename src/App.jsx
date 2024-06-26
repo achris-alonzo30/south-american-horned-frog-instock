@@ -12,6 +12,7 @@ import { Warehouses } from "./pages/Warehouses/Warehouses";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 
+import { WarehouseDetails } from "./components/WarehouseDetails/WarehouseDetails";
 
 function App() {
   return (
