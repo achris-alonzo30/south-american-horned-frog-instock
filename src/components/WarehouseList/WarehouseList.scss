@@ -66,7 +66,8 @@
         &--row {
             display: flex;
             flex-wrap: wrap;
-            z-index: 0;
+            border-bottom: 1px solid $cloud;
+
 
             &:hover {
                 background-color: rgba(189, 197, 213, 0.5);
