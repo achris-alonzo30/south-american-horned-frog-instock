@@ -1,15 +1,33 @@
 import "./Warehouses.scss";
 
+import { useState, useEffect } from "react";
+import { getAllWarehouse } from "../../lib/api-warehouses";
+
 import searchIcon from "../../assets/icons/search-24px.svg";
 
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
-import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
+<<<<<<< HEAD
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
+=======
+import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
+import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
+>>>>>>> develop
 
 export const Warehouses = () => {
+  const [warehouses, setWarehouses] = useState([]);
+
+  useEffect(() => {
+    getAllWarehouse(setWarehouses);
+  }, []);
+
+  // Add Loading here
+  if (!warehouses) return <></>;
+
+
   return (
     <main className="main">
       <Card>
@@ -22,7 +40,7 @@ export const Warehouses = () => {
           />
           <DynamicButton variant="add" addButtonName="Add New Warehouse" />
         </CardHeader>
-        <WarehouseList />
+        <WarehouseList warehouses={warehouses} />
         <CardFooter>
           <DynamicButton variant="cancel" />
           <DynamicButton variant="save" />

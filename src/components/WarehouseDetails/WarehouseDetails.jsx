@@ -15,27 +15,30 @@ export const WarehouseDetails = () => {
         <CardHeader flexStyle="flexRow" browserName="Washington" withArrow>
           <DynamicButton variant="edit" />
         </CardHeader>
-        <section>
-          <hgroup>
-            <h4>WAREHOUSE ADDRES:</h4>
-            <p>33 Pearl Street SW, 
-              Washington, USA</p>
+        <section className="card__details">
+          <hgroup className="card__details--address">
+            <h4 className="card__details--theader">WAREHOUSE ADDRES:</h4>
+            <p className="card__details--content card__details--textWrap">33 Pearl Street SW, Washington, USA</p>
           </hgroup>
 
-          <aside>
-            <hgroup>
-              <h4>CONTACT NAME:</h4>
-              <p>Graeme Lyon </p>
-              <p>Warehouse Manager</p>
+          <aside className="card__details--contacts">
+            <hgroup className="card__details--contactName">
+              <h4 className="card__details--theader">CONTACT NAME:</h4>
+              <p className="card__details--content">Graeme Lyon </p>
+              <p className="card__details--content">Warehouse Manager</p>
             </hgroup>
-            <hgroup>
-              <h4>CONTACT INFORMATION:</h4>
-              <p>+1 (647) 504-0911</p>
-              <a href="mailto:glyon@instock.com">glyon@instock.com</a>
+            <hgroup className="card__details--contactInfo">
+              <h4 className="card__details--theader">CONTACT INFORMATION:</h4>
+              <p className="card__details--content">+1 (647) 504-0911</p>
+              <a href="mailto:glyon@instock.com" className="card__details--content">glyon@instock.com</a>
             </hgroup>
           </aside>
         </section>
         <WarehouseList />
+        <CardFooter>
+          <DynamicButton variant="cancel" type="" />
+          <DynamicButton variant="save" type="submit" />
+        </CardFooter>
       </Card>
     </main>
   );

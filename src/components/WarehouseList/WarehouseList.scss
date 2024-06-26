@@ -61,11 +61,11 @@
 
     &__body {
         display: table-row-group;
-        border-bottom: 1px solid $cloud;
 
         &--row {
             display: flex;
             flex-wrap: wrap;
+            border-top: 1px solid $cloud;
             border-bottom: 1px solid $cloud;
 
 
@@ -139,22 +139,10 @@
             }
         }
 
-        &--breakpoint {
-
-            @include tablet {
-                width: 75%;
-            }
-
-            @include desktop {
-                width: 100%;
-            }
-
-        }
-
         &--actions {
             width: 100%;
             display: flex;
-            padding: 1rem 0.5rem 1rem 1rem;
+            padding: 1rem;
             justify-content: space-between;
 
 
