@@ -9,16 +9,8 @@ import {MainBrowser} from "../MainBrowser/MainBrowser"
 
 const EditInventoryItem = (item) => {
 
-    // const { itemId } = useParams();
-
-    // const item = {
-    //     id: "3",
-    //     item_name: "Laptop",
-    //     category: "Electronics",
-    //     description: "A high-end gaming laptop with the latest specifications.",
-    //     status: "In Stock",
-    //     warehouse_id: "3",
-    // };
+    const { itemId } = useParams();
+    const navigate = useNavigate();
 
     const warehouseMap = {
         "1": "New York",
@@ -31,20 +23,43 @@ const EditInventoryItem = (item) => {
         "8": "Boston"
     };
 
-    const mappedWarehouse = warehouseMap[item.warehouse_id]
-
-    const [name, setName] = useState(item.item_name)
-    const [description, setDescription] = useState(item.description)
-    const [category, setCategory] = useState(item.category)
+    const [name, setName] = useState("")
+    const [description, setDescription] = useState("")
+    const [category, setCategory] = useState("")
     const [warehouse, setWarehouse] = useState("")
-    const [warehouseId, setWarehouseId] = useState(item.warehouse_id)
-    const [stockStatus, setStockStatus] = useState(item.status)
+    const [warehouseId, setWarehouseId] = useState("")
+    const [stockStatus, setStockStatus] = useState("")
 
     useEffect(() => {
-        setWarehouse(mappedWarehouse);
-    }, [mappedWarehouse]);
+        const fetchInventoryItem = async () => {
+            try {
+                const response = await axios.get('/api/inventories');
+                const items = response.data;
+                const item = items.find(item => item.id.toString() === itemId);
 
-    const navigate = useNavigate();
+                if (item) {
+                    setName(item.item_name);
+                    setDescription(item.description);
+                    setCategory(item.category);
+                    setWarehouse(warehouseMap[item.warehouse_id]);
+                    setWarehouseId(item.warehouse_id);
+                    setStockStatus(item.status);
+                } else {
+                    alert("Item not found");
+                    navigate('/');
+                }
+            } catch (error) {
+                console.error("Error fetching inventory items", error);
+                alert("Error fetching inventory items");
+            }
+        };
+
+        fetchInventoryItem();
+    }, [itemId, navigate]);
+
+    const mappedWarehouse = warehouseMap[item.warehouse_id]
+
+
 
     const saveHandler = async (event) => {
         event.preventDefault();
