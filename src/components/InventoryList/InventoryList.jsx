@@ -7,7 +7,7 @@ import editIcon from "../../assets/icons/edit_indigo-24px.svg";
 import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
-export const InventoryList = () => {
+export const InventoryList = ({ inventories }) => {
   return (
     <table className="table">
       <thead className="table__header">
@@ -67,9 +67,66 @@ export const InventoryList = () => {
           </th>
         </tr>
       </thead>
+      {inventories.map(
+        ({ id, warehouse_name, item_name, category, status, quantity }) => (
+          <tbody key={id} className="table__body">
+            <tr className="table__body--row">
+              <td className="table__data--cells">
+                <h4 className="table__data--header table__data--hidden ">
+                  INVENTORY ITEM
+                </h4>
+                <Link to="/" className="table__data--link">
+                  {item_name}
+                  <img src={chevronRight} alt="Arrow Point To Right" />
+                </Link>
+              </td>
+              <td className="table__data--cells">
+                <h2 className="table__data--header table__data--hidden">
+                  CATEGORY
+                </h2>
+                <p className="table__data--content">{category}</p>
+              </td>
+              <td className="table__data--cells">
+                <h2 className="table__data--header table__data--hidden">
+                  STATUS
+                </h2>
+                <p className="table__data--content">{status}</p>
+              </td>
+              <td className="table__data--cells">
+                <h2 className="table__data--header table__data--hidden">QTY</h2>
+                <p className="table__data--content">{quantity}</p>
+              </td>
+              <td className="table__data--cells">
+                <h2 className="table__data--header table__data--hidden">
+                  WAREHOUSE
+                </h2>
+                <p className="table__data--content">{warehouse_name}</p>
+              </td>
+              <td className="table__data--actions">
+                <img
+                  src={trashIcon}
+                  alt="Garbage Red Color Icon"
+                  className="table__content--delete"
+                />
+                <img
+                  src={editIcon}
+                  alt="Garbage Red Color Icon"
+                  className="table__content--edit"
+                />
+              </td>
+            </tr>
+          </tbody>
+        )
+      )}
+    </table>
+  );
+};
 
-      {/* CURRENTLY HOSTING 1 ROW OF DUMMY DATA */}
-      <tbody className="table__body">
+{
+  /* CURRENTLY HOSTING 1 ROW OF DUMMY DATA */
+}
+{
+  /* <tbody className="table__body">
         <tr className="table__body--row">
           <td className="table__data--cells">
             <h4 className="table__data--header table__data--hidden ">
@@ -114,6 +171,5 @@ export const InventoryList = () => {
           </td>
         </tr>
       </tbody>
-    </table>
-  );
-};
+    </table> */
+}
