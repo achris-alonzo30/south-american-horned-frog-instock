@@ -139,22 +139,10 @@
             }
         }
 
-        &--breakpoint {
-
-            @include tablet {
-                width: 75%;
-            }
-
-            @include desktop {
-                width: 100%;
-            }
-
-        }
-
         &--actions {
             width: 100%;
             display: flex;
-            padding: 1rem 0.5rem 1rem 1rem;
+            padding: 1rem;
             justify-content: space-between;
 
 

@@ -1,16 +1,16 @@
 import "./Warehouses.scss";
 
 import { useState, useEffect } from "react";
+import { getWarehouses } from "../../lib/api-warehouses";
 
 import searchIcon from "../../assets/icons/search-24px.svg";
 
 import { Card } from "../../components/Card/Card";
-import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
-import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
-import { getWarehouses } from "../../lib/api-warehouses";
+import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
@@ -35,7 +35,7 @@ export const Warehouses = () => {
           />
           <DynamicButton variant="add" addButtonName="Add New Warehouse" />
         </CardHeader>
-        <WarehouseList />
+        <WarehouseList warehouses={warehouses} />
         <CardFooter>
           <DynamicButton variant="cancel" />
           <DynamicButton variant="save" />
