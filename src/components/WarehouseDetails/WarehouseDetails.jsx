@@ -18,8 +18,7 @@ export const WarehouseDetails = () => {
         <section className="card__details">
           <hgroup className="card__details--address">
             <h4 className="card__details--theader">WAREHOUSE ADDRES:</h4>
-            <p className="card__details--content">33 Pearl Street SW, 
-              Washington, USA</p>
+            <p className="card__details--content card__details--textWrap">33 Pearl Street SW, Washington, USA</p>
           </hgroup>
 
           <aside className="card__details--contacts">

@@ -21,22 +21,41 @@
 }
 
 .card__details {
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
-
+    
     @include tablet {
         padding: 1.5rem;
+        border-top: 1px solid $cloud;
     }
 
     @include tablet {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+    }
+
+    &--address {
+        @include tablet {
+            flex: 0.75;
+            border-right: 1px solid $cloud;
+        }
+    }
+
+    &--textWrap {
+        @include tablet {
+            width: 50%;
+        }
+
+        @include desktop {
+            width: 40%;
+        }
+        
     }
 
     &--contacts {
+        flex: 1;
         display: flex;
         justify-content: space-between;
     }
@@ -59,10 +78,15 @@
     }
 
     &--contactName {
-        flex: 1;
+        @include tablet {
+            flex: 1;  
+        }
     }
 
     &--contactInfo {
-        flex: 1;
+        @include tablet {
+            flex: 1;  
+        }
     }
+
 }

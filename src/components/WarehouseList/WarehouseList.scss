@@ -61,11 +61,11 @@
 
     &__body {
         display: table-row-group;
-        border-bottom: 1px solid $cloud;
 
         &--row {
             display: flex;
             flex-wrap: wrap;
+            border-top: 1px solid $cloud;
             border-bottom: 1px solid $cloud;
 
 
