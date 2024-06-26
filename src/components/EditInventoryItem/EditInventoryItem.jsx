@@ -108,7 +108,8 @@ const EditInventoryItem = (item) => {
 
     return(
         <main className="main">
-            <MainBrowser browserName="Edit Inventory Item" isFooter={false} isHeaderBorderVariable={true}>
+            <Card>
+                <CardHeader flexStyle="flexRow" browserName="Edit Inventory Item" withArrow />
                 <form className = "edit-item__form" onSubmit = {saveHandler}>
                     <div className = "details-sections">
                         <div className ="edit-item__form-section item-details">
@@ -146,10 +147,7 @@ const EditInventoryItem = (item) => {
                                 <option value="Miami"> Miami</option>
                                 <option value="Boston">Boston</option>
                             </select>
-
                         </div>
-
-
                     </div>
 
                     <div className = "cancel-submit__container">
@@ -157,7 +155,7 @@ const EditInventoryItem = (item) => {
                         <DynamicButton type="submit" variant="save"/>
                     </div>
                 </form>
-            </MainBrowser>
+            </Card>
 
         </main>
     );
