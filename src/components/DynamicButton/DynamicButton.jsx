@@ -37,10 +37,10 @@ export const DynamicButton = ({
         <button 
             type={type}
             onClick={onClick}
-            className="primary"
+            className="primary primary--edit"
         >
-          <img src={editIcon} alt="Pencil Icon" className="edit-button__icon" />
-          Edit
+          <img src={editIcon} alt="Pencil Icon" className="primary__icon" />
+          <span className="primary__text">Edit</span>
         </button>
       );
 
