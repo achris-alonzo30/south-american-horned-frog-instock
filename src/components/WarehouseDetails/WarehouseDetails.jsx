@@ -1,17 +1,17 @@
 import "./WarehouseDetails.scss";
 
-import { MainBrowser } from "../Card/Card";
+import { Card } from "../Card/Card";
 import { WarehouseList } from "../WarehouseList/WarehouseList";
 
 export const WarehouseDetails = () => {
   return (
     <main className="main">
-      <MainBrowser 
+      <Card
         arrowIcon
         browserName="Washington" 
       >
         <WarehouseList />
-      </MainBrowser>
+      </Card>
     </main>
   );
 };
