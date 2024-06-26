@@ -2,16 +2,28 @@ import "./EditInventoryItem.scss"
 import axios from "axios"
 import {useNavigate, useParams} from 'react-router-dom'
 import {useState} from 'react'
+import {DynamicInput} from "../DynamicInput/DynamicInput"
+import {MainBrowser} from "../MainBrowser/MainBrowser"
 
-const EditInventoryItem = ({item}) => {
 
-    const { itemId } = useParams();
+const EditInventoryItem = () => {
 
-    const [name, setName] = useState(item.name)
+    // const { itemId } = useParams();
+
+    const item = {
+        id: id,
+        item_name: name,
+        category: category,
+        description: description,
+        status: stockStatus,
+        warehouse_id: warehouse,
+    }
+
+    const [name, setName] = useState(item.item_name)
     const [description, setDescription] = useState(item.description)
     const [category, setCategory] = useState(item.category)
 
-    const [stockStatus, setStockStatus] = useState(item.stockStatus)
+    const [stockStatus, setStockStatus] = useState(item.status)
     const [warehouse, setWarehouse] = useState(item.warehouse)
 
 
@@ -22,12 +34,12 @@ const EditInventoryItem = ({item}) => {
 
 
         const itemEditInfo = {
-            id: itemId,
-            name: name,
+            id: item.id,
+            item_name: name,
             category: category,
             description: description,
-            inStock: stockStatus,
-            warehouse: warehouse,
+            status: stockStatus,
+            warehouse_id: warehouse,
         }
 
         try {
@@ -50,27 +62,28 @@ const EditInventoryItem = ({item}) => {
             <MainBrowser browserName="Edit Inventory Item" isFooter={false} isHeaderBorderVariable={true}>
                 <form className = "edit-item__form" onClick = {saveHandler}>
                     <div className = "details-sections">
-                        <div className ="edit-item__form-section warehouse-details">
+                        <div className ="edit-item__form-section item-details">
                             <h2 className = "edit-item__subheader"> Item Details</h2>
                             <label className = "edit-item__label" htmlFor="item-name">Item Name</label>
                             <input className = "edit-item__input" type="text" id="item-name" value={name} onChange={(event) => setName(event.target.value)} placeholder = "Item Name"/>
                             <label className = "edit-item__label" htmlFor="item-desc">Description</label>
                             <textarea className = "edit-item__textareaInput" id="item-desc" value={description} onChange={(event) => setAddress(event.target.value)} placeholder = "Item Description"/>
-                            <label className = "edit-wh__label" htmlFor="wh-city">Category</label>
-                            <DynamicInput id = "" icon = "" type="" radioName="" placeholder="" disabled = {false} />
-                            <input className = "edit-wh__input" type="text" id="wh-city" value={whCity} onChange={(event) => setCity(event.target.value)} placeholder = "City"/>
+                            <label className = "edit-item__label" htmlFor="wh-city">Category</label>
+                            <select className = "edit-item__select" value={category} onChange={(event) => setCategory(event.target.value)}>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Gear">Gear</option>
+                                <option value="Apparel">Apparel</option>
+                                <option value="Accessories">Accessories</option>
+                                <option value="Health"> Health</option>
+                            </select>
                         </div>
 
-                        <div className ="edit-wh__form-section contact-details">
-                            <h2 className = "edit-wh__subheader"> Contact Details</h2>
-                            <label className = "edit-wh__label" htmlFor="wh-contact-name">Contact Name</label>
-                            <input className = "edit-wh__input" type="text" id="wh-name" value={contactName} onChange={(event) => setContactName(event.target.value)} placeholder = "Contact Name"/>
-                            <label className = "edit-wh__label" htmlFor="wh-contact-pstn">Contact Position</label>
-                            <input className = "edit-wh__input" type="text" id="wh-contact-pstn" value={contactPosition} onChange={(event) => setContactPosition(event.target.value)} placeholder = "Contact Position"/>
-                            <label className = "edit-wh__label" htmlFor="wh-contact-phn">Phone Number</label>
-                            <input className = "edit-wh__input" type="text" id="wh-contact-phn" value={contactPhn} onChange={(event) => setContactPhn(event.target.value)} placeholder = "Phone Number"/>
-                            <label className = "edit-wh__label" htmlFor="wh-email">Email </label>
-                            <input className = "edit-wh__input" type="text" id="wh-email" value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} placeholder = "Email"/>
+                        <div className ="edit-item__form-section item-availability">
+                            <h2 className = "edit-wh__subheader"> Item Availability</h2>
+                            <label className = "edit-wh__label" htmlFor="item-status">Status</label>
+                            <DynamicInput type="radio"></DynamicInput>
+                            <DynamicInput type="radio"></DynamicInput>
+
                         </div>
                     </div>
 
@@ -85,4 +98,4 @@ const EditInventoryItem = ({item}) => {
     )
 }
 
-export default EditWarehouse;
+export default EditInventoryItem;
