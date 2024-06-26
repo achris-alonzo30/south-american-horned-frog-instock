@@ -65,9 +65,7 @@
         &--row {
             display: flex;
             flex-wrap: wrap;
-            border-top: 1px solid $cloud;
             border-bottom: 1px solid $cloud;
-
 
             &:hover {
                 background-color: rgba(189, 197, 213, 0.5);
@@ -196,4 +194,8 @@
             }
         }
     }
+}
+
+.remove-bottom-border {
+    border-bottom: 0;
 }
