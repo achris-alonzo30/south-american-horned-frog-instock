@@ -35,7 +35,7 @@
 
 .edit-item__subheader {
     font-family: 'Titillium Web';
-    @include dynamicFont(600, $fontsize-mob-page-header, $lh-mob-page-header, $instock-black);
+    @include dynamicFont(600, $fontsize-mob-sub-header, $lh-mob-sub-header, $instock-black);
     width: 100%;
     text-align: left;
     padding-bottom: 1.5rem;
@@ -87,7 +87,7 @@
 .item-status__container{
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 3rem;
     margin-bottom: 1rem;
 
 }
