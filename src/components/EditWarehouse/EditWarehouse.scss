@@ -1,0 +1,27 @@
+
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.edit-wh__header {
+    font-family: 'Titillium Web';
+    @include dynamicFont(600, $fontsize-mob-page-header, $lh-mob-page-header, $instock-black);
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    @include tablet{
+        @include dynamicFont(600, $fontsize-td-page-header, $lh-td-page-header, $instock-black);
+    }
+
+}
+
+.edit-wh__form {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet{
+        flex-direction: row;
+    }
+}
