@@ -44,6 +44,7 @@ export const MainBrowser = ({
             id="search"
             icon={searchIcon}
             placeholder="Search..."
+            className="visibility-hidden"
           />
           <DynamicButton variant="add" addButtonName="Add New Warehouses" />
         </aside>
