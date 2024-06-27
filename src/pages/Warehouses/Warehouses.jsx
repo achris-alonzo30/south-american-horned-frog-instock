@@ -7,16 +7,13 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
-import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
-import { Modal } from "../../components/Modal/Modal";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     getAllWarehouse(setWarehouses);
@@ -24,12 +21,8 @@ export const Warehouses = () => {
 
   if (!warehouses) return <LoadingSpinner />;
 
-  const handleOpenModal = () => setIsModalOpen(!isModalOpen);
-
   return (
     <>
-      {isModalOpen && <Modal onClose={handleOpenModal} />}
-
       <main className="main">
         <Card>
           <CardHeader flexStyle="flexCol" browserName="Warehouse">
@@ -42,10 +35,9 @@ export const Warehouses = () => {
             <DynamicButton
               variant="add"
               addButtonName="Add New Warehouse"
-              onClick={handleOpenModal}
             />
           </CardHeader>
-          <WarehouseList warehouses={warehouses} />
+          <WarehouseList  warehouses={warehouses} />
         </Card>
       </main>
     </>
