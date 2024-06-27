@@ -14,20 +14,24 @@ export const WarehouseDetails = () => {
   const { warehouseId } = useParams();
   const [singleWarehouse, setSingleWarehouse] = useState(null);
   const [warehouseInventory, setWarehouseInventory] = useState([]);
-
+  
   useEffect(() => {
     getWarehouseDetails(setSingleWarehouse, warehouseId);
     getSingleWarehouseInventories(setWarehouseInventory, warehouseId);
   }, [warehouseId]);
 
-  if (!singleWarehouse && !warehouseInventory) return <LoadingSpinner />
+  useEffect(() => {
+    getSingleWarehouseInventories(setWarehouseInventory, warehouseId);
+  }, [warehouseId])
+
+  if (!singleWarehouse || !warehouseInventory) return <></>
 
   const {id, warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = singleWarehouse;
   
   return (
     <main className="main">
       <Card>
-        <CardHeader flexStyle="flexRow" browserName="Washington" withArrow>
+        <CardHeader flexStyle="flexRow" browserName={warehouse_name} withArrow>
           <DynamicButton variant="edit" />
         </CardHeader>
         <section className="card__details">
@@ -53,7 +57,6 @@ export const WarehouseDetails = () => {
             </hgroup>
           </aside>
         </section>
-
       </Card>
     </main>
   );
