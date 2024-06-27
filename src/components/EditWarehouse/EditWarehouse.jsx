@@ -105,7 +105,7 @@ const EditWarehouse = () => {
     return(
         <main className="main">
              <Card>
-                <CardHeader flexStyle="flexRow" browserName="Edit Warehouse" withArrow />
+                <CardHeader flexStyle="flexRow" browserName="Edit Warehouse" withArrow tabletHeaderBorder={true} />
                 <form className = "edit-wh__form" onSubmit = {saveHandler}>
                     <div className = "details-sections">
                         <div className ="edit-wh__form-section warehouse-details">
