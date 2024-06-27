@@ -36,7 +36,7 @@ export const deleteWarehouse = async (fn, id) => {
   try {
     const res = await axios.delete(`${API_WAREHOUSES_URL}/${id}`);
 
-    return fn(res.data);
+    return res.data;
   } catch (error) {
     console.error(error);
   }
