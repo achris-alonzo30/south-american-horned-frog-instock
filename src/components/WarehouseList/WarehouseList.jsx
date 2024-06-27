@@ -11,37 +11,23 @@ import editIcon from "../../assets/icons/edit_indigo-24px.svg";
 import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
-export const WarehouseList = ({ warehouses, onModalOpen }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedWarehouse, setSelectedWarehouse] = useState({
-    id: "",
-    warehouseName: ""
-  });
+export const WarehouseList = ({ 
+  warehouses, 
+  isModalOpen,
+  onDelete,
+  warehouseName,
+  handleOpenModal
+}) => {
 
   const navigate = useNavigate();
-
-  const handleOpenModal = (id, warehouseName) => {
-    setIsModalOpen(!isModalOpen);
-    setSelectedWarehouse({
-      id,
-      warehouseName
-    })
-  };
-
-  const handleDeleteWarehouse = async () => {
-    await deleteWarehouse(selectedWarehouse.id);
-    setIsModalOpen(false);
-  }
-
-  console.log(selectedWarehouse)
 
   return (
     <>
       {isModalOpen && <Modal 
         isWarehouse
         onClose={handleOpenModal} 
-        onDelete={handleDeleteWarehouse} 
-        warehouseName={selectedWarehouse.warehouseName}
+        onDelete={onDelete} 
+        warehouseName={warehouseName}
       />}
 
       <table className="table">
