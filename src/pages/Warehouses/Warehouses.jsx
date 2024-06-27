@@ -1,7 +1,7 @@
 import "./Warehouses.scss";
 
 import { useState, useEffect } from "react";
-import { getAllWarehouse, deleteWarehouse } from "../../lib/api-warehouses";
+import { getAllWarehouse } from "../../lib/api-warehouses";
 
 import searchIcon from "../../assets/icons/search-24px.svg";
 
@@ -14,32 +14,12 @@ import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedWarehouse, setSelectedWarehouse] = useState({
-    id: "",
-    warehouseName: "",
-  });
 
   useEffect(() => {
-    getAllWarehouse(setWarehouses);
-  }, [selectedWarehouse.id, selectedWarehouse.warehouseName]);
+    getAllWarehouse(setWarehouses); 
+  }, []);
 
   if (!warehouses) return <LoadingSpinner />;
-
-  const handleOpenModal = (id, warehouseName) => {
-    setIsModalOpen(!isModalOpen);
-    setSelectedWarehouse({
-      id,
-      warehouseName,
-    });
-  };
-
-  const handleDeleteWarehouse = async () => {
-    await deleteWarehouse(selectedWarehouse.id);
-    setIsModalOpen(false);
-
-    getAllWarehouse(setWarehouses);
-  };
 
   return (
     <>
@@ -55,11 +35,8 @@ export const Warehouses = () => {
             <DynamicButton variant="add" addButtonName="Add New Warehouse" />
           </CardHeader>
           <WarehouseList
-            isModalOpen={isModalOpen}
             warehouses={warehouses}
-            onDelete={handleDeleteWarehouse}
-            warehouseName={selectedWarehouse.warehouseName}
-            handleOpenModal={handleOpenModal}
+            setWarehouses={setWarehouses}
           />
         </Card>
       </main>

@@ -10,6 +10,7 @@ import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 import { WarehouseDetails } from "./pages/WarehouseDetails/WarehouseDetails";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NewWarehouse from "./pages/NewWarehouse/NewWarehouse";
 
 import { Inventory } from "./pages/Inventory/Inventory";
 
@@ -24,6 +25,9 @@ function App() {
           path="/warehouse/:warehouseId"
           element={<WarehouseDetails />}
         />
+        <Route path="/" element={<Warehouses />} />
+        <Route path="/warehouse/post" element={<NewWarehouse />} />
+        <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
         <Route
           path="/warehouse/:warehouseId/edit"
           element={<EditWarehouse />}

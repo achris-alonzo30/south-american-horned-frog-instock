@@ -41,3 +41,11 @@ export const deleteWarehouse = async (id) => {
     console.error(error);
   }
 };
+
+export const postWarehouse = async (formValues) => {
+  try {
+    await axios.post(API_WAREHOUSES_URL, formValues);
+  } catch (error) {
+    console.error(error);
+  }
+};
