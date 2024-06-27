@@ -2,9 +2,9 @@ import "./EditWarehouse.scss"
 import axios from "axios"
 import {useNavigate, useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import Card from "../Card/Card"
-import CardHeader from "../CardHeader/CardHeader"
-import { DynamicButton} from "../DynamicButton/DynamicButton"
+import { Card } from "../Card/Card"
+import { CardHeader } from "../CardHeader/CardHeader"
+import { DynamicButton } from "../DynamicButton/DynamicButton"
 
 const EditWarehouse = () => {
 
