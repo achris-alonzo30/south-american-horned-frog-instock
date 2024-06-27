@@ -1,0 +1,93 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+
+.modal {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    z-index: 1000;
+    position: fixed;
+    flex-direction: column;
+    background-color: $white;
+
+    @include tablet {
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__card {
+        height: 100%;
+        display: flex;
+        padding: 1rem;
+        border-radius: 4px;
+        flex-direction: column;
+
+        @include tablet {
+            width: 100%;
+            height: auto;
+            max-width: 87.5%;
+            margin-top: 11.5rem;
+            background-color: $white;
+        }
+
+        @include desktop {
+            width: 50%;
+            max-width: 50%;
+        }
+    }
+
+    &__body {
+        gap: 1rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            padding: 0 3rem;
+        }
+
+        &--heading {
+            @include dynamicFont(600, 1.75rem, 2.25rem, $instock-black);
+
+            @include tablet {
+                @include dynamicFont(600, 2rem, 2.5rem, $instock-black);
+            }
+        }
+
+        &--paragraph {
+            @include dynamicFont(400, .9375rem, 1.625rem, $instock-black);
+
+            @include tablet {
+                @include dynamicFont(400, 1rem, 1.75rem, $instock-black);
+            }
+        }
+    }
+
+
+    &__close--button {
+        all: unset;
+        cursor: pointer;
+    }
+
+    &__footer {
+        gap: 1rem;
+        width: 100%;
+        display: flex;
+
+        @include tablet {
+            margin: 1.5rem 0 1.25rem;
+            padding: 0 2.5rem;
+            justify-content: flex-end;
+        }
+    }
+
+}

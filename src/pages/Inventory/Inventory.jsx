@@ -11,6 +11,7 @@ import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { InventoryList } from "../../components/InventoryList/InventoryList";
+import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const Inventory = () => {
   const [inventories, setInventories] = useState([]);
@@ -19,8 +20,7 @@ export const Inventory = () => {
     getAllInventories(setInventories);
   }, []);
 
-  // Add Loading here
-  if (!inventories) return <></>;
+  if (!inventories.length) return <LoadingSpinner />;
 
   return (
     <main className="main">
@@ -34,7 +34,10 @@ export const Inventory = () => {
           />
           <DynamicButton variant="add" addButtonName="Add New Item" />
         </CardHeader>
-        <InventoryList inventories={inventories} />
+        <InventoryList
+          inventories={inventories}
+          setInventories={setInventories}
+        />
         <CardFooter></CardFooter>
       </Card>
     </main>
