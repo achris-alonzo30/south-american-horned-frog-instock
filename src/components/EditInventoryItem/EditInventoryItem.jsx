@@ -171,6 +171,7 @@ const EditInventoryItem = () => {
                             </div>
                             <label className = "edit-item__label" htmlFor="wh-city">Category</label>
                             <select className = {`edit-item__select ${emptyFields.category ? 'error' : ''}`} value={category} onChange={(event) => setCategory(event.target.value)} placeholder = "Please Select">
+                                <option>Select an Option</option>
                                 <option value="Electronics">Electronics</option>
                                 <option value="Gear">Gear</option>
                                 <option value="Apparel">Apparel</option>
@@ -201,6 +202,7 @@ const EditInventoryItem = () => {
                             </div>
                             <label className = "edit-item__label" htmlFor="item-status">Warehouse</label>
                             <select className = {`edit-item__select ${emptyFields.warehouse ? 'error' : ''}`} value={warehouse} onChange={warehouseChangeHandler} placeholder = "Please Select">
+                                <option>Select an Option</option>
                                 <option value="Brooklyn Warehouse">New York</option>
                                 <option value="Washington">Washington</option>
                                 <option value="Jersey">New Jersey</option>
