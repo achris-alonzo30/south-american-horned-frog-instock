@@ -4,10 +4,11 @@ export const DynamicInput = ({
   id,
   icon,
   type,
-  className,
   radioName,
   placeholder,
   disabled = false,
+  checked,
+  onChange,
 }) => {
   if (type === "radio") {
     return (
@@ -20,7 +21,10 @@ export const DynamicInput = ({
           name={id}
           type="radio"
           value={radioName}
-          className={`field__radio--button ${className}`}
+          checked={checked}
+          onChange={onChange}
+          disabled={disabled}
+          className="field__radio--button"
         />
         {radioName}
       </div>
@@ -34,7 +38,7 @@ export const DynamicInput = ({
             name={id}
             type={type}
             placeholder={placeholder}
-            className={`field__input field__input--error ${className}`}
+            className="field__input field__input--error"
           />
           {icon && (
             <img src={icon} alt="Dynamic Icon" className="field__icon" />

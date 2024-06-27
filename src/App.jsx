@@ -16,11 +16,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Warehouses />}>
-          <Route
+        <Route path="/" element={<EditWarehouse />}>
+
+          {/* <Route
             path="/warehouse/:warehouseId/edit"
             element={<EditWarehouse />}
-          />
+          /> */}
         </Route>
 
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />

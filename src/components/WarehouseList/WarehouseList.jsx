@@ -121,6 +121,7 @@ export const WarehouseList = ({ warehouses }) => {
                   src={editIcon}
                   alt="Garbage Red Color Icon"
                   className="table__content--edit"
+                  onClick={() => navigate(`/warehouse/${id}`)}
                 />
               </td>
             </tr>
