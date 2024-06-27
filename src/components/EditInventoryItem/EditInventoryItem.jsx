@@ -2,25 +2,27 @@ import "./EditInventoryItem.scss"
 import axios from "axios"
 import {useNavigate, useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import DynamicInput from "../DynamicInput/DynamicInput"
-import DynamicButton from "../DynamicButton/DynamicButton"
-import Card from "../Card/Card";
-import CardHeader from "../CardHeader/CardHeader";
+import {DynamicInput} from "../DynamicInput/DynamicInput"
+import {DynamicButton} from "../DynamicButton/DynamicButton"
+import {Card} from "../Card/Card";
+import {CardHeader} from "../CardHeader/CardHeader";
 
 const EditInventoryItem = () => {
 
-    const { itemId } = useParams();
+    // const { itemId } = useParams();
+
+    const itemId = "3";
     const navigate = useNavigate();
 
     const warehouseMap = {
-        "1": "New York",
-        "2": "Washington",
-        "3": "New Jersey",
-        "4": "San Francisco",
-        "5": "Santa Monica",
-        "6": "Seattle",
-        "7": "Miami",
-        "8": "Boston"
+        "Brooklyn Warehouse": "1",
+        "Washington": "2",
+        "Jersey" : "3",
+        "SF" : "4",
+        "Santa Monica" : "5",
+        "Seattle" : "6",
+        "Miami" : "7",
+        "Boston" : "8"
     };
 
     const [name, setName] = useState("")
@@ -29,21 +31,26 @@ const EditInventoryItem = () => {
     const [warehouse, setWarehouse] = useState("")
     const [warehouseId, setWarehouseId] = useState("")
     const [stockStatus, setStockStatus] = useState("")
+    const [quantity, setQuantity] = useState("")
 
     useEffect(() => {
         const fetchInventoryItem = async () => {
             try {
-                const response = await axios.get('/api/inventories');
+                const response = await axios.get('http://localhost:8080/api/inventories');
                 const items = response.data;
                 const item = items.find(item => item.id.toString() === itemId);
+
+                console.log(item)
+
 
                 if (item) {
                     setName(item.item_name);
                     setDescription(item.description);
                     setCategory(item.category);
-                    setWarehouse(warehouseMap[item.warehouse_id]);
-                    setWarehouseId(item.warehouse_id);
+                    setWarehouse(item.warehouse_name);
+                    setWarehouseId(warehouseMap[item.warehouse_name]);
                     setStockStatus(item.status);
+                    setQuantity(item.quantity);
                 } else {
                     alert("Item not found");
                     navigate('/');
@@ -57,41 +64,20 @@ const EditInventoryItem = () => {
         fetchInventoryItem();
     }, [itemId]);
 
-    const saveHandler = async (event) => {
-        event.preventDefault();
-
-
-        const itemEditInfo = {
-            id: item.id,
-            warehouse_id: warehouseId,
-            item_name: name,
-            category: category,
-            description: description,
-            status: stockStatus,
-            quantity: item.quantity
-        }
-
-        try {
-            await axios.put(`/api/inventories/${itemId}`, itemEditInfo);
-            alert("We have successfully edited your item information!");
-            navigate(-1);
-
-        } catch (error) {
-            console.error("UPLOAD_PAGE", error)
-        }
-    };
-
-    const cancelHandler = (event) => {
-        event.preventDefault();
-        navigate('/');
-    }
-
     const warehouseChangeHandler = (event) => {
         const reverseMap = {
-            "New York": "1",
+            "1": "Brooklyn Warehouse",
+            "2": "Washington",
+            "3": "Jersey",
+            "4": "SF",
+            "5": "Santa Monica",
+            "6": "Seattle",
+            "7": "Miami",
+            "8": "Boston",
+            "Brooklyn Warehouse": "1",
             "Washington": "2",
-            "New Jersey" : "3",
-            "San Francisco" : "4",
+            "Jersey" : "3",
+            "SF" : "4",
             "Santa Monica" : "5",
             "Seattle" : "6",
             "Miami" : "7",
@@ -100,7 +86,40 @@ const EditInventoryItem = () => {
 
         const mappedWarehouseID = reverseMap[event.target.value]
         setWarehouse(event.target.value)
+        debugger
         setWarehouseId(mappedWarehouseID)
+    }
+
+    const saveHandler = async (event) => {
+        event.preventDefault();
+
+
+        const itemEditInfo = {
+            id: itemId,
+            warehouse_id: warehouseId,
+            item_name: name,
+            category: category,
+            description: description,
+            status: stockStatus,
+            quantity: quantity,
+            warehouse_name: warehouse,
+        }
+        console.log(itemEditInfo)
+        debugger
+
+        try {
+            await axios.put(`http://localhost:8080/api/inventories/${itemId}`, itemEditInfo);
+            alert("We have successfully edited your item information!");
+            navigate(-1);
+
+        } catch (error) {
+            console.error("Item Edit Page", error)
+        }
+    };
+
+    const cancelHandler = (event) => {
+        event.preventDefault();
+        navigate('/');
     }
 
     return(
@@ -135,10 +154,10 @@ const EditInventoryItem = () => {
                             </div>
                             <label className = "edit-item__label" htmlFor="item-status">Warehouse</label>
                             <select className = "edit-item__select" value={warehouse} onChange={warehouseChangeHandler}>
-                                <option value="New York">New York</option>
+                                <option value="Brooklyn Warehouse">New York</option>
                                 <option value="Washington">Washington</option>
-                                <option value="New Jersey">New Jersey</option>
-                                <option value="San Francisco">San Francisco</option>
+                                <option value="Jersey">New Jersey</option>
+                                <option value="SF">San Francisco</option>
                                 <option value="Santa Monica"> Santa Monica</option>
                                 <option value="Seattle"> Seattle</option>
                                 <option value="Miami"> Miami</option>
