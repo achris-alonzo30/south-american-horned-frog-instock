@@ -67,15 +67,14 @@ export const WarehouseList = ({ warehouses }) => {
           contact_phone,
           contact_email,
           warehouse_name,
-          contact_position,
-        }) => (
+        }, index) => (
           <tbody key={id} className="table__body">
-            <tr className="table__body--row">
+            <tr className={`table__body--row ${index === (warehouses.length - 1) && "remove-bottom-border"}`}>
               <td className="table__data--cells table__data--location">
                 <h4 className="table__data--header table__data--hidden ">
                   WAREHOUSE
                 </h4>
-                <Link to="/" className="table__data--link">
+                <Link to={`/warehouse/${id}`} className="table__data--link">
                   {warehouse_name}
                   <img src={chevronRight} alt="Arrow Point To Right" />
                 </Link>
@@ -86,11 +85,11 @@ export const WarehouseList = ({ warehouses }) => {
                 </h2>
                 <p className="table__data--content">{contact_name}</p>
               </td>
-              <td className="table__data--cells table__data--address">
+              <td className="table__data--cells">
                 <h2 className="table__data--header table__data--hidden">
                   ADDRESS
                 </h2>
-                <hgroup>
+                <hgroup className="table__data--address">
                   <p className="table__data--content">{address}</p>
                   <p className="table__data--content">
                     {city}, {country}
@@ -102,27 +101,22 @@ export const WarehouseList = ({ warehouses }) => {
                   CONTACT INFORMATION
                 </h2>
                 <hgroup>
-                  <p className="table__data--content">{contact_phone}</p>
-                  <a
-                    href="mailto:paujla@instock.com"
-                    className="table__data--content"
+                  <p className="table__data--content table__data--margin">{contact_phone}</p>
+                  <Link
+                    to="mailto:paujla@instock.com"
+                    className="table__data--content table__data--email"
                   >
                     {contact_email}
-                  </a>
+                  </Link>
                 </hgroup>
               </td>
               <td className="table__data--actions">
-                <img
-                  src={trashIcon}
-                  alt="Garbage Red Color Icon"
-                  className="table__content--delete"
-                />
-                <img
-                  src={editIcon}
-                  alt="Garbage Red Color Icon"
-                  className="table__content--edit"
-                  onClick={() => navigate(`/warehouse/${id}`)}
-                />
+                <button className="table__data--delete">
+                  <img src={trashIcon} alt="Garbage Red Color Icon" />
+                </button>
+                <button className="table__data--edit">
+                  <img src={editIcon} alt="Garbage Red Color Icon" />
+                </button>
               </td>
             </tr>
           </tbody>
