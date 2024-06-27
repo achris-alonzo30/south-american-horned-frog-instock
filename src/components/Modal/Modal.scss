@@ -10,8 +10,13 @@
     display: flex;
     z-index: 1000;
     position: fixed;
-    flex-direction: center;
+    flex-direction: column;
     background-color: $white;
+
+    @include tablet {
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 
     &__header {
         width: 100%;
@@ -23,14 +28,32 @@
         height: 100%;
         display: flex;
         padding: 1rem;
+        border-radius: 4px;
         flex-direction: column;
-        justify-content: space-between;
+
+        @include tablet {
+            width: 100%;
+            height: auto;
+            max-width: 87.5%;
+            margin-top: 11.5rem;
+            background-color: $white;
+        }
+
+        @include desktop {
+            width: 50%;
+            max-width: 50%;
+        }
     }
 
     &__body {
         gap: 1rem;
+        height: 100%;
         display: flex;
         flex-direction: column;
+
+        @include tablet {
+            padding: 0 3rem;
+        }
 
         &--heading {
             @include dynamicFont(600, 1.75rem, 2.25rem, $instock-black);
@@ -61,6 +84,8 @@
         display: flex;
 
         @include tablet {
+            margin: 1.5rem 0 1.25rem;
+            padding: 0 2.5rem;
             justify-content: flex-end;
         }
     }
