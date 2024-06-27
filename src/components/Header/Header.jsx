@@ -3,14 +3,9 @@ import "./Header.scss";
 import { Link, useLocation } from "react-router-dom";
 
 function Header() {
-<<<<<<< HEAD
-  const {pathname} = useLocation();
-
-=======
   const { pathname } = useLocation();
 
   console.log(pathname);
->>>>>>> develop
   return (
     <header className="header">
       <div className="header__content">
@@ -20,12 +15,6 @@ function Header() {
           className="header__logo"
         />
         <div className="header__buttons">
-<<<<<<< HEAD
-          <Link to="/" className={`header__button header__button--link ${pathname === "/" ? "header__button--active" : ""}`}>
-            Warehouses
-          </Link>
-          <Link to="/inventory" className={`header__button header__button--link  ${pathname !== "/" ? "header__button--active" : ""}`}>
-=======
           <Link
             to="/"
             className={`header__button header__button--link ${
@@ -40,7 +29,6 @@ function Header() {
               pathname !== "/" ? "header__button--active" : ""
             }`}
           >
->>>>>>> develop
             Inventory
           </Link>
         </div>
