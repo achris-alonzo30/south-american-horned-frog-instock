@@ -17,8 +17,8 @@ export const Modal = ({ onClose, onDelete }) => {
             </button>
           </nav>
           <hgroup className="modal__body">
-            <h2>Delete Washington warehouse?</h2>
-            <p>
+            <h2 className="modal__body--heading">Delete Washington warehouse?</h2>
+            <p className="modal__body--paragraph">
               Please confirm that you d like to delete the Washington from the
               list of warehouses. You won t be able to undo this action.
             </p>

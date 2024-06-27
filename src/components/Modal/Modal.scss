@@ -28,9 +28,25 @@
     }
 
     &__body {
-        display: flex;
         gap: 1rem;
+        display: flex;
         flex-direction: column;
+
+        &--heading {
+            @include dynamicFont(600, 1.75rem, 2.25rem, $instock-black);
+
+            @include tablet {
+                @include dynamicFont(600, 2rem, 2.5rem, $instock-black);
+            }
+        }
+
+        &--paragraph {
+            @include dynamicFont(400, .9375rem, 1.625rem, $instock-black);
+
+            @include tablet {
+                @include dynamicFont(400, 1rem, 1.75rem, $instock-black);
+            }
+        }
     }
 
 

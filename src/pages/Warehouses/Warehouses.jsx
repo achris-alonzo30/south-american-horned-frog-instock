@@ -28,7 +28,7 @@ export const Warehouses = () => {
 
   return (
     <>
-      {isModalOpen && <Modal />}
+      {isModalOpen && <Modal onClose={handleOpenModal} />}
 
       <main className="main">
         <Card>
