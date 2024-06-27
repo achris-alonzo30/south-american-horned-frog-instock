@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 import arrowLeft from "../../assets/icons/arrow_back-24px.svg";
 
-export const CardHeader = ({ 
-  children, 
-  className, 
+export const CardHeader = ({
+  children,
+  className,
   flexStyle,
   browserName,
-  withArrow = false
+  withArrow = false,
+  tabletHeaderBorder = false,
 }) => {
   const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ export const CardHeader = ({
   };
 
   return (
-    <section className={`card-header ${flexStyle}`}>
+    <section className={`card-header ${flexStyle} ${tabletHeaderBorder ? 'card-header--tablet-border' : ''}`}>
       <nav className="card-header__left">
         {withArrow && (
           <img

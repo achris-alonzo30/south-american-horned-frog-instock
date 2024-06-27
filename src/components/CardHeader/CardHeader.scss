@@ -25,14 +25,21 @@
 }
 
 
+
 .card-header {
     width: 100%;
     padding: 2rem 1rem 1rem;
     border-bottom: 1px solid $cloud;
 
     @include tablet {
-        border-bottom: 0;
         padding: 1rem 1.5rem;
+        border-bottom: 0;
+    }
+
+    &--tablet-border{
+        @include tablet {
+            border-bottom: 1px solid $cloud;
+        }
     }
 
     &__left {

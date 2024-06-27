@@ -15,6 +15,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
+
         <Route path="/" element={<Warehouses />} />
         <Route
           path="/warehouse/:warehouseId"
@@ -24,6 +25,8 @@ function App() {
           path="/warehouse/:warehouseId/edit"
           element={<EditWarehouse />}
         />
+
+        <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
 
         <Route path="/inventory" element={<Inventory />} />
 
