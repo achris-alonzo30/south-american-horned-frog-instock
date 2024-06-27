@@ -186,26 +186,24 @@
       }
     }
 
-    @include tablet {
-      &--location {
-        order: 1;
-      }
+    &--inventory-item {
+      order: 1;
+    }
 
-      &--address {
-        order: 2;
-      }
+    &--status {
+      order: 2;
+    }
 
-      &--name {
-        order: 3;
-      }
+    &--category {
+      order: 3;
+    }
 
-      &--contact {
-        order: 4;
-      }
+    &--qty {
+      order: 4;
+    }
 
-      &--actions {
-        order: 5;
-      }
+    &--actions {
+      order: 5;
     }
   }
 }

@@ -17,7 +17,6 @@ export const WarehouseDetails = () => {
   const { warehouseId } = useParams();
   const [singleWarehouse, setSingleWarehouse] = useState(null);
   const [warehouseInventory, setWarehouseInventory] = useState([]);
-
   useEffect(() => {
     getWarehouseDetails(setSingleWarehouse, warehouseId);
     getSingleWarehouseInventories(setWarehouseInventory, warehouseId);
