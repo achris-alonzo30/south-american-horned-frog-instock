@@ -187,4 +187,33 @@
     &__error {
         border: 1px solid $red;
     }
+
+    &::placeholder{
+        color: $slate;
+    }
 }
+
+.error{
+    border-color: $red;
+    margin-bottom: 0rem;
+
+    &_icon{
+        height: .9375rem;
+    }
+}
+
+
+.error-message{
+    font-size: 11px;
+    align-content: center;
+    display: flex;
+    padding-top: 4px;
+    gap: 0.25rem;
+    color: $red;
+    padding-bottom: 0.5rem;
+
+    &_hide{
+        display: none;
+    }
+}
+

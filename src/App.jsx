@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Warehouses } from "./pages/Warehouses/Warehouses";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import { WarehouseDetails } from "./pages/WarehouseDetails/WarehouseDetails";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,7 +17,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<EditWarehouse />}>
+        {/* <Route path="/" element={<EditWarehouse />}> */}
+        <Route path="/" element={<EditInventoryItem />}>
+
 
           {/* <Route
             path="/warehouse/:warehouseId/edit"

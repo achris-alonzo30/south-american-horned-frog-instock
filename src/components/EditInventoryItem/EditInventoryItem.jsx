@@ -6,6 +6,8 @@ import {DynamicInput} from "../DynamicInput/DynamicInput"
 import {DynamicButton} from "../DynamicButton/DynamicButton"
 import {Card} from "../Card/Card";
 import {CardHeader} from "../CardHeader/CardHeader";
+import errorIcon from "../../assets/icons/error-24px.svg"
+
 
 const EditInventoryItem = () => {
 
@@ -33,12 +35,19 @@ const EditInventoryItem = () => {
     const [stockStatus, setStockStatus] = useState("")
     const [quantity, setQuantity] = useState("")
 
+    const [emptyFields, setEmptyFields] = useState({});
+
+
     useEffect(() => {
         const fetchInventoryItem = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/api/inventories');
+                debugger
                 const items = response.data;
-                const item = items.find(item => item.id.toString() === itemId);
+                debugger
+
+                const item = items.find(item => item.id.toString() == itemId);
+                debugger
 
                 console.log(item)
 
@@ -63,6 +72,21 @@ const EditInventoryItem = () => {
 
         fetchInventoryItem();
     }, [itemId]);
+
+    const validateForm = () => {
+        const errors = {};
+        if (!name) errors.name = true;
+        if (!description) errors.description = true;
+        if (!category) errors.category = true;
+        if (!warehouse) errors.warehouse = true;
+        if (!stockStatus) errors.stockStatus = true;
+        if (!quantity) errors.quantity = true;
+
+        setEmptyFields(errors);
+
+        return Object.keys(errors).length === 0;
+    };
+
 
     const warehouseChangeHandler = (event) => {
         const reverseMap = {
@@ -91,6 +115,9 @@ const EditInventoryItem = () => {
 
     const saveHandler = async (event) => {
         event.preventDefault();
+        if (!validateForm()){
+            return;
+        }
 
 
         const itemEditInfo = {
@@ -129,17 +156,29 @@ const EditInventoryItem = () => {
                         <div className ="edit-item__form-section item-details">
                             <h2 className = "edit-item__subheader"> Item Details</h2>
                             <label className = "edit-item__label" htmlFor="item-name">Item Name</label>
-                            <input className = "edit-item__input" type="text" id="item-name" value={name} onChange={(event) => setName(event.target.value)} placeholder = "Item Name"/>
+                            <input className = {`edit-item__input ${emptyFields.name ? 'error' : ''}`} type="text" id="item-name" value={name} onChange={(event) => setName(event.target.value)} placeholder = "Item Name"/>
+                            <div className = {`${emptyFields.name ? 'error-message' : 'error-message_hide'}`}>
+                                <img className = "error_icon" src={errorIcon}/>
+                                This field is required
+                            </div>
                             <label className = "edit-item__label" htmlFor="item-desc">Description</label>
-                            <textarea className = "edit-item__textareaInput" id="item-desc" value={description} onChange={(event) => setDescription(event.target.value)} placeholder = "Item Description"/>
+                            <textarea className = {`edit-item__textareaInput ${emptyFields.description ? 'error' : ''}`} id="item-desc" value={description} onChange={(event) => setDescription(event.target.value)} placeholder = "Item Description"/>
+                            <div className = {`${emptyFields.description ? 'error-message' : 'error-message_hide'}`}>
+                                <img className = "error_icon" src={errorIcon}/>
+                                This field is required
+                            </div>
                             <label className = "edit-item__label" htmlFor="wh-city">Category</label>
-                            <select className = "edit-item__select" value={category} onChange={(event) => setCategory(event.target.value)}>
+                            <select className = {`edit-item__select ${emptyFields.category ? 'error' : ''}`} value={category} onChange={(event) => setCategory(event.target.value)} placeholder = "Please Select">
                                 <option value="Electronics">Electronics</option>
                                 <option value="Gear">Gear</option>
                                 <option value="Apparel">Apparel</option>
                                 <option value="Accessories">Accessories</option>
                                 <option value="Health"> Health</option>
                             </select>
+                            <div className = {`${emptyFields.category ? 'error-message' : 'error-message_hide'}`}>
+                                <img className = "error_icon" src={errorIcon}/>
+                                This field is required
+                            </div>
                         </div>
 
                         <div className ="edit-item__form-section item-availability">
@@ -151,7 +190,7 @@ const EditInventoryItem = () => {
                                 <DynamicInput type="radio" radioName="Out of Stock" checked={stockStatus === "Out of Stock"} onChange={() => setStockStatus("Out of Stock")} />
                             </div>
                             <label className = "edit-item__label" htmlFor="item-status">Warehouse</label>
-                            <select className = "edit-item__select" value={warehouse} onChange={warehouseChangeHandler}>
+                            <select className = {`edit-item__select ${emptyFields.warehouse ? 'error' : ''}`} value={warehouse} onChange={warehouseChangeHandler} placeholder = "Please Select">
                                 <option value="Brooklyn Warehouse">New York</option>
                                 <option value="Washington">Washington</option>
                                 <option value="Jersey">New Jersey</option>
@@ -161,6 +200,10 @@ const EditInventoryItem = () => {
                                 <option value="Miami"> Miami</option>
                                 <option value="Boston">Boston</option>
                             </select>
+                            <div className = {`${emptyFields.warehouse ? 'error-message' : 'error-message_hide'}`}>
+                                <img className = "error_icon" src={errorIcon}/>
+                                This field is required
+                            </div>
                         </div>
                     </div>
 
