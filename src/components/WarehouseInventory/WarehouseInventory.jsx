@@ -61,7 +61,7 @@ function WarehouseInventory({ warehouseInventory }) {
         ({ id, item_name, category, status, quantity }) => (
           <tbody key={id} className="table__body">
             <tr className="table__body--row">
-              <td className="table__data--cells table__data--inventory">
+              <td className="table__data--cells table__data--inventory-item">
                 <h4 className="table__data--header table__data--hidden ">
                   INVENTORY ITEM
                 </h4>{" "}
@@ -71,7 +71,12 @@ function WarehouseInventory({ warehouseInventory }) {
                   <img src={chevronRight} alt="Arrow Point To Right" />
                 </Link>
               </td>
-
+              <td className="table__data--cells table__data--category">
+                <h2 className="table__data--header table__data--hidden">
+                  CATEGORY
+                </h2>
+                <p className="table__data--content">{category}</p>
+              </td>
               <td className="table__data--cells table__data--status">
                 <h2 className="table__data--header table__data--hidden">
                   STATUS
@@ -88,13 +93,8 @@ function WarehouseInventory({ warehouseInventory }) {
                   </p>
                 </div>
               </td>
-              <td className="table__data--cells table__data--category">
-                <h2 className="table__data--header table__data--hidden">
-                  CATEGORY
-                </h2>
-                <p className="table__data--content">{category}</p>
-              </td>
-              <td className="table__data--cells table__data--quantity">
+
+              <td className="table__data--cells table__data--qty">
                 <h2 className="table__data--header table__data--hidden">
                   QUANTITY
                 </h2>
