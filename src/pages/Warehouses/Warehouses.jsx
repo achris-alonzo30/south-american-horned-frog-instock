@@ -1,7 +1,7 @@
 import "./Warehouses.scss";
 
 import { useState, useEffect } from "react";
-import { getAllWarehouse, deleteWarehouse } from "../../lib/api-warehouses";
+import { getAllWarehouse } from "../../lib/api-warehouses";
 
 import searchIcon from "../../assets/icons/search-24px.svg";
 
@@ -14,32 +14,13 @@ import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
 
   useEffect(() => {
-    getAllWarehouse(setWarehouses);
+    getAllWarehouse(setWarehouses); 
   }, []);
 
   if (!warehouses.length) return <LoadingSpinner />;
 
-  const handleOpenModal = (warehouse) => {
-    setSelectedWarehouse(warehouse);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedWarehouse(null);
-  };
-
-  const handleDeleteWarehouse = async () => {
-    if (selectedWarehouse) {
-      await deleteWarehouse(selectedWarehouse.id);
-      await getAllWarehouse(setWarehouses);
-      handleCloseModal();
-    }
-  };
 
   return (
     <>
@@ -56,11 +37,7 @@ export const Warehouses = () => {
           </CardHeader>
           <WarehouseList
             warehouses={warehouses}
-            isModalOpen={isModalOpen}
-            onDelete={handleDeleteWarehouse}
-            handleOpenModal={handleOpenModal}
-            handleCloseModal={handleCloseModal}
-            warehouseName={selectedWarehouse ? selectedWarehouse.warehouseName : ""}
+            setWarehouses={setWarehouses}
           />
         </Card>
       </main>

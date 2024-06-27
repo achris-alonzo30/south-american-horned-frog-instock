@@ -2,6 +2,7 @@ import "./WarehouseList.scss";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getAllWarehouse, deleteWarehouse } from "../../lib/api-warehouses";
 
 import { Modal } from "../Modal/Modal";
 
@@ -10,23 +11,34 @@ import editIcon from "../../assets/icons/edit_indigo-24px.svg";
 import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
-export const WarehouseList = ({ 
-  onDelete,
-  warehouses, 
-  isModalOpen,
-  warehouseName,
-  handleOpenModal,
-  handleCloseModal,
+export const WarehouseList = ({
+  warehouses,
+  setWarehouses
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+
+  const handleOpenModal = (warehouse) => {
+    setSelectedWarehouse(warehouse);
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteWarehouse = async () => {
+    await deleteWarehouse(selectedWarehouse.id);
+    await getAllWarehouse(setWarehouses);
+    setIsModalOpen(false);
+  };
 
   return (
     <>
-      {isModalOpen && <Modal 
-        isWarehouse
-        onDelete={onDelete} 
-        onClose={handleCloseModal} 
-        warehouseName={warehouseName}
-      />}
+      {isModalOpen && (
+        <Modal
+          isWarehouse
+          onDelete={handleDeleteWarehouse}
+          onClose={() => setIsModalOpen(false)}
+          warehouseName={selectedWarehouse.warehouseName}
+        />
+      )}
 
       <table className="table">
         <thead className="table__header">
@@ -141,7 +153,9 @@ export const WarehouseList = ({
                 <td className="table__data--actions">
                   <button
                     className="table__data--delete"
-                    onClick={() => handleOpenModal({id, warehouseName: warehouse_name})}
+                    onClick={() =>
+                      handleOpenModal({ id, warehouseName: warehouse_name })
+                    }
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
                   </button>
