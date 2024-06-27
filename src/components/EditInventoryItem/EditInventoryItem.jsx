@@ -42,12 +42,9 @@ const EditInventoryItem = () => {
         const fetchInventoryItem = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/api/inventories');
-                debugger
                 const items = response.data;
-                debugger
 
                 const item = items.find(item => item.id.toString() == itemId);
-                debugger
 
                 console.log(item)
 
@@ -113,12 +110,20 @@ const EditInventoryItem = () => {
         setWarehouseId(mappedWarehouseID)
     }
 
+
+
+
     const saveHandler = async (event) => {
         event.preventDefault();
+
+
+        const parsedQuantity = parseInt(quantity);
+        const updatedStockStatus = parsedQuantity === 0 ? "Out of Stock" : "In Stock";
+
+        // Calculate stock status based on parsed quantity
         if (!validateForm()){
             return;
         }
-
 
         const itemEditInfo = {
             id: itemId,
@@ -126,8 +131,8 @@ const EditInventoryItem = () => {
             item_name: name,
             category: category,
             description: description,
-            status: stockStatus,
-            quantity: quantity,
+            status: updatedStockStatus,
+            quantity: parsedQuantity,
             warehouse_name: warehouse,
         }
         console.log(itemEditInfo)
@@ -188,6 +193,14 @@ const EditInventoryItem = () => {
                             <div className = "item-status__container">
                                 <DynamicInput type="radio" radioName= "In Stock" checked={stockStatus === "In Stock"} onChange={() => setStockStatus("In Stock")}/>
                                 <DynamicInput type="radio" radioName="Out of Stock" checked={stockStatus === "Out of Stock"} onChange={() => setStockStatus("Out of Stock")} />
+                            </div>
+                            <div className = {`${stockStatus === "In Stock" ? 'ifStock--request_quantity' : 'ifStock--request_quantity--hide'}`}>
+                                <label className = "edit-item__label" htmlFor="item-name">Quantity</label>
+                                <input className = {`edit-item__input ${emptyFields.quantity ? 'error' : ''}`} type="text" id="item-quantity" value={quantity} onChange={(event) => setQuantity(event.target.value)} placeholder = "Enter Item Quantity"/>
+                                <div className = {`${emptyFields.name ? 'error-message' : 'error-message_hide'}`}>
+                                    <img className = "error_icon" src={errorIcon}/>
+                                    This field is required
+                                </div>
                             </div>
                             <label className = "edit-item__label" htmlFor="item-status">Warehouse</label>
                             <select className = {`edit-item__select ${emptyFields.warehouse ? 'error' : ''}`} value={warehouse} onChange={warehouseChangeHandler} placeholder = "Please Select">

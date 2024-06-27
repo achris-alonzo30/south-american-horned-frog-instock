@@ -217,3 +217,12 @@
     }
 }
 
+.ifStock--request_quantity{
+    display: flex;
+    flex-direction: column;
+
+    &--hide{
+        display:none;
+    }
+}
+
