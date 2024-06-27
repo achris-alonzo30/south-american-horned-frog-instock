@@ -11,9 +11,7 @@ import errorIcon from "../../assets/icons/error-24px.svg"
 
 const EditInventoryItem = () => {
 
-    // const { itemId } = useParams();
-
-    const itemId = "3";
+    const { itemId } = useParams();
     const navigate = useNavigate();
 
     const warehouseMap = {
@@ -45,9 +43,6 @@ const EditInventoryItem = () => {
                 const items = response.data;
 
                 const item = items.find(item => item.id.toString() == itemId);
-
-                console.log(item)
-
 
                 if (item) {
                     setName(item.item_name);
@@ -135,7 +130,6 @@ const EditInventoryItem = () => {
             quantity: parsedQuantity,
             warehouse_name: warehouse,
         }
-        console.log(itemEditInfo)
 
         try {
             await axios.put(`http://localhost:8080/api/inventories/${itemId}`, itemEditInfo);
