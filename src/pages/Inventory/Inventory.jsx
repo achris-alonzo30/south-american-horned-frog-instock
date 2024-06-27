@@ -1,7 +1,7 @@
-import "./Warehouses.scss";
+import "./Inventory.scss";
 
 import { useState, useEffect } from "react";
-import { getAllWarehouse } from "../../lib/api-warehouses";
+import { getAllInventories } from "../../lib/api-inventories";
 
 import searchIcon from "../../assets/icons/search-24px.svg";
 
@@ -10,35 +10,32 @@ import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
-import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
+import { InventoryList } from "../../components/InventoryList/InventoryList";
 
-export const Warehouses = () => {
-  const [warehouses, setWarehouses] = useState([]);
+export const Inventory = () => {
+  const [inventories, setInventories] = useState([]);
 
   useEffect(() => {
-    getAllWarehouse(setWarehouses);
+    getAllInventories(setInventories);
   }, []);
 
   // Add Loading here
-  if (!warehouses) return <></>;
+  if (!inventories) return <></>;
 
   return (
     <main className="main">
       <Card>
-        <CardHeader flexStyle="flexCol" browserName="Warehouse">
+        <CardHeader flexStyle="flexCol" browserName="Inventory">
           <DynamicInput
             type="text"
             id="search"
             icon={searchIcon}
             placeholder="Search..."
           />
-          <DynamicButton variant="add" addButtonName="Add New Warehouse" />
+          <DynamicButton variant="add" addButtonName="Add New Item" />
         </CardHeader>
-        <WarehouseList warehouses={warehouses} />
-        <CardFooter>
-          <DynamicButton variant="cancel" />
-          <DynamicButton variant="save" />
-        </CardFooter>
+        <InventoryList inventories={inventories} />
+        <CardFooter></CardFooter>
       </Card>
     </main>
   );
