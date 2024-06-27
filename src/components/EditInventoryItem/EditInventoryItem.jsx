@@ -11,8 +11,9 @@ import errorIcon from "../../assets/icons/error-24px.svg"
 
 const EditInventoryItem = () => {
 
-    const { itemId } = useParams();
+    // const { itemId } = useParams();
     const navigate = useNavigate();
+    const itemId = "3";
 
     const warehouseMap = {
         "Brooklyn Warehouse": "1",
@@ -113,7 +114,9 @@ const EditInventoryItem = () => {
 
 
         const parsedQuantity = parseInt(quantity);
-        const updatedStockStatus = parsedQuantity === 0 ? "Out of Stock" : "In Stock";
+        const updatedStockStatus = parsedQuantity === 0 ? "Out of Stock" : stockStatus;
+        const updatedQuantity = updatedStockStatus === "Out of Stock" ? 0 : parsedQuantity;
+
 
         // Calculate stock status based on parsed quantity
         if (!validateForm()){
@@ -127,7 +130,7 @@ const EditInventoryItem = () => {
             category: category,
             description: description,
             status: updatedStockStatus,
-            quantity: parsedQuantity,
+            quantity: updatedQuantity,
             warehouse_name: warehouse,
         }
 

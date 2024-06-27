@@ -33,6 +33,7 @@
     flex-direction: column;
 }
 
+
 .edit-item__subheader {
     font-family: 'Titillium Web';
     @include dynamicFont(600, $fontsize-mob-sub-header, $lh-mob-sub-header, $instock-black);
@@ -82,6 +83,11 @@
     &::placeholder{
         color: $slate;
     }
+
+    &:focus{
+        border-color: $instock-indigo;
+        outline: none;
+    }
 }
 
 .item-status__container{
@@ -117,6 +123,11 @@
 
     &::placeholder{
         color: $slate;
+    }
+
+    &:focus{
+        border-color: $instock-indigo;
+        outline: none;
     }
 
 }
