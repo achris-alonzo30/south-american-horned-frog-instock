@@ -1,4 +1,4 @@
-import "./WarehouseList.scss";
+import "./WarehouseInventory.scss";
 
 import { Link } from "react-router-dom";
 
@@ -7,14 +7,14 @@ import editIcon from "../../assets/icons/edit_indigo-24px.svg";
 import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
-export const WarehouseList = ({ warehouses }) => {
+function WarehouseInventory({ warehouseInventory }) {
   return (
     <table className="table">
       <thead className="table__header">
         <tr className="table__header--row">
           <th className="table__header--cells">
             <div className="table__header--content">
-              WAREHOUSE
+              INVENTORY ITEM
               <img
                 src={sortIcon}
                 className="table__header--icon"
@@ -24,7 +24,7 @@ export const WarehouseList = ({ warehouses }) => {
           </th>
           <th className="table__header--cells">
             <div className="table__header--content">
-              ADDRESS
+              CATEGORY
               <img
                 src={sortIcon}
                 className="table__header--icon"
@@ -34,7 +34,7 @@ export const WarehouseList = ({ warehouses }) => {
           </th>
           <th className="table__header--cells">
             <div className="table__header--content">
-              CONTACT NAME
+              STATUS
               <img
                 src={sortIcon}
                 className="table__header--icon"
@@ -44,7 +44,7 @@ export const WarehouseList = ({ warehouses }) => {
           </th>
           <th className="table__header--cells">
             <div className="table__header--content">
-              CONTACT INFORMATION
+              QUANTITY
               <img
                 src={sortIcon}
                 className="table__header--icon"
@@ -57,59 +57,49 @@ export const WarehouseList = ({ warehouses }) => {
           </th>
         </tr>
       </thead>
-      {warehouses.map(
-        ({
-          id,
-          city,
-          country,
-          address,
-          contact_name,
-          contact_phone,
-          contact_email,
-          warehouse_name,
-          contact_position,
-        }) => (
+      {warehouseInventory.map(
+        ({ id, item_name, category, status, quantity }) => (
           <tbody key={id} className="table__body">
             <tr className="table__body--row">
-              <td className="table__data--cells table__data--location">
+              <td className="table__data--cells table__data--inventory-item">
                 <h4 className="table__data--header table__data--hidden ">
-                  WAREHOUSE
-                </h4>
+                  INVENTORY ITEM
+                </h4>{" "}
+                {/*  LINK TO SINGLE INVENTORY ITEM WHEN ENDPOINT IS COMPLETE */}
                 <Link to="/" className="table__data--link">
-                  {warehouse_name}
+                  {item_name}
                   <img src={chevronRight} alt="Arrow Point To Right" />
                 </Link>
               </td>
-              <td className="table__data--cells table__data--name">
+              <td className="table__data--cells table__data--category">
                 <h2 className="table__data--header table__data--hidden">
-                  CONTACT NAME
+                  CATEGORY
                 </h2>
-                <p className="table__data--content">{contact_name}</p>
+                <p className="table__data--content">{category}</p>
               </td>
-              <td className="table__data--cells table__data--address">
+              <td className="table__data--cells table__data--status">
                 <h2 className="table__data--header table__data--hidden">
-                  ADDRESS
+                  STATUS
                 </h2>
-                <hgroup>
-                  <p className="table__data--content">{address}</p>
-                  <p className="table__data--content">
-                    {city}, {country}
-                  </p>
-                </hgroup>
-              </td>
-              <td className="table__data--cells table__data--contact">
-                <h2 className="table__data--header table__data--hidden">
-                  CONTACT INFORMATION
-                </h2>
-                <hgroup>
-                  <p className="table__data--content">{contact_phone}</p>
-                  <a
-                    href="mailto:paujla@instock.com"
-                    className="table__data--content"
+                <div className="table__data--stock">
+                  <p
+                    className={`table__data--content ${
+                      status === "In Stock"
+                        ? "table__data--stock--in"
+                        : "table__data--stock--out"
+                    }`}
                   >
-                    {contact_email}
-                  </a>
-                </hgroup>
+                    {status.toUpperCase()}
+                  </p>
+                </div>
+              </td>
+
+              <td className="table__data--cells table__data--qty">
+                <h2 className="table__data--header table__data--hidden">
+                  QUANTITY
+                </h2>
+
+                <p className="table__data--content">{quantity}</p>
               </td>
               <td className="table__data--actions">
                 <img
@@ -121,7 +111,6 @@ export const WarehouseList = ({ warehouses }) => {
                   src={editIcon}
                   alt="Garbage Red Color Icon"
                   className="table__content--edit"
-                  onClick={() => navigate(`/warehouse/${id}`)}
                 />
               </td>
             </tr>
@@ -130,4 +119,6 @@ export const WarehouseList = ({ warehouses }) => {
       )}
     </table>
   );
-};
+}
+
+export default WarehouseInventory;

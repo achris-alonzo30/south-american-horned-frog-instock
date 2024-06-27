@@ -1,31 +1,33 @@
 import "./App.scss";
 
-import {
-  Route,
-  Routes,
-  BrowserRouter
-} from "react-router-dom";
-
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Warehouses } from "./pages/Warehouses/Warehouses";
-// import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import { WarehouseDetails } from "./pages/WarehouseDetails/WarehouseDetails";
 
-import { WarehouseDetails } from "./components/WarehouseDetails/WarehouseDetails";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Inventory } from "./pages/Inventory/Inventory";
+
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<EditInventoryItem />}>
+        <Route path="/" element={<EditWarehouse />}>
 
           {/* <Route
             path="/warehouse/:warehouseId/edit"
             element={<EditWarehouse />}
           /> */}
         </Route>
+
+        <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
+
+        <Route path="/inventory" element={<Inventory />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>

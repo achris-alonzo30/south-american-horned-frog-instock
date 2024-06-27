@@ -1,4 +1,4 @@
-import "./WarehouseList.scss";
+import "./InventoryList.scss";
 
 import { Link } from "react-router-dom";
 
@@ -7,44 +7,54 @@ import editIcon from "../../assets/icons/edit_indigo-24px.svg";
 import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
-export const WarehouseList = ({ warehouses }) => {
+export const InventoryList = ({ inventories }) => {
   return (
     <table className="table">
       <thead className="table__header">
         <tr className="table__header--row">
           <th className="table__header--cells">
             <div className="table__header--content">
+              INVENTORY ITEM
+              <img
+                src={sortIcon}
+                className="table__header--icon"
+                alt="Two Arrows Point Up and Down"
+              />
+            </div>
+          </th>
+          <th className="table__header--cells">
+            <div className="table__header--content">
+              CATEGORY
+              <img
+                src={sortIcon}
+                className="table__header--icon"
+                alt="Two Arrows Point Up and Down"
+              />
+            </div>
+          </th>
+          <th className="table__header--cells">
+            <div className="table__header--content">
+              STATUS
+              <img
+                src={sortIcon}
+                className="table__header--icon"
+                alt="Two Arrows Point Up and Down"
+              />
+            </div>
+          </th>
+          <th className="table__header--cells">
+            <div className="table__header--content">
+              QTY
+              <img
+                src={sortIcon}
+                className="table__header--icon"
+                alt="Two Arrows Point Up and Down"
+              />
+            </div>
+          </th>
+          <th className="table__header--cells">
+            <div className="table__header--content">
               WAREHOUSE
-              <img
-                src={sortIcon}
-                className="table__header--icon"
-                alt="Two Arrows Point Up and Down"
-              />
-            </div>
-          </th>
-          <th className="table__header--cells">
-            <div className="table__header--content">
-              ADDRESS
-              <img
-                src={sortIcon}
-                className="table__header--icon"
-                alt="Two Arrows Point Up and Down"
-              />
-            </div>
-          </th>
-          <th className="table__header--cells">
-            <div className="table__header--content">
-              CONTACT NAME
-              <img
-                src={sortIcon}
-                className="table__header--icon"
-                alt="Two Arrows Point Up and Down"
-              />
-            </div>
-          </th>
-          <th className="table__header--cells">
-            <div className="table__header--content">
-              CONTACT INFORMATION
               <img
                 src={sortIcon}
                 className="table__header--icon"
@@ -57,59 +67,59 @@ export const WarehouseList = ({ warehouses }) => {
           </th>
         </tr>
       </thead>
-      {warehouses.map(
-        ({
-          id,
-          city,
-          country,
-          address,
-          contact_name,
-          contact_phone,
-          contact_email,
-          warehouse_name,
-          contact_position,
-        }) => (
+      {inventories.map(
+        ({ id, warehouse_name, item_name, category, status, quantity }) => (
           <tbody key={id} className="table__body">
             <tr className="table__body--row">
-              <td className="table__data--cells table__data--location">
+              <td className="table__data--cells table__data--inventory-item">
                 <h4 className="table__data--header table__data--hidden ">
-                  WAREHOUSE
+                  INVENTORY ITEM
                 </h4>
                 <Link to="/" className="table__data--link">
-                  {warehouse_name}
+                  {item_name}
                   <img src={chevronRight} alt="Arrow Point To Right" />
                 </Link>
               </td>
-              <td className="table__data--cells table__data--name">
+              <td className="table__data--cells table__data--category">
                 <h2 className="table__data--header table__data--hidden">
-                  CONTACT NAME
+                  CATEGORY
                 </h2>
-                <p className="table__data--content">{contact_name}</p>
+                <p className="table__data--content">{category}</p>
               </td>
-              <td className="table__data--cells table__data--address">
+              <td className="table__data--cells table__data--status">
                 <h2 className="table__data--header table__data--hidden">
-                  ADDRESS
+                  STATUS
                 </h2>
-                <hgroup>
-                  <p className="table__data--content">{address}</p>
-                  <p className="table__data--content">
-                    {city}, {country}
-                  </p>
-                </hgroup>
-              </td>
-              <td className="table__data--cells table__data--contact">
-                <h2 className="table__data--header table__data--hidden">
-                  CONTACT INFORMATION
-                </h2>
-                <hgroup>
-                  <p className="table__data--content">{contact_phone}</p>
-                  <a
-                    href="mailto:paujla@instock.com"
-                    className="table__data--content"
+                <div
+                  className={`table__data--status-wrapper ${
+                    status.toLowerCase() === "in stock"
+                      ? "table__data--status-wrapper-in"
+                      : "table__data--status-wrapper-out"
+                  }`}
+                >
+                  <p
+                    className={`table__data--content ${
+                      status.toLowerCase() === "in stock"
+                        ? "table__data--status-in"
+                        : "table__data--status-out"
+                    }`}
                   >
-                    {contact_email}
-                  </a>
-                </hgroup>
+                    {status.toUpperCase()}
+                  </p>
+                </div>
+              </td>
+              <td className="table__data--cells table__data--qty">
+                <h2 className="table__data--header table__data--hidden">QTY</h2>
+                <p className="table__data--content">{quantity}</p>
+              </td>
+              <td className="table__data--cells table__data--invisible">
+                <h2 className="table__data--header table__data--hidden"></h2>
+              </td>
+              <td className="table__data--cells table__data--warehouse">
+                <h2 className="table__data--header table__data--hidden">
+                  WAREHOUSE
+                </h2>
+                <p className="table__data--content">{warehouse_name}</p>
               </td>
               <td className="table__data--actions">
                 <img
@@ -121,7 +131,6 @@ export const WarehouseList = ({ warehouses }) => {
                   src={editIcon}
                   alt="Garbage Red Color Icon"
                   className="table__content--edit"
-                  onClick={() => navigate(`/warehouse/${id}`)}
                 />
               </td>
             </tr>

@@ -123,7 +123,7 @@ const EditInventoryItem = () => {
     return(
         <main className="main">
             <Card>
-                <CardHeader flexStyle="flexRow" browserName="Edit Inventory Item" withArrow />
+                <CardHeader flexStyle="flexRow" browserName="Edit Inventory Item" tabletHeaderBorder={true} withArrow/>
                 <form className = "edit-item__form" onSubmit = {saveHandler}>
                     <div className = "details-sections">
                         <div className ="edit-item__form-section item-details">
