@@ -86,7 +86,6 @@ const EditInventoryItem = () => {
 
         const mappedWarehouseID = reverseMap[event.target.value]
         setWarehouse(event.target.value)
-        debugger
         setWarehouseId(mappedWarehouseID)
     }
 
@@ -105,7 +104,6 @@ const EditInventoryItem = () => {
             warehouse_name: warehouse,
         }
         console.log(itemEditInfo)
-        debugger
 
         try {
             await axios.put(`http://localhost:8080/api/inventories/${itemId}`, itemEditInfo);
