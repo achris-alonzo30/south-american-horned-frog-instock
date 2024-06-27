@@ -19,8 +19,7 @@ export const Warehouses = () => {
     getAllWarehouse(setWarehouses); 
   }, []);
 
-  if (!warehouses.length) return <LoadingSpinner />;
-
+  if (!warehouses) return <LoadingSpinner />;
 
   return (
     <>
