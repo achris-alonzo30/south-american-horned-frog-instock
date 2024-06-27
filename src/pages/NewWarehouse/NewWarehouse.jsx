@@ -23,7 +23,6 @@ function NewWarehouse() {
     contact_email: "",
   });
 
-  // const [isError, setError] = useState(false);
   const [emptyFields, setEmptyFields] = useState({});
 
   const navigate = useNavigate();
@@ -63,8 +62,6 @@ function NewWarehouse() {
     e.preventDefault();
     navigate("/");
   };
-
-  console.log(formValues);
 
   return (
     <main className="main">
