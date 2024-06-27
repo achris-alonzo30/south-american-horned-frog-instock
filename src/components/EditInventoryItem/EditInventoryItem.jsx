@@ -63,11 +63,12 @@ const EditInventoryItem = () => {
 
         const itemEditInfo = {
             id: item.id,
+            warehouse_id: warehouseId,
             item_name: name,
             category: category,
             description: description,
             status: stockStatus,
-            warehouse_id: warehouseId,
+            quantity: item.quantity
         }
 
         try {
