@@ -8,7 +8,9 @@ import { DynamicButton } from "../DynamicButton/DynamicButton"
 
 const EditWarehouse = () => {
 
-    const { warehouseId } = useParams();
+    const warehouseId = 4;
+
+    // const { warehouseId } = useParams();
     const navigate = useNavigate();
 
 
@@ -27,14 +29,16 @@ const EditWarehouse = () => {
             try {
                 const response = await axios.get(`/api/warehouses/${warehouseId}`);
                 const warehouse = response.data;
-                setWhName(warehouse.warehouse_name);
-                setAddress(warehouse.address);
-                setCity(warehouse.city);
-                setCountry(warehouse.country);
-                setContactName(warehouse.contact_name);
-                setContactPosition(warehouse.contact_position);
-                setContactPhn(warehouse.contact_phone);
-                setContactEmail(warehouse.contact_email);
+                
+
+                setWhName(warehouse.warehouse_name || "");
+                setAddress(warehouse.address || "" );
+                setCity(warehouse.city || "" );
+                setCountry(warehouse.country || "" );
+                setContactName(warehouse.contact_name || "");
+                setContactPosition(warehouse.contact_position || "");
+                setContactPhn(warehouse.contact_phone || "");
+                setContactEmail(warehouse.contact_email || "");
             } catch (error) {
                 console.error("Error fetching warehouse data", error);
                 alert("Error fetching warehouse data");
