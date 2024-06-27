@@ -1,7 +1,7 @@
 import "./Inventory.scss";
 
 import { useState, useEffect } from "react";
-import { deleteInventory, getAllInventories } from "../../lib/api-inventories";
+import { getAllInventories } from "../../lib/api-inventories";
 
 import searchIcon from "../../assets/icons/search-24px.svg";
 
@@ -15,32 +15,12 @@ import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const Inventory = () => {
   const [inventories, setInventories] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedInventory, setSelectedInventory] = useState({
-    id: "",
-    inventoryName: "",
-  });
 
   useEffect(() => {
     getAllInventories(setInventories);
-  }, [selectedInventory.id, selectedInventory.inventoryName]);
+  }, []);
 
-  if (!inventories) return <LoadingSpinner />;
-
-  const handleOpenModal = (id, inventoryName) => {
-    setIsModalOpen(!isModalOpen);
-    setSelectedInventory({
-      id,
-      inventoryName,
-    });
-  };
-
-  const handleDeleteWarehouse = async () => {
-    await deleteInventory(selectedInventory.id);
-    setIsModalOpen(false);
-
-    getAllInventories(setInventories);
-  };
+  if (!inventories.length) return <LoadingSpinner />;
 
   return (
     <main className="main">
@@ -55,11 +35,8 @@ export const Inventory = () => {
           <DynamicButton variant="add" addButtonName="Add New Item" />
         </CardHeader>
         <InventoryList
-          isModalOpen={isModalOpen}
           inventories={inventories}
-          onDelete={handleDeleteWarehouse}
-          inventoryName={selectedInventory.inventoryName}
-          handleOpenModal={handleOpenModal}
+          setInventories={setInventories}
         />
         <CardFooter></CardFooter>
       </Card>

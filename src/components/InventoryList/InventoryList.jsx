@@ -1,6 +1,8 @@
 import "./InventoryList.scss";
 
 import { Link } from "react-router-dom";
+import { deleteInventory, getAllInventories } from "../../lib/api-inventories";
+import { useState } from "react";
 
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import editIcon from "../../assets/icons/edit_indigo-24px.svg";
@@ -8,20 +10,27 @@ import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 import { Modal } from "../Modal/Modal";
 
-export const InventoryList = ({
-  inventories,
-  isModalOpen,
-  onDelete,
-  inventoryName,
-  handleOpenModal,
-}) => {
+export const InventoryList = ({ inventories, setInventories }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedInventory, setSelectedInventory] = useState(null);
+
+  const handleOpenModal = (selectedInventory) => {
+    setSelectedInventory(selectedInventory);
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteInventory = async () => {
+    await deleteInventory(selectedInventory.id);
+    await getAllInventories(setInventories);
+    setIsModalOpen(false);
+  };
   return (
     <>
       {isModalOpen && (
         <Modal
-          onDelete={onDelete}
-          onClose={handleOpenModal}
-          inventoryName={inventoryName}
+          onDelete={handleDeleteInventory}
+          onClose={() => setIsModalOpen(false)}
+          inventoryName={selectedInventory.item_name}
         />
       )}
 
@@ -142,7 +151,7 @@ export const InventoryList = ({
                 <td className="table__data--actions">
                   <button
                     className="table__data--delete"
-                    onClick={() => handleOpenModal(id, item_name)}
+                    onClick={() => handleOpenModal({ id, item_name })}
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
                   </button>
