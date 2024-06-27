@@ -1,0 +1,35 @@
+@import "../../styles/partials/mixin";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/variables";
+
+
+.loader {
+    gap: 1rem;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+    &__logo {
+        width: 5%;
+        height: 5%;
+        animation: spin 1s linear infinite;
+    }
+
+    &__text {
+        @include dynamicFont(600, 1rem, 1.375em, $instock-black);
+    }
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

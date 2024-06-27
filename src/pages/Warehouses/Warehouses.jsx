@@ -11,6 +11,7 @@ import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
+import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
@@ -19,8 +20,7 @@ export const Warehouses = () => {
     getAllWarehouse(setWarehouses);
   }, []);
 
-  // Add Loading here
-  if (!warehouses) return <></>;
+  if (!warehouses) return <LoadingSpinner />;
 
 
   return (
@@ -36,10 +36,6 @@ export const Warehouses = () => {
           <DynamicButton variant="add" addButtonName="Add New Warehouse" />
         </CardHeader>
         <WarehouseList warehouses={warehouses} />
-        <CardFooter>
-          <DynamicButton variant="cancel" />
-          <DynamicButton variant="save" />
-        </CardFooter>
       </Card>
     </main>
   );

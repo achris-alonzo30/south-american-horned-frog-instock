@@ -39,7 +39,7 @@
 
   &__buttons {
     display: flex;
-
+    gap: 1rem;
     @include mobile {
       padding: 0 1.5rem;
       width: 100%;
@@ -50,6 +50,11 @@
   }
 
   &__button {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 1.25rem;
     background-color: $graphite;
     border: none;
@@ -78,6 +83,15 @@
     &:hover {
       text-decoration: underline;
       color: $white;
+    }
+
+    &--link {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        color: $white;
+      }
     }
 
     &--active {
