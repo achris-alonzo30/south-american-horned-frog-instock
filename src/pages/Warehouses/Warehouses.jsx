@@ -15,59 +15,52 @@ import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedWarehouse, setSelectedWarehouse] = useState({
-    id: "",
-    warehouseName: ""
-  });
+  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
 
   useEffect(() => {
     getAllWarehouse(setWarehouses);
-  }, [selectedWarehouse.id, selectedWarehouse.warehouseName]);
+  }, []);
 
+  if (!warehouses.length) return <LoadingSpinner />;
 
-  if (!warehouses) return <LoadingSpinner />;
+  const handleOpenModal = (warehouse) => {
+    setSelectedWarehouse(warehouse);
+    setIsModalOpen(true);
+  };
 
-  const handleOpenModal = (id, warehouseName) => {
-    setIsModalOpen(!isModalOpen);
-    setSelectedWarehouse({
-      id,
-      warehouseName
-    })
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedWarehouse(null);
   };
 
   const handleDeleteWarehouse = async () => {
-    await deleteWarehouse(selectedWarehouse.id);
-    setIsModalOpen(false);
-
-    getAllWarehouse(setWarehouses);
-  }
+    if (selectedWarehouse) {
+      await deleteWarehouse(selectedWarehouse.id);
+      await getAllWarehouse(setWarehouses);
+      handleCloseModal();
+    }
+  };
 
   return (
     <>
       <main className="main">
         <Card>
-          <CardHeader 
-            flexStyle="flexCol" 
-            browserName="Warehouse"
-          >
+          <CardHeader flexStyle="flexCol" browserName="Warehouse">
             <DynamicInput
               type="text"
               id="search"
               icon={searchIcon}
               placeholder="Search..."
             />
-            <DynamicButton
-              variant="add"
-              addButtonName="Add New Warehouse"
-            />
+            <DynamicButton variant="add" addButtonName="Add New Warehouse" />
           </CardHeader>
-          <WarehouseList  
+          <WarehouseList
+            warehouses={warehouses}
             isModalOpen={isModalOpen}
-
-            warehouses={warehouses} 
-            onDelete={handleDeleteWarehouse} 
-        warehouseName={selectedWarehouse.warehouseName}
-          handleOpenModal={handleOpenModal}
+            onDelete={handleDeleteWarehouse}
+            handleOpenModal={handleOpenModal}
+            handleCloseModal={handleCloseModal}
+            warehouseName={selectedWarehouse ? selectedWarehouse.warehouseName : ""}
           />
         </Card>
       </main>

@@ -1,6 +1,6 @@
 import "./LoadingSpinner.scss";
 
-import loaderLogo from "../../assets/icons/loader.svg";
+import loadingLogo from "../../assets/icons/loader.svg";
 
 export const LoadingSpinner = () => {
   return (

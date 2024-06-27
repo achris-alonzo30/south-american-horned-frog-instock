@@ -1,8 +1,7 @@
 import "./WarehouseList.scss";
 
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { deleteWarehouse } from "../../lib/api-warehouses";
+import { Link } from "react-router-dom";
 
 import { Modal } from "../Modal/Modal";
 
@@ -12,21 +11,20 @@ import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
 export const WarehouseList = ({ 
+  onDelete,
   warehouses, 
   isModalOpen,
-  onDelete,
   warehouseName,
-  handleOpenModal
+  handleOpenModal,
+  handleCloseModal,
 }) => {
-
-  const navigate = useNavigate();
 
   return (
     <>
       {isModalOpen && <Modal 
         isWarehouse
-        onClose={handleOpenModal} 
         onDelete={onDelete} 
+        onClose={handleCloseModal} 
         warehouseName={warehouseName}
       />}
 
@@ -143,7 +141,7 @@ export const WarehouseList = ({
                 <td className="table__data--actions">
                   <button
                     className="table__data--delete"
-                    onClick={() => handleOpenModal(id, warehouse_name)}
+                    onClick={() => handleOpenModal({id, warehouseName: warehouse_name})}
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
                   </button>
