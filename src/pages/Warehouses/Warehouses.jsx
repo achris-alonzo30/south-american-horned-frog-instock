@@ -11,6 +11,7 @@ import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
+import WarehouseInventory from "../../components/WarehouseInventory/WarehouseInventory";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
