@@ -124,6 +124,7 @@
         &--link {
             gap: 0.25rem;
             display: flex;
+            white-space: nowrap;
             align-items: center;
             text-decoration: none;
             @include dynamicFont(600, .8125rem, 1.25rem, $instock-indigo);
