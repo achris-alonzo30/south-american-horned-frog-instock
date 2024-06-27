@@ -8,6 +8,9 @@ import { WarehouseDetails } from "./pages/WarehouseDetails/WarehouseDetails";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { Inventory } from "./pages/Inventory/Inventory";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +22,11 @@ function App() {
             element={<EditWarehouse />}
           />
         </Route>
+
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
+
+        <Route path="/inventory" element={<Inventory />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
