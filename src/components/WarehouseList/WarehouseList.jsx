@@ -1,7 +1,7 @@
 import "./WarehouseList.scss";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deleteWarehouse } from "../../lib/api-warehouses";
 
 import { Modal } from "../Modal/Modal";
@@ -13,16 +13,36 @@ import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
 export const WarehouseList = ({ warehouses, onModalOpen }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedWarehouse, setSelectedWarehouse] = useState({
+    id: "",
+    warehouseName: ""
+  });
 
-  const handleOpenModal = () => setIsModalOpen(!isModalOpen);
+  const navigate = useNavigate();
 
-  const handleDeleteWarehouse = async (id) => {
-    await deleteWarehouse(id);
+  const handleOpenModal = (id, warehouseName) => {
+    setIsModalOpen(!isModalOpen);
+    setSelectedWarehouse({
+      id,
+      warehouseName
+    })
+  };
+
+  const handleDeleteWarehouse = async () => {
+    await deleteWarehouse(selectedWarehouse.id);
+    setIsModalOpen(false);
   }
+
+  console.log(selectedWarehouse)
 
   return (
     <>
-      {isModalOpen && <Modal onClose={handleOpenModal} onDelete={handleDeleteWarehouse} />}
+      {isModalOpen && <Modal 
+        isWarehouse
+        onClose={handleOpenModal} 
+        onDelete={handleDeleteWarehouse} 
+        warehouseName={selectedWarehouse.warehouseName}
+      />}
 
       <table className="table">
         <thead className="table__header">
@@ -137,7 +157,7 @@ export const WarehouseList = ({ warehouses, onModalOpen }) => {
                 <td className="table__data--actions">
                   <button
                     className="table__data--delete"
-                    onClick={handleOpenModal}
+                    onClick={() => handleOpenModal(id, warehouse_name)}
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
                   </button>

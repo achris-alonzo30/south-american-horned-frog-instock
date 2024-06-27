@@ -21,11 +21,16 @@ export const Warehouses = () => {
 
   if (!warehouses) return <LoadingSpinner />;
 
+
+
   return (
     <>
       <main className="main">
         <Card>
-          <CardHeader flexStyle="flexCol" browserName="Warehouse">
+          <CardHeader 
+            flexStyle="flexCol" 
+            browserName="Warehouse"
+          >
             <DynamicInput
               type="text"
               id="search"
