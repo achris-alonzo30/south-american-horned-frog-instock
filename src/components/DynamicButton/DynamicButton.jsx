@@ -13,10 +13,10 @@ export const DynamicButton = ({
   switch (variant) {
     case "add":
       return (
-        <button type={type} onClick={onClick} className="primary">
+        <Link to={href} type={type} onClick={onClick} className="primary">
           <span>+</span>
           {addButtonName}
-        </button>
+        </Link>
       );
 
     case "save":
