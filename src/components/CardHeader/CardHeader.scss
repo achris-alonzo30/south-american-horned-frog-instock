@@ -48,7 +48,11 @@
         align-items: center;
 
         @include tablet {
-            flex: 0.55;
+            flex: 0.6;
+        }
+
+        @include desktop {
+            flex: 0.7
         }
 
         &--arrow {

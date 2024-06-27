@@ -4,6 +4,100 @@
 @import "../../styles/partials/variables";
 
 .main {
+<<<<<<< HEAD
+    padding: 1rem;
+    margin-top: -4rem;
+
+    @include tablet {
+        padding: 2rem;
+        margin-top: -8rem;
+    }
+
+    @include desktop {
+        display: flex;
+        margin: auto;
+        margin-top: -8rem;
+        max-width: 63.75rem;
+    }
+}
+
+.card__details {
+    gap: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    
+    @include tablet {
+        padding: 1.5rem;
+        border-top: 1px solid $cloud;
+    }
+
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &--address {
+        @include tablet {
+            flex: 0.75;
+            border-right: 1px solid $cloud;
+        }
+    }
+
+    &--contacts {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &--flex {
+        display: flex;
+    }
+
+    &--theader {
+        padding-bottom: 0.25rem;
+        @include dynamicFont(400, .6875rem, 1rem, $slate);
+
+        @include tablet {
+            @include dynamicFont(400, .75rem, 1.125rem, $slate);
+        }
+    }
+
+    &--content {
+        @include dynamicFont(400, .6875rem, 1rem, $instock-black);
+
+        @include tablet {
+            @include dynamicFont(400, .75rem, 1.125rem, $instock-black);
+        }
+    }
+
+    &--contactName {
+        @include tablet {
+            flex: 1;  
+        }
+    }
+
+    &--contactInfo {
+        @include tablet {
+            flex: 1;  
+        }
+    }
+
+    &--margin {
+        margin-bottom: -0.3rem;
+    }
+
+    &--link {
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+
+        }
+    }
+
+}
+=======
   padding: 1rem;
   margin-top: -4rem;
 
@@ -97,3 +191,4 @@
     }
   }
 }
+>>>>>>> develop

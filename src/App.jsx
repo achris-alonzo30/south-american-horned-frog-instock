@@ -11,21 +11,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Inventory } from "./pages/Inventory/Inventory";
 
-
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        {/* <Route path="/" element={<EditWarehouse />}> */}
-        <Route path="/" element={<EditInventoryItem />}>
 
-
-          {/* <Route
-            path="/warehouse/:warehouseId/edit"
-            element={<EditWarehouse />}
-          /> */}
-        </Route>
+        <Route path="/" element={<Warehouses />} />
+        <Route
+          path="/warehouse/:warehouseId"
+          element={<WarehouseDetails />}
+        />
+        <Route
+          path="/warehouse/:warehouseId/edit"
+          element={<EditWarehouse />}
+        />
 
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
 
