@@ -4,8 +4,8 @@ import closeIcon from "../../assets/icons/close-24px.svg";
 
 import { DynamicButton } from "../DynamicButton/DynamicButton";
 
-export const Modal = ({ 
-  onClose, 
+export const Modal = ({
+  onClose,
   onDelete,
   isWarehouse,
   warehouseName,
@@ -13,14 +13,13 @@ export const Modal = ({
 }) => {
   const warehouse = {
     heading: `Delete ${warehouseName} warehouse?`,
-    paragraph: `Please confirm that you'd like to delete the ${warehouseName} from the list of warehouses. You won't be able to undo this action`
-  }
+    paragraph: `Please confirm that you'd like to delete ${warehouseName} from the list of warehouses. You won't be able to undo this action`,
+  };
 
   const inventory = {
     heading: `Delete ${inventoryName} inventory item?`,
-    paragraph: `Please confirm that you'd like to delete the ${inventoryName} from the inventory list. You won't be able to undo this action`
-  }
-
+    paragraph: `Please confirm that you'd like to delete ${inventoryName} from the inventory list. You won't be able to undo this action`,
+  };
 
   return (
     <main className="modal">
@@ -31,8 +30,12 @@ export const Modal = ({
           </button>
         </nav>
         <hgroup className="modal__body">
-          <h2 className="modal__body--heading">{isWarehouse ? warehouse.heading : inventory.heading}</h2>
-          <p className="modal__body--paragraph">{isWarehouse ? warehouse.paragraph : inventory.paragraph}</p>
+          <h2 className="modal__body--heading">
+            {isWarehouse ? warehouse.heading : inventory.heading}
+          </h2>
+          <p className="modal__body--paragraph">
+            {isWarehouse ? warehouse.paragraph : inventory.paragraph}
+          </p>
         </hgroup>
 
         <nav className="modal__footer">

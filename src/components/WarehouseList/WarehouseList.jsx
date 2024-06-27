@@ -1,8 +1,8 @@
 import "./WarehouseList.scss";
 
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { deleteWarehouse } from "../../lib/api-warehouses";
+// import { useState } from "react";
+import { Link } from "react-router-dom";
+// import { deleteWarehouse } from "../../lib/api-warehouses";
 
 import { Modal } from "../Modal/Modal";
 
@@ -11,24 +11,25 @@ import editIcon from "../../assets/icons/edit_indigo-24px.svg";
 import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
-export const WarehouseList = ({ 
-  warehouses, 
+export const WarehouseList = ({
+  warehouses,
   isModalOpen,
   onDelete,
   warehouseName,
-  handleOpenModal
+  handleOpenModal,
 }) => {
-
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <>
-      {isModalOpen && <Modal 
-        isWarehouse
-        onClose={handleOpenModal} 
-        onDelete={onDelete} 
-        warehouseName={warehouseName}
-      />}
+      {isModalOpen && (
+        <Modal
+          isWarehouse
+          onClose={handleOpenModal}
+          onDelete={onDelete}
+          warehouseName={warehouseName}
+        />
+      )}
 
       <table className="table">
         <thead className="table__header">
