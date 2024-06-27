@@ -168,9 +168,13 @@ const AddInventoryItem = () => {
                             <h2 className = "add-item__subheader"> Item Availability</h2>
                             <label className = "add-item__label" htmlFor="item-status">Status</label>
 
-                            <div className = "item-status__container">
+                            <div className = {`item-status__container ${emptyFields.stockStatus ? 'error' : ''}`}>
                                 <DynamicInput type="radio" radioName= "In Stock" checked={stockStatus === "In Stock"} onChange={() => setStockStatus("In Stock")}/>
                                 <DynamicInput type="radio" radioName="Out of Stock" checked={stockStatus === "Out of Stock"} onChange={() => setStockStatus("Out of Stock")} />
+                            </div>
+                            <div className = {`${emptyFields.stockStatus ? 'error-message' : 'error-message_hide'}`}>
+                                <img className = "error_icon" src={errorIcon}/>
+                                This field is required
                             </div>
                             <div className = {`${stockStatus === "In Stock" ? 'ifStock--request_quantity' : 'ifStock--request_quantity--hide'}`}>
                                 <label className = "add-item__label" htmlFor="item-name">Quantity</label>
