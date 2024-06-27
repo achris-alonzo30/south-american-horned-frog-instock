@@ -20,12 +20,11 @@ function App() {
       <Header />
       <Routes>
 
-        <Route path="/" element={<AddInventoryItem />} />
-        {/* <Route
-          path="/warehouse/:warehouseId"
-          element={<WarehouseDetails />}
-        />
         <Route path="/" element={<Warehouses />} />
+        <Route path="/warehouse/:warehouseId/edit" element={<EditWarehouse />}/>
+        <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />}/>
+
+        {/* <Route path="/" element={<Warehouses />} />
         <Route path="/warehouse/post" element={<NewWarehouse />} />
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
         <Route
@@ -33,9 +32,9 @@ function App() {
           element={<EditWarehouse />}
         />
 
-        <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} /> */}
+        <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
 
-        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory" element={<Inventory />} /> */}
 
       </Routes>
       <Footer />
