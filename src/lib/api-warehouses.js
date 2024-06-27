@@ -32,7 +32,7 @@ export const getSingleWarehouseInventories = async (fn, id) => {
   }
 };
 
-export const deleteWarehouse = async (id) => {
+export const deleteWarehouse = async (fn, id) => {
   try {
     const res = await axios.delete(`${API_WAREHOUSES_URL}/${id}`);
 
