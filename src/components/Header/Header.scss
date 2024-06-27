@@ -50,7 +50,10 @@
   }
 
   &__button {
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,3 +103,92 @@
     }
   }
 }
+
+// @import "../../styles/partials/mixin";
+// @import "../../styles/partials/colors";
+// @import "../../styles/partials/typography";
+// @import "../../styles/partials/variables";
+
+// .header {
+//   background-color: $graphite;
+//   width: 100%;
+
+//   &__content {
+//     display: flex;
+//     @include mobile {
+//       flex-direction: column;
+//       height: 12.5rem;
+//       align-items: center;
+//     }
+
+//     @include tablet {
+//       flex-direction: row;
+//       height: 11.625rem;
+//       justify-content: space-between;
+//       padding: 2rem;
+//     }
+
+//     @include desktop {
+//       margin: auto;
+//       max-width: 63.75rem;
+//     }
+//   }
+
+//   &__logo {
+//     height: 1.75rem;
+//     width: 8rem;
+
+//     @include mobile {
+//       margin: 1.5rem;
+//     }
+//   }
+
+//   &__buttons {
+//     display: flex;
+
+//     @include mobile {
+//       padding: 0 1.5rem;
+//       width: 100%;
+//     }
+
+//     @include tablet {
+//     }
+//   }
+
+//   &__button {
+//     border-radius: 1.25rem;
+//     background-color: $graphite;
+//     border: none;
+
+//     @include mobile {
+//       width: 50%;
+//       height: 2.25rem;
+
+//       @include dynamicFont(400, 0.8125rem, 1.25rem, $cloud);
+
+//       &--warehouses {
+//         margin-right: 1rem;
+//       }
+//     }
+
+//     @include tablet {
+//       height: 2.375rem;
+//       padding: 0 1rem;
+//       @include dynamicFont(400, 0.875rem, 1.375rem, $cloud);
+
+//       &--warehouses {
+//         margin-right: 0.5rem;
+//       }
+//     }
+
+//     &:hover {
+//       text-decoration: underline;
+//       color: $white;
+//     }
+
+//     &--active {
+//       background-color: $instock-black;
+//       color: $white;
+//     }
+//   }
+// }
