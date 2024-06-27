@@ -31,7 +31,11 @@ export const Warehouses = () => {
             icon={searchIcon}
             placeholder="Search..."
           />
-          <DynamicButton variant="add" addButtonName="Add New Warehouse" />
+          <DynamicButton
+            href={"/warehouse/post"}
+            variant="add"
+            addButtonName="Add New Warehouse"
+          />
         </CardHeader>
         <WarehouseList warehouses={warehouses} />
       </Card>

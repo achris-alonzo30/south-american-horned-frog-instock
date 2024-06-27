@@ -22,7 +22,25 @@ function NewWarehouse() {
     contact_phone: "",
     contact_email: "",
   });
-  const [isError, setError] = useState(false);
+
+  // const [isError, setError] = useState(false);
+  const [emptyFields, setEmptyFields] = useState({});
+
+  const validateForm = () => {
+    const errors = {};
+    if (!formValues.warehouse_name) errors.warehouse_name = true;
+    if (!formValues.address) errors.address = true;
+    if (!formValues.city) errors.city = true;
+    if (!formValues.country) errors.country = true;
+    if (!formValues.contact_name) errors.contact_name = true;
+    if (!formValues.contact_position) errors.contact_position = true;
+    if (!formValues.contact_phone) errors.contact_phone = true;
+    if (!formValues.contact_email) errors.contact_email = true;
+
+    setEmptyFields(errors);
+
+    return Object.keys(errors).length === 0;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,11 +49,9 @@ function NewWarehouse() {
       ...formValues,
       [name]: value,
     });
-    if (!value) {
-      setError(true);
+
+    if (!validateForm()) {
       return;
-    } else {
-      setError(false);
     }
     postWarehouse(formValues);
   };
@@ -56,13 +72,14 @@ function NewWarehouse() {
           flexStyle="flexRow"
           browserName="Add New Warehouse"
           withArrow
+          tabletHeaderBorder
         ></CardHeader>
         <NewWarehouseForm
           formValues={formValues}
           setFormValues={setFormValues}
           handleSubmit={handleSubmit}
-          isError={isError}
-          setError={setError}
+          emptyFields={emptyFields}
+          setEmptyFields={setEmptyFields}
         ></NewWarehouseForm>
         <CardFooter>
           <DynamicButton

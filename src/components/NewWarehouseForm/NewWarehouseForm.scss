@@ -19,7 +19,7 @@
       $instock-black
     );
     width: 100%;
-    padding: 1rem;
+    padding-top: 1rem;
     text-align: left;
     @include tablet {
       @include dynamicFont(
@@ -28,25 +28,42 @@
         $lh-td-page-header,
         $instock-black
       );
+      padding-top: 0;
     }
   }
   &__content {
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    @include tablet {
+      margin: 1.5rem 0;
+      padding-bottom: 0;
+      width: 50%;
+    }
+    @include desktop {
+      padding: 0 2.5rem 2.5rem 2.5rem;
+    }
     &--contact-details {
       border-top: 0.0625rem solid $cloud;
+      @include tablet {
+        border-top: none;
+        border-left: 0.0625rem solid $cloud;
+      }
     }
   }
   &__label {
     @include dynamicFont(600, $fontsize-mob-llb, $lh-mob-llb, $instock-black);
+    margin-top: 1rem;
+    @include desktop {
+      margin-top: 1.5rem;
+    }
   }
   &__input {
     height: 2.25rem;
     border-radius: 1.25rem;
     border: 1px solid $cloud;
     padding: 0 1rem;
-    margin: 0.25rem 0 1rem;
+    margin-top: 0.25rem;
     @include tablet {
       height: 2.375rem;
     }
@@ -72,5 +89,28 @@
     &--error {
       border: 0.0625rem solid $red;
     }
+  }
+}
+
+.error {
+  border-color: $red;
+  margin-bottom: 0rem;
+
+  &_icon {
+    height: 0.9375rem;
+  }
+}
+
+.error-message {
+  font-size: 11px;
+  align-content: center;
+  display: flex;
+  padding-top: 4px;
+  gap: 0.25rem;
+  color: $red;
+  padding-bottom: 0.5rem;
+
+  &_hide {
+    display: none;
   }
 }
