@@ -12,9 +12,11 @@ import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
+import { Modal } from "../../components/Modal/Modal";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     getAllWarehouse(setWarehouses);
@@ -22,21 +24,30 @@ export const Warehouses = () => {
 
   if (!warehouses) return <LoadingSpinner />;
 
+  const handleOpenModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <main className="main">
-      <Card>
-        <CardHeader flexStyle="flexCol" browserName="Warehouse">
-          <DynamicInput
-            type="text"
-            id="search"
-            icon={searchIcon}
-            placeholder="Search..."
-          />
-          <DynamicButton variant="add" addButtonName="Add New Warehouse" />
-        </CardHeader>
-        <WarehouseList warehouses={warehouses} />
-      </Card>
-    </main>
+    <>
+      {isModalOpen && <Modal />}
+
+      <main className="main">
+        <Card>
+          <CardHeader flexStyle="flexCol" browserName="Warehouse">
+            <DynamicInput
+              type="text"
+              id="search"
+              icon={searchIcon}
+              placeholder="Search..."
+            />
+            <DynamicButton
+              variant="add"
+              addButtonName="Add New Warehouse"
+              onClick={handleOpenModal}
+            />
+          </CardHeader>
+          <WarehouseList warehouses={warehouses} />
+        </Card>
+      </main>
+    </>
   );
 };

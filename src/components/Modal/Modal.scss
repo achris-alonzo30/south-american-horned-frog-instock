@@ -1,3 +1,52 @@
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/colors" as *;
 
+.modal {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    z-index: 1000;
+    position: fixed;
+    flex-direction: center;
+    background-color: $white;
+
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__card {
+        height: 100%;
+        display: flex;
+        padding: 1rem;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__body {
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+
+    &__close--button {
+        all: unset;
+        cursor: pointer;
+    }
+
+    &__footer {
+        gap: 1rem;
+        width: 100%;
+        display: flex;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+    }
+
+}
