@@ -26,6 +26,8 @@ function NewWarehouse() {
   // const [isError, setError] = useState(false);
   const [emptyFields, setEmptyFields] = useState({});
 
+  const navigate = useNavigate();
+
   const validateForm = () => {
     const errors = {};
     if (!formValues.warehouse_name) errors.warehouse_name = true;
@@ -54,9 +56,8 @@ function NewWarehouse() {
       return;
     }
     postWarehouse(formValues);
+    navigate("/");
   };
-
-  const navigate = useNavigate();
 
   const handleCancel = (e) => {
     e.preventDefault();
