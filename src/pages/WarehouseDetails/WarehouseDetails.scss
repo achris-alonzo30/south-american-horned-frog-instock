@@ -4,95 +4,96 @@
 @import "../../styles/partials/variables";
 
 .main {
-    padding: 1rem;
-    margin-top: -4rem;
+  padding: 1rem;
+  margin-top: -4rem;
 
-    @include tablet {
-        padding: 2rem;
-        margin-top: -8rem;
-    }
+  @include tablet {
+    padding: 2rem;
+    margin-top: -8rem;
+  }
 
-    @include desktop {
-        display: flex;
-        margin: auto;
-        margin-top: -8rem;
-        max-width: 63.75rem;
-    }
+  @include desktop {
+    display: flex;
+    margin: auto;
+    margin-top: -8rem;
+    max-width: 63.75rem;
+  }
 }
 
 .card__details {
-    gap: 2rem;
-    padding: 1rem;
+  gap: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    padding: 1.5rem;
+    border-top: 1px solid $cloud;
+  }
+
+  @include tablet {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: row;
+  }
+
+  &--address {
     @include tablet {
-        padding: 1.5rem;
-        border-top: 1px solid $cloud;
+      flex: 0.75;
+      border-right: 1px solid $cloud;
     }
+  }
+
+  &--contacts {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--flex {
+    width: 100%;
+    @include tablet {
+      width: 45%;
+    }
+  }
+
+  &--theader {
+    padding-bottom: 0.25rem;
+    @include dynamicFont(400, 0.6875rem, 1rem, $slate);
 
     @include tablet {
-        display: flex;
-        flex-direction: row;
+      @include dynamicFont(400, 0.75rem, 1.125rem, $slate);
     }
+  }
 
-    &--address {
-        @include tablet {
-            flex: 0.75;
-            border-right: 1px solid $cloud;
-        }
+  &--content {
+    @include dynamicFont(400, 0.6875rem, 1rem, $instock-black);
+
+    @include tablet {
+      @include dynamicFont(400, 0.75rem, 1.125rem, $instock-black);
     }
+  }
 
-    &--contacts {
-        flex: 1;
-        display: flex;
-        justify-content: space-between;
+  &--contactName {
+    @include tablet {
+      flex: 1;
     }
+  }
 
-    &--flex {
-        display: flex;
+  &--contactInfo {
+    @include tablet {
+      flex: 1;
     }
+  }
 
-    &--theader {
-        padding-bottom: 0.25rem;
-        @include dynamicFont(400, .6875rem, 1rem, $slate);
+  &--margin {
+    margin-bottom: -0.3rem;
+  }
 
-        @include tablet {
-            @include dynamicFont(400, .75rem, 1.125rem, $slate);
-        }
+  &--link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
     }
-
-    &--content {
-        @include dynamicFont(400, .6875rem, 1rem, $instock-black);
-
-        @include tablet {
-            @include dynamicFont(400, .75rem, 1.125rem, $instock-black);
-        }
-    }
-
-    &--contactName {
-        @include tablet {
-            flex: 1;  
-        }
-    }
-
-    &--contactInfo {
-        @include tablet {
-            flex: 1;  
-        }
-    }
-
-    &--margin {
-        margin-bottom: -0.3rem;
-    }
-
-    &--link {
-        text-decoration: none;
-        
-        &:hover {
-            text-decoration: underline;
-
-        }
-    }
-
+  }
 }
