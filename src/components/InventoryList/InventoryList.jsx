@@ -155,8 +155,8 @@ export const InventoryList = ({ inventories, setInventories }) => {
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
                   </button>
-                  <Link className="table__data--edit">
-                    <img src={editIcon} alt="Garbage Red Color Icon" />
+                  <Link to={`/inventory/${id}`} className="table__data--edit">
+                    <img src={editIcon} alt="Pencil Blue Color Icon" />
                   </Link>
                 </td>
               </tr>

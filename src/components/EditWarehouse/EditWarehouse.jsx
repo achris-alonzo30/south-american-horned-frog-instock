@@ -99,7 +99,7 @@ const EditWarehouse = () => {
 
     const cancelHandler = (event) => {
         event.preventDefault();
-        navigate('/');
+        navigate(-1);
     }
 
     return(
