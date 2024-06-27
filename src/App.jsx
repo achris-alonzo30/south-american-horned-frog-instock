@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewWarehouse from "./pages/NewWarehouse/NewWarehouse";
 
 import { Inventory } from "./pages/Inventory/Inventory";
+import { InventoryDetails } from "./pages/InventoryDetails/InventoryDetails";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         />
 
         <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory/:inventoryId" element={<InventoryDetails />} />
       </Routes>
       <Footer />
     </BrowserRouter>
