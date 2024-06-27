@@ -71,7 +71,7 @@ export const InventoryList = ({ inventories }) => {
         ({ id, warehouse_name, item_name, category, status, quantity }) => (
           <tbody key={id} className="table__body">
             <tr className="table__body--row">
-              <td className="table__data--cells">
+              <td className="table__data--cells table__data--inventory-item">
                 <h4 className="table__data--header table__data--hidden ">
                   INVENTORY ITEM
                 </h4>
@@ -80,23 +80,42 @@ export const InventoryList = ({ inventories }) => {
                   <img src={chevronRight} alt="Arrow Point To Right" />
                 </Link>
               </td>
-              <td className="table__data--cells">
+              <td className="table__data--cells table__data--category">
                 <h2 className="table__data--header table__data--hidden">
                   CATEGORY
                 </h2>
                 <p className="table__data--content">{category}</p>
               </td>
-              <td className="table__data--cells">
+              <td className="table__data--cells table__data--status">
                 <h2 className="table__data--header table__data--hidden">
                   STATUS
                 </h2>
-                <p className="table__data--content">{status}</p>
+                <div
+                  className={`table__data--status-wrapper ${
+                    status.toLowerCase() === "in stock"
+                      ? "table__data--status-wrapper-in"
+                      : "table__data--status-wrapper-out"
+                  }`}
+                >
+                  <p
+                    className={`table__data--content ${
+                      status.toLowerCase() === "in stock"
+                        ? "table__data--status-in"
+                        : "table__data--status-out"
+                    }`}
+                  >
+                    {status.toUpperCase()}
+                  </p>
+                </div>
               </td>
-              <td className="table__data--cells">
+              <td className="table__data--cells table__data--qty">
                 <h2 className="table__data--header table__data--hidden">QTY</h2>
                 <p className="table__data--content">{quantity}</p>
               </td>
-              <td className="table__data--cells">
+              <td className="table__data--cells table__data--invisible">
+                <h2 className="table__data--header table__data--hidden"></h2>
+              </td>
+              <td className="table__data--cells table__data--warehouse">
                 <h2 className="table__data--header table__data--hidden">
                   WAREHOUSE
                 </h2>
@@ -121,55 +140,3 @@ export const InventoryList = ({ inventories }) => {
     </table>
   );
 };
-
-{
-  /* CURRENTLY HOSTING 1 ROW OF DUMMY DATA */
-}
-{
-  /* <tbody className="table__body">
-        <tr className="table__body--row">
-          <td className="table__data--cells">
-            <h4 className="table__data--header table__data--hidden ">
-              INVENTORY ITEM
-            </h4>
-            <Link to="/" className="table__data--link">
-              Television
-              <img src={chevronRight} alt="Arrow Point To Right" />
-            </Link>
-          </td>
-          <td className="table__data--cells">
-            <h2 className="table__data--header table__data--hidden">
-              CATEGORY
-            </h2>
-            <p className="table__data--content">Electronics</p>
-          </td>
-          <td className="table__data--cells">
-            <h2 className="table__data--header table__data--hidden">STATUS</h2>
-            <p className="table__data--content">IN STOCK</p>
-          </td>
-          <td className="table__data--cells">
-            <h2 className="table__data--header table__data--hidden">QTY</h2>
-            <p className="table__data--content">500</p>
-          </td>
-          <td className="table__data--cells">
-            <h2 className="table__data--header table__data--hidden">
-              WAREHOUSE
-            </h2>
-            <p className="table__data--content">Washington</p>
-          </td>
-          <td className="table__data--actions">
-            <img
-              src={trashIcon}
-              alt="Garbage Red Color Icon"
-              className="table__content--delete"
-            />
-            <img
-              src={editIcon}
-              alt="Garbage Red Color Icon"
-              className="table__content--edit"
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table> */
-}
