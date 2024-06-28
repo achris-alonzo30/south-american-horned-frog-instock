@@ -106,11 +106,11 @@ function WarehouseInventory({ warehouseInventory }) {
                   alt="Garbage Red Color Icon"
                   className="table__content--delete"
                 />
-                <img
+                <Link to={`/inventory/${id}`}><img
                   src={editIcon}
                   alt="Pencil Blue Color Icon"
                   className="table__content--edit"
-                />
+                /></Link>
               </td>
             </tr>
           </tbody>

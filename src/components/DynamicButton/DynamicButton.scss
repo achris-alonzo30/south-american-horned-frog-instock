@@ -24,6 +24,7 @@
   border: none;
   @extend .default-button-styles;
   background-color: $instock-indigo;
+  text-decoration: none;
 
   @include tablet {
     width: auto;
