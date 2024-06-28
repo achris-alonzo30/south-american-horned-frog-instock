@@ -18,7 +18,7 @@ import NewWarehouseForm from "./components/NewWarehouseForm/NewWarehouseForm";
 import { InventoryDetails } from "./pages/InventoryDetails/InventoryDetails";
 
 function App() {
-  const isNewWarehouse = useState();
+  const [isNewWarehouse, setIsNewWarehouse] = useState(0);
   return (
     <BrowserRouter>
       <Header />
@@ -34,7 +34,12 @@ function App() {
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
         <Route
           path="/warehouse/post"
-          element={<NewWarehouse isNewWarehouse={isNewWarehouse} />}
+          element={
+            <NewWarehouse
+              isNewWarehouse={isNewWarehouse}
+              setIsNewWarehouse={setIsNewWarehouse}
+            />
+          }
         />
         {/* <Route path="/inventory/:itemId" element={<EditInventoryItem />} /> */}
         <Route path="/inventory/add-new-item" element={<AddInventoryItem />} />
