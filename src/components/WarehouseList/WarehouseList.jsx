@@ -99,15 +99,10 @@ export const WarehouseList = ({
               contact_phone,
               contact_email,
               warehouse_name,
-            },
-            index
+            }
           ) => (
             <tbody key={id} className="table__body">
-              <tr
-                className={`table__body--row ${
-                  index === warehouses.length - 1 && "table__body--remove-bottom-border"
-                }`}
-              >
+              <tr className="table__body--row">
                 <td className="table__data--cells table__data--location">
                   <h4 className="table__data--header table__data--hidden ">
                     WAREHOUSE
