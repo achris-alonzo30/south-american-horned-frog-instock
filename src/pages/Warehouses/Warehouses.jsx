@@ -16,7 +16,7 @@ export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
-    getAllWarehouse(setWarehouses); 
+    getAllWarehouse(setWarehouses);
   }, []);
   
 
@@ -33,7 +33,7 @@ export const Warehouses = () => {
               icon={searchIcon}
               placeholder="Search..."
             />
-            <DynamicButton variant="add" addButtonName="Add New Warehouse" />
+            <DynamicButton variant="add" href="/warehouse/post" addButtonName="Add New Warehouse" />
           </CardHeader>
           <WarehouseList
             warehouses={warehouses}

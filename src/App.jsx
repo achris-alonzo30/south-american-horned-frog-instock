@@ -13,6 +13,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewWarehouse from "./pages/NewWarehouse/NewWarehouse";
 
 import { Inventory } from "./pages/Inventory/Inventory";
+import NewWarehouseForm from "./components/NewWarehouseForm/NewWarehouseForm";
+import { InventoryDetails } from "./pages/InventoryDetails/InventoryDetails";
 
 function App() {
   return (
@@ -25,11 +27,12 @@ function App() {
           element={<EditWarehouse />}
         />
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
+        <Route path="/warehouse/post" element={<NewWarehouse />} />
         <Route path="/inventory/:itemId/" element={<EditInventoryItem />} />
+        <Route path="/inventory/add-new-item" element={<AddInventoryItem />} />
         <Route path="/inventory" element={<Inventory />} />
 
         {/* <Route path="/" element={<Warehouses />} />
-        <Route path="/warehouse/post" element={<NewWarehouse />} />
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
         <Route
           path="/warehouse/:warehouseId/edit"
@@ -39,6 +42,8 @@ function App() {
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
 
         <Route path="/inventory" element={<Inventory />} /> */}
+        <Route path="/inventory/:inventoryId" element={<InventoryDetails />} />
+        <Route path="/inventory/:itemId/edit" element={<EditInventoryItem />} />
       </Routes>
       <Footer />
     </BrowserRouter>
