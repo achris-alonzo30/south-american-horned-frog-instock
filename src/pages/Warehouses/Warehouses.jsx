@@ -18,6 +18,7 @@ export const Warehouses = () => {
   useEffect(() => {
     getAllWarehouse(setWarehouses); 
   }, []);
+  
 
   if (!warehouses) return <LoadingSpinner />;
 
