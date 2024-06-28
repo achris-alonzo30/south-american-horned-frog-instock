@@ -34,6 +34,13 @@
     padding: 1rem 2rem;
   }
 
+  &--tablet-border{
+    @include tablet {
+      border-bottom: 1px solid $cloud;
+      padding: 1rem 2rem;
+    }
+  }
+
   &__left {
     gap: 0.5rem;
     display: flex;
