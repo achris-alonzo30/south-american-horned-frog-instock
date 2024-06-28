@@ -169,7 +169,7 @@ const AddInventoryItem = () => {
                             <label className = "add-item__label" htmlFor="item-status">Status</label>
 
                             <div className = {`item-status__container ${emptyFields.stockStatus ? 'error' : ''}`}>
-                                <DynamicInput type="radio" radioName= "In Stock" checked={stockStatus === "In Stock"} onChange={() => setStockStatus("In Stock")}/>
+                                <DynamicInput type="radio" radioName= "In Stock" checked={stockStatus === "In Stock"} onChange={() => setStockStatus("In Stock")}  />
                                 <DynamicInput type="radio" radioName="Out of Stock" checked={stockStatus === "Out of Stock"} onChange={() => setStockStatus("Out of Stock")} />
                             </div>
                             <div className = {`${emptyFields.stockStatus ? 'error-message' : 'error-message_hide'}`}>
