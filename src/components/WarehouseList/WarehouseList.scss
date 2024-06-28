@@ -120,24 +120,24 @@
             display: flex;
             white-space: nowrap;
             align-items: center;
-            margin-top: -0.35rem;
+            margin-top: -0.15rem;
             text-decoration: none;
-            @include dynamicFont(600, .6875rem, 1rem, $instock-indigo);
+            @include dynamicFont(600, .8125rem, 1.25rem, $instock-indigo);
 
             &:hover {
                 text-decoration: underline;
                 text-decoration-color: inherit;
             }
             @include tablet {
-                @include dynamicFont(600, .75rem, 1.125rem, $instock-indigo);
+                @include dynamicFont(600, .875rem, 1.375rem, $instock-indigo);
             }
         }
 
         &--content {
-            @include dynamicFont(400, .6875rem, 1rem, $instock-black);
+            @include dynamicFont(400, .8125rem, 1.25rem, $instock-black);
 
             @include tablet {
-                @include dynamicFont(400, .75rem, 1.125rem, $instock-black);
+                @include dynamicFont(400, .875rem, 1.375rem, $instock-black);
             }
         }
 
