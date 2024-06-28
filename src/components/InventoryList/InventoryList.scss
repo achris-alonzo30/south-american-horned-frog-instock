@@ -63,6 +63,11 @@
     display: table-row-group;
     border-bottom: 1px solid $cloud;
 
+
+    &--remove-bottom-border {
+      border-bottom: 0;
+    }
+
     &--row {
       display: flex;
       flex-wrap: wrap;

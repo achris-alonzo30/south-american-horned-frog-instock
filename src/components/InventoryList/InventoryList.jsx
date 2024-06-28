@@ -95,7 +95,11 @@ export const InventoryList = ({ inventories, setInventories }) => {
         {inventories.map(
           ({ id, warehouse_name, item_name, category, status, quantity }) => (
             <tbody key={id} className="table__body">
-              <tr className="table__body--row">
+              <tr
+                className={`table__body--row ${
+                  index === inventories.length - 1 && "table__body--remove-bottom-border"
+                }`}
+              >
                 <td className="table__data--cells table__data--inventory-item">
                   <h4 className="table__data--header table__data--hidden ">
                     INVENTORY ITEM
