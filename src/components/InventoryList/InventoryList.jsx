@@ -10,7 +10,7 @@ import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 import { Modal } from "../Modal/Modal";
 
-export const InventoryList = ({ inventories, setInventories }) => {
+export const InventoryList = ({ onSort, inventories, setInventories }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInventory, setSelectedInventory] = useState(null);
 
@@ -38,7 +38,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
         <thead className="table__header">
           <tr className="table__header--row">
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 INVENTORY ITEM
                 <img
                   src={sortIcon}
@@ -48,7 +48,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 CATEGORY
                 <img
                   src={sortIcon}
@@ -58,7 +58,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 STATUS
                 <img
                   src={sortIcon}
@@ -68,7 +68,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 QTY
                 <img
                   src={sortIcon}
@@ -78,7 +78,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 WAREHOUSE
                 <img
                   src={sortIcon}

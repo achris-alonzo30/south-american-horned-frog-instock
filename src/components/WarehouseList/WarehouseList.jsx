@@ -55,7 +55,7 @@ export const WarehouseList = ({
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 ADDRESS
                 <img
                   src={sortIcon}
@@ -65,7 +65,7 @@ export const WarehouseList = ({
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 CONTACT NAME
                 <img
                   src={sortIcon}
@@ -75,7 +75,7 @@ export const WarehouseList = ({
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 CONTACT INFORMATION
                 <img
                   src={sortIcon}
