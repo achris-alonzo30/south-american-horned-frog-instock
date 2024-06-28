@@ -14,8 +14,8 @@ import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
-  const [sortBy, setSortBy] = useState("");
-  const [orderBy, setOrderBy] = useState("");
+  const [sortBy, setSortBy] = useState("warehouse_name");
+  const [orderBy, setOrderBy] = useState("asc");
 
   useEffect(() => {
     getAllWarehouse(setWarehouses, sortBy, orderBy); 
