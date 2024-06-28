@@ -11,24 +11,32 @@ import { WarehouseDetails } from "./pages/WarehouseDetails/WarehouseDetails";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewWarehouse from "./pages/NewWarehouse/NewWarehouse";
+import { useState } from "react";
 
 import { Inventory } from "./pages/Inventory/Inventory";
 import NewWarehouseForm from "./components/NewWarehouseForm/NewWarehouseForm";
 import { InventoryDetails } from "./pages/InventoryDetails/InventoryDetails";
 
 function App() {
+  const isNewWarehouse = useState();
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Warehouses />} />
+        <Route
+          path="/"
+          element={<Warehouses isNewWarehouse={isNewWarehouse} />}
+        />
         <Route
           path="/warehouse/:warehouseId/edit"
           element={<EditWarehouse />}
         />
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
-        <Route path="/warehouse/post" element={<NewWarehouse />} />
-        <Route path="/inventory/:itemId/" element={<EditInventoryItem />} />
+        <Route
+          path="/warehouse/post"
+          element={<NewWarehouse isNewWarehouse={isNewWarehouse} />}
+        />
+        {/* <Route path="/inventory/:itemId" element={<EditInventoryItem />} /> */}
         <Route path="/inventory/add-new-item" element={<AddInventoryItem />} />
         <Route path="/inventory" element={<Inventory />} />
 

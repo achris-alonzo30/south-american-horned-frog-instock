@@ -12,12 +12,12 @@ import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { WarehouseList } from "../../components/WarehouseList/WarehouseList";
 import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
-export const Warehouses = () => {
+export const Warehouses = ({ isNewWarehouse }) => {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
     getAllWarehouse(setWarehouses);
-  }, []);
+  }, [isNewWarehouse]);
 
   if (!warehouses) return <LoadingSpinner />;
 
@@ -32,7 +32,11 @@ export const Warehouses = () => {
               icon={searchIcon}
               placeholder="Search..."
             />
-            <DynamicButton variant="add" href="/warehouse/post" addButtonName="Add New Warehouse" />
+            <DynamicButton
+              variant="add"
+              href="/warehouse/post"
+              addButtonName="Add New Warehouse"
+            />
           </CardHeader>
           <WarehouseList
             warehouses={warehouses}
