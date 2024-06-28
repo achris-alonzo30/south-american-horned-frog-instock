@@ -17,7 +17,7 @@ function Header() {
         <div className="header__buttons">
           <Link
             to="/"
-            className={`header__button header__button--link ${
+            className={`header__button header__button--link header__button--warehouses ${
               pathname === "/" ? "header__button--active" : ""
             }`}
           >
@@ -25,7 +25,7 @@ function Header() {
           </Link>
           <Link
             to="/inventory"
-            className={`header__button header__button--link  ${
+            className={`header__button header__button--link header__button--inventory  ${
               pathname !== "/" ? "header__button--active" : ""
             }`}
           >

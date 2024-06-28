@@ -35,7 +35,7 @@
   &--tablet-border {
     @include tablet {
       border-bottom: 1px solid $cloud;
-      padding: 1rem 2rem;
+      padding: 2rem 2rem 1.3rem;
     }
   }
 
