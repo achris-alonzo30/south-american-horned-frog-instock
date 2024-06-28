@@ -105,7 +105,7 @@ export const WarehouseList = ({
             <tbody key={id} className="table__body">
               <tr
                 className={`table__body--row ${
-                  index === warehouses.length - 1 && "remove-bottom-border"
+                  index === warehouses.length - 1 && "table__body--remove-bottom-border"
                 }`}
               >
                 <td className="table__data--cells table__data--location">
