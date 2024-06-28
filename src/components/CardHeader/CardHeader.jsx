@@ -19,7 +19,7 @@ export const CardHeader = ({
   };
 
   return (
-    <section className={`card-header ${flexStyle} ${tabletHeaderBorder ? 'card-header--tablet-border' : ''}`}>
+    <section className={`card-header ${flexStyle} ${tabletHeaderBorder ? 'card-header card-header--tablet-border' : ''}`}>
       <nav className="card-header__left">
         {withArrow && (
           <img

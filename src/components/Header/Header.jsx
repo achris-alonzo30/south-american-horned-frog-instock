@@ -9,11 +9,11 @@ function Header() {
   return (
     <header className="header">
       <div className="header__content">
-        <img
+      <Link to="/"><img
           src="/src/assets/logo/InStock-Logo.svg"
           alt="InStock-Logo"
           className="header__logo"
-        />
+        /></Link>
         <div className="header__buttons">
           <Link
             to="/"
