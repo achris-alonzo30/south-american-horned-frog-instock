@@ -102,7 +102,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
                   </h4>
                   <Link to="/" className="table__data--link">
                     {item_name}
-                    <img src={chevronRight} alt="Arrow Point To Right" />
+                    <img src={chevronRight} alt="Arrow Point To Right" className="arrow-animation" />
                   </Link>
                 </td>
                 <td className="table__data--cells table__data--category">

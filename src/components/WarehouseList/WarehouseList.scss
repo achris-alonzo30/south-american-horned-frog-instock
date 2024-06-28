@@ -132,7 +132,13 @@
             &:hover {
                 text-decoration: underline;
                 text-decoration-color: inherit;
+
+                .arrow-animation {
+                    transform: translateX(4px);
+                    transition: transform 0.3s ease;
+                }
             }
+
             @include tablet {
                 @include dynamicFont(600, .875rem, 1.375rem, $instock-indigo);
             }
@@ -210,3 +216,7 @@
 .remove-bottom-border {
     border-bottom: 0;
 }
+
+// .arrow-animation {
+//     transition: transform 0.2 ease;
+// }
