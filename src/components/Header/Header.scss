@@ -102,6 +102,11 @@
     &--active {
       background-color: $instock-black;
       color: $white;
+
+      @include tablet {
+        padding: 0 1rem;
+      }
     }
+
   }
 }
