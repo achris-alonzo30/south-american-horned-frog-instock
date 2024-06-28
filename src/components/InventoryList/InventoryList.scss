@@ -61,11 +61,11 @@
 
   &__body {
     display: table-row-group;
-    border-top: 1px solid $cloud;
-
+    
     &--row {
       display: flex;
       flex-wrap: wrap;
+      border-bottom: 1px solid $cloud;
 
       &:hover {
         background-color: rgba(189, 197, 213, 0.5);
@@ -75,7 +75,13 @@
       @include tablet {
         display: table-row;
       }
+
     }
+
+    &--remove-border-bottom {
+      border-bottom: 0 !important;
+    }
+
   }
 
   &__data {

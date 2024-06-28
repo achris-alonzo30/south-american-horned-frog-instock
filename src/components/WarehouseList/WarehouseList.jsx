@@ -11,10 +11,7 @@ import editIcon from "../../assets/icons/edit_indigo-24px.svg";
 import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
-export const WarehouseList = ({
-  warehouses,
-  setWarehouses
-}) => {
+export const WarehouseList = ({ warehouses, setWarehouses }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedWarehouse, setSelectedWarehouse] = useState(null);
 
@@ -88,21 +85,24 @@ export const WarehouseList = ({
             </th>
           </tr>
         </thead>
-        {warehouses.map(
-          (
-            {
-              id,
-              city,
-              country,
-              address,
-              contact_name,
-              contact_phone,
-              contact_email,
-              warehouse_name,
-            }
-          ) => (
-            <tbody key={id} className="table__body">
-              <tr className="table__body--row">
+        <tbody className="table__body">
+          {warehouses.map(
+            (
+              {
+                id,
+                city,
+                country,
+                address,
+                contact_name,
+                contact_phone,
+                contact_email,
+                warehouse_name,
+              },
+              index
+            ) => (
+              <tr key={id} className={`table__body--row ${
+                index === warehouses.length - 1  ? "table__body--remove-border-bottom" : ""
+              }`}>
                 <td className="table__data--cells table__data--location">
                   <h4 className="table__data--header table__data--hidden ">
                     WAREHOUSE
@@ -123,7 +123,9 @@ export const WarehouseList = ({
                     ADDRESS
                   </h2>
                   <hgroup className="table__data--address">
-                    <p className="table__data--content">{address}, {city}, {country}</p>
+                    <p className="table__data--content">
+                      {address}, {city}, {country}
+                    </p>
                   </hgroup>
                 </td>
                 <td className="table__data--cells table__data--contact">
@@ -151,14 +153,17 @@ export const WarehouseList = ({
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
                   </button>
-                  <Link to={`/warehouse/${id}/edit`} className="table__data--edit">
+                  <Link
+                    to={`/warehouse/${id}/edit`}
+                    className="table__data--edit"
+                  >
                     <img src={editIcon} alt="Pencil Red Color Icon" />
                   </Link>
                 </td>
               </tr>
-            </tbody>
-          )
-        )}
+            )
+          )}
+        </tbody>
       </table>
     </>
   );
