@@ -93,7 +93,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
           </tr>
         </thead>
         {inventories.map(
-          ({ id, warehouse_name, item_name, category, status, quantity }) => (
+          ({ id, warehouse_name, item_name, category, status, quantity }, index) => (
             <tbody key={id} className="table__body">
               <tr
                 className={`table__body--row ${

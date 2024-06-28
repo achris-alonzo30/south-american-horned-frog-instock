@@ -38,7 +38,6 @@ export const Inventory = () => {
           inventories={inventories}
           setInventories={setInventories}
         />
-        <CardFooter></CardFooter>
       </Card>
     </main>
   );
