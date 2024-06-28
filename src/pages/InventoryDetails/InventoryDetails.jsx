@@ -31,7 +31,7 @@ export const InventoryDetails = () => {
         >
           <DynamicButton
             variant="edit"
-            href={`/inventory/edit/${inventoryId}`}
+            href={`/inventory/${inventoryId}/edit`}
           />
         </CardHeader>
         <InventoryItem inventory={inventory}></InventoryItem>
