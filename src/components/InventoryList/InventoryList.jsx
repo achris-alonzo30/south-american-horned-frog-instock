@@ -38,53 +38,63 @@ export const InventoryList = ({ onSort, inventories, setInventories }) => {
         <thead className="table__header">
           <tr className="table__header--row">
             <th className="table__header--cells">
-              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
+              <div className="table__header--content" >
                 INVENTORY ITEM
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
+              <div className="table__header--content">
                 CATEGORY
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
+              <div className="table__header--content" >
                 STATUS
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
+              <div className="table__header--content" >
                 QTY
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--cells">
-              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
+              <div className="table__header--content">
                 WAREHOUSE
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--end">

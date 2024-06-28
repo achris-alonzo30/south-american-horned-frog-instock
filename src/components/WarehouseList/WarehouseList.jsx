@@ -45,43 +45,51 @@ export const WarehouseList = ({
         <thead className="table__header">
           <tr className="table__header--row">
             <th className="table__header--cells">
-              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
+              <div className="table__header--content">
                 WAREHOUSE
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--cells">
               <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 ADDRESS
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--cells">
               <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 CONTACT NAME
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--cells">
               <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 CONTACT INFORMATION
-                <img
-                  src={sortIcon}
-                  className="table__header--icon"
-                  alt="Two Arrows Point Up and Down"
-                />
+                <button className="table__header--sortButton" onClick={() => onSort("warehouse_name")}>
+                  <img
+                    src={sortIcon}
+                    className="table__header--icon"
+                    alt="Two Arrows Point Up and Down"
+                  />
+                </button>
               </div>
             </th>
             <th className="table__header--end">
