@@ -18,7 +18,7 @@ function Header() {
           <Link
             to="/"
             className={`header__button header__button--link ${
-              pathname === "/" ? "header__button--active" : ""
+              pathname === "/" || pathname.includes("warehouse") ? "header__button--active" : ""
             }`}
           >
             Warehouses
@@ -26,7 +26,7 @@ function Header() {
           <Link
             to="/inventory"
             className={`header__button header__button--link  ${
-              pathname !== "/" ? "header__button--active" : ""
+              pathname.includes("inventory") ? "header__button--active" : ""
             }`}
           >
             Inventory
