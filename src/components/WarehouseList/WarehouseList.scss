@@ -65,7 +65,6 @@
         &--row {
             display: flex;
             flex-wrap: wrap;
-            border-bottom: 1px solid $cloud;
 
             &:hover {
                 background-color: rgba(189, 197, 213, 0.5);
@@ -80,7 +79,7 @@
 
     &__data {
         &--cells {
-            flex: 1 1 50%;
+            flex: 1 1 45%;
             display: block;
             box-sizing: border-box;
             padding: 1rem 0.75rem 0 1rem;
@@ -92,11 +91,6 @@
             }
         }
 
-        &--address {
-            display: flex;
-            flex-direction: column;
-
-        }
 
         &--header {
             text-align: left;
@@ -126,15 +120,16 @@
             display: flex;
             white-space: nowrap;
             align-items: center;
+            margin-top: -0.35rem;
             text-decoration: none;
-            @include dynamicFont(600, .8125rem, 1.25rem, $instock-indigo);
+            @include dynamicFont(600, .6875rem, 1rem, $instock-indigo);
 
             &:hover {
                 text-decoration: underline;
                 text-decoration-color: inherit;
             }
             @include tablet {
-                @include dynamicFont(600, .875rem, 1.375rem, $instock-indigo);
+                @include dynamicFont(600, .75rem, 1.125rem, $instock-indigo);
             }
         }
 

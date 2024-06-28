@@ -128,10 +128,7 @@ export const WarehouseList = ({
                     ADDRESS
                   </h2>
                   <hgroup className="table__data--address">
-                    <p className="table__data--content">{address}</p>
-                    <p className="table__data--content">
-                      {city}, {country}
-                    </p>
+                    <p className="table__data--content">{address}, {city}, {country}</p>
                   </hgroup>
                 </td>
                 <td className="table__data--cells table__data--contact">
