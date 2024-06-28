@@ -108,7 +108,7 @@ function WarehouseInventory({ warehouseInventory }) {
                 />
                 <img
                   src={editIcon}
-                  alt="Garbage Red Color Icon"
+                  alt="Pencil Blue Color Icon"
                   className="table__content--edit"
                 />
               </td>

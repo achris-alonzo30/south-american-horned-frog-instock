@@ -29,7 +29,10 @@ export const InventoryDetails = () => {
           flexStyle="flexRow"
           browserName={inventory.item_name}
         >
-          <DynamicButton variant="edit" href="/inventory/edit" />
+          <DynamicButton
+            variant="edit"
+            href={`/inventory/edit/${inventoryId}`}
+          />
         </CardHeader>
         <InventoryItem inventory={inventory}></InventoryItem>
       </Card>
