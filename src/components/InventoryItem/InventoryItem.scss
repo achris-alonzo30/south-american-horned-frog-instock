@@ -1,0 +1,54 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5rem 1.5rem 1.5rem;
+  &__label {
+    @include dynamicFont(600, $fontsize-mob-llb, $lh-mob-llb, $slate);
+    margin-top: 1rem;
+  }
+  &__content {
+    margin-top: 0.25rem;
+    @include dynamicFont(
+      400,
+      $fontsize-mob-body-medium,
+      $lh-mob-body-medium,
+      $instock-black
+    );
+  }
+
+  &--stock {
+    height: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+    width: fit-content;
+
+    @include tablet {
+      height: 1.75rem;
+    }
+
+    &--in {
+      background-color: rgb(21, 132, 99, 0.07);
+      color: $green;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      border-radius: 1.25rem;
+    }
+
+    &--out {
+      background-color: rgb(201, 69, 21, 0.07);
+      color: $red;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      border-radius: 1.25rem;
+    }
+  }
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+  }
+}

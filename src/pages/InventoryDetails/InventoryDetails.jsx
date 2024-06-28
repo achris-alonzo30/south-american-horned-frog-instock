@@ -11,7 +11,7 @@ import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
-import { InventoryList } from "../../components/InventoryList/InventoryList";
+import InventoryItem from "../../components/InventoryItem/InventoryItem";
 import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const InventoryDetails = () => {
@@ -21,20 +21,26 @@ export const InventoryDetails = () => {
 
   useEffect(() => {
     getSingleInventory(setInventory, inventoryId);
-  }, [inventoryId]);
-
-  console.log(inventory.length);
+  }, [inventoryId, inventory]);
 
   if (!inventory) return <LoadingSpinner />;
 
   return (
     <main className="main">
       <Card>
-        <CardHeader flexStyle="flexCol" browserName={inventory.item_name}>
+        <CardHeader
+          withArrow
+          tabletHeaderBorder
+          flexStyle="flexRow"
+          browserName={inventory.item_name}
+        >
           <DynamicButton variant="edit" href="/inventory/edit" />
         </CardHeader>
-        <CardFooter></CardFooter>
+        {console.log(inventory)}
+        <InventoryItem inventory={inventory}></InventoryItem>
       </Card>
     </main>
   );
 };
+
+export default InventoryDetails;

@@ -15,8 +15,7 @@ export const getAllInventories = async (fn) => {
 export const getSingleInventory = async (fn, id) => {
   try {
     const res = await axios.get(`${API_INVENTORIES_URL}/${id}`);
-
-    return fn(res.data);
+    return fn(res.data[0]);
   } catch (error) {
     console.error(error);
   }

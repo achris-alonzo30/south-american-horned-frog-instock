@@ -100,7 +100,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
                   <h4 className="table__data--header table__data--hidden ">
                     INVENTORY ITEM
                   </h4>
-                  <Link to="/" className="table__data--link">
+                  <Link to={`/inventory/${id}`} className="table__data--link">
                     {item_name}
                     <img src={chevronRight} alt="Arrow Point To Right" />
                   </Link>
