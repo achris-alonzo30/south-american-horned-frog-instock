@@ -14,12 +14,23 @@ import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
+  const [sortBy, setSortBy] = useState("");
+  const [orderBy, setOrderBy] = useState("");
 
   useEffect(() => {
-    getAllWarehouse(setWarehouses); 
-  }, []);
+    getAllWarehouse(setWarehouses, sortBy, orderBy); 
+  }, [sortBy, orderBy]);
 
   if (!warehouses) return <LoadingSpinner />;
+
+  const handleSort = (col) => {
+    if (sortBy === col) { 
+      setOrderBy(orderBy === "asc" ? "desc" : "asc")
+    } else {
+      setSortBy(col);
+      setOrderBy('asc');
+    }
+  }
 
   return (
     <>
@@ -35,6 +46,7 @@ export const Warehouses = () => {
             <DynamicButton variant="add" addButtonName="Add New Warehouse" />
           </CardHeader>
           <WarehouseList
+            onSort={handleSort}
             warehouses={warehouses}
             setWarehouses={setWarehouses}
           />

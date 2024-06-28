@@ -2,9 +2,14 @@ import axios from "axios";
 
 const API_WAREHOUSES_URL = "http://localhost:8080/api/warehouses";
 
-export const getAllWarehouse = async (fn) => {
+export const getAllWarehouse = async (fn, sortBy, orderBy) => {
   try {
-    const res = await axios.get(API_WAREHOUSES_URL);
+    const res = await axios.get(API_WAREHOUSES_URL, {
+      params: {
+        sort_by: sortBy,
+        order_by: orderBy
+      }
+    });
 
     return fn(res.data);
   } catch (error) {

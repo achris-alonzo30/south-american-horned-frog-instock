@@ -12,6 +12,7 @@ import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 
 export const WarehouseList = ({
+  onSort,
   warehouses,
   setWarehouses
 }) => {
@@ -44,7 +45,7 @@ export const WarehouseList = ({
         <thead className="table__header">
           <tr className="table__header--row">
             <th className="table__header--cells">
-              <div className="table__header--content">
+              <div className="table__header--content" onClick={() => onSort("warehouse_name")}>
                 WAREHOUSE
                 <img
                   src={sortIcon}
