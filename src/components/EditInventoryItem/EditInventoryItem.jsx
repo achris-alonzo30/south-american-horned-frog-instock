@@ -9,9 +9,9 @@ import { CardHeader } from "../CardHeader/CardHeader";
 import errorIcon from "../../assets/icons/error-24px.svg";
 
 const EditInventoryItem = () => {
-  const { itemId } = useParams();
+  const { inventoryId } = useParams();
   const navigate = useNavigate();
-  // const itemId = "3";
+
 
   const warehouseMap = {
     "Brooklyn Warehouse": "1",
@@ -42,7 +42,7 @@ const EditInventoryItem = () => {
         );
         const items = response.data;
 
-        const item = items.find((item) => item.id.toString() == itemId);
+        const item = items.find((item) => item.id.toString() == inventoryId);
 
         if (item) {
           setName(item.item_name);
@@ -63,7 +63,7 @@ const EditInventoryItem = () => {
     };
 
     fetchInventoryItem();
-  }, [itemId]);
+  }, [inventoryId]);
 
   const validateForm = () => {
     const errors = {};
@@ -119,7 +119,7 @@ const EditInventoryItem = () => {
     }
 
     const itemEditInfo = {
-      id: itemId,
+      id: inventoryId,
       warehouse_id: warehouseId,
       item_name: name,
       category: category,
@@ -131,7 +131,7 @@ const EditInventoryItem = () => {
 
     try {
       await axios.put(
-        `http://localhost:8080/api/inventories/${itemId}`,
+        `http://localhost:8080/api/inventories/${inventoryId}`,
         itemEditInfo
       );
       alert("We have successfully edited your item information!");

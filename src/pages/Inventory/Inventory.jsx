@@ -32,7 +32,7 @@ export const Inventory = () => {
             icon={searchIcon}
             placeholder="Search..."
           />
-          <DynamicButton href={`/inventory/add-new-item`} variant="add" addButtonName="Add New Item" />
+          <DynamicButton href={`/inventory/post`} variant="add" addButtonName="Add New Item" />
         </CardHeader>
         <InventoryList
           inventories={inventories}

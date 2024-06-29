@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 function Header() {
   const { pathname } = useLocation();
 
-  console.log(pathname);
   return (
     <header className="header">
       <div className="header__content">
@@ -18,7 +17,7 @@ function Header() {
           <Link
             to="/"
             className={`header__button header__button--link header__button--warehouses ${
-              pathname === "/" ? "header__button--active" : ""
+              pathname.includes("warehouse") ? "header__button--active" : ""
             }`}
           >
             Warehouses
@@ -26,7 +25,7 @@ function Header() {
           <Link
             to="/inventory"
             className={`header__button header__button--link header__button--inventory  ${
-              pathname !== "/" ? "header__button--active" : ""
+              pathname.includes("inventory") ? "header__button--active" : ""
             }`}
           >
             Inventory

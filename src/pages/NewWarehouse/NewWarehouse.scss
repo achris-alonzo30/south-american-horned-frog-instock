@@ -1,0 +1,24 @@
+@import "../../styles/partials/mixin";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/variables";
+
+.main {
+    height: 100%;
+    padding: 1rem 1rem 0;
+    margin-top: -4.75rem;
+
+    @include tablet {
+        heigth: 100%;
+        padding: 2rem;
+        margin-top: -7.85rem;
+    }
+
+    @include desktop {
+        heigth: 100%;
+        display: flex;
+        margin: auto;
+        margin-top: -7.85rem;
+        max-width: 63.75rem;
+    }
+}
