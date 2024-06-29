@@ -35,65 +35,65 @@ export const InventoryList = ({ inventories, setInventories }) => {
         />
       )}
 
-      <table className="table">
-        <thead className="table__header">
-          <tr className="table__header--row">
-            <th className="table__header--cells">
-              <div className="table__header--content">
+      <table className="warehouse-list-table">
+        <thead className="warehouse-list-table__header">
+          <tr className="warehouse-list-table__header--row">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--content">
                 INVENTORY ITEM
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--cells">
-              <div className="table__header--content">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--content">
                 CATEGORY
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--cells">
-              <div className="table__header--content">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--content">
                 STATUS
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--cells">
-              <div className="table__header--content">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--content">
                 QTY
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--cells">
-              <div className="table__header--content">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--content">
                 WAREHOUSE
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--end">
-              <div className="table__header--content ">ACTIONS</div>
+            <th className="warehouse-list-table__header--end">
+              <div className="warehouse-list-table__header--content ">ACTIONS</div>
             </th>
           </tr>
         </thead>
-        <tbody className="table__body">
+        <tbody className="warehouse-list-table__body">
           {inventories.map(
             (
               { id, warehouse_name, item_name, category, status, quantity },
@@ -103,70 +103,70 @@ export const InventoryList = ({ inventories, setInventories }) => {
                 key={id}
                 className={`table__body--row ${
                   index === inventories.length - 1
-                    ? "table__body--remove-border-bottom"
+                    ? "warehouse-list-table__body--remove-border-bottom"
                     : ""
                 }`}
               >
-                <td className="table__data--cells table__data--inventory-item">
-                  <h4 className="table__data--header table__data--hidden ">
+                <td className="warehouse-list-table__data--cells table__data--inventory-item">
+                  <h4 className="warehouse-list-table__data--header table__data--hidden ">
                     INVENTORY ITEM
                   </h4>
-                  <Link to={`/inventory/${id}`} className="table__data--link">
+                  <Link to={`/inventory/${id}`} className="warehouse-list-table__data--link">
                     {item_name}
                     <img src={chevronRight} alt="Arrow Point To Right" className="arrow-animation" />
                   </Link>
                 </td>
-                <td className="table__data--cells table__data--category">
-                  <h2 className="table__data--header table__data--hidden">
+                <td className="warehouse-list-table__data--cells table__data--category">
+                  <h2 className="warehouse-list-table__data--header table__data--hidden">
                     CATEGORY
                   </h2>
-                  <p className="table__data--content">{category}</p>
+                  <p className="warehouse-list-table__data--content">{category}</p>
                 </td>
-                <td className="table__data--cells table__data--status">
-                  <h2 className="table__data--header table__data--hidden">
+                <td className="warehouse-list-table__data--cells table__data--status">
+                  <h2 className="warehouse-list-table__data--header table__data--hidden">
                     STATUS
                   </h2>
                   <div
                     className={`table__data--status-wrapper ${
                       status.toLowerCase() === "in stock"
-                        ? "table__data--status-wrapper-in"
-                        : "table__data--status-wrapper-out"
+                        ? "warehouse-list-table__data--status-wrapper-in"
+                        : "warehouse-list-table__data--status-wrapper-out"
                     }`}
                   >
                     <p
                       className={`table__data--content ${
                         status.toLowerCase() === "in stock"
-                          ? "table__data--status-in"
-                          : "table__data--status-out"
+                          ? "warehouse-list-table__data--status-in"
+                          : "warehouse-list-table__data--status-out"
                       }`}
                     >
                       {status.toUpperCase()}
                     </p>
                   </div>
                 </td>
-                <td className="table__data--cells table__data--qty">
-                  <h2 className="table__data--header table__data--hidden">
+                <td className="warehouse-list-table__data--cells table__data--qty">
+                  <h2 className="warehouse-list-table__data--header table__data--hidden">
                     QTY
                   </h2>
-                  <p className="table__data--content">{quantity}</p>
+                  <p className="warehouse-list-table__data--content">{quantity}</p>
                 </td>
-                <td className="table__data--cells table__data--invisible">
-                  <h2 className="table__data--header table__data--hidden"></h2>
+                <td className="warehouse-list-table__data--cells table__data--invisible">
+                  <h2 className="warehouse-list-table__data--header table__data--hidden"></h2>
                 </td>
-                <td className="table__data--cells table__data--warehouse">
-                  <h2 className="table__data--header table__data--hidden">
+                <td className="warehouse-list-table__data--cells table__data--warehouse">
+                  <h2 className="warehouse-list-table__data--header table__data--hidden">
                     WAREHOUSE
                   </h2>
-                  <p className="table__data--content">{warehouse_name}</p>
+                  <p className="warehouse-list-table__data--content">{warehouse_name}</p>
                 </td>
-                <td className="table__data--actions">
+                <td className="warehouse-list-table__data--actions">
                   <button
-                    className="table__data--delete"
+                    className="warehouse-list-table__data--delete"
                     onClick={() => handleOpenModal({ id, item_name })}
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
                   </button>
-                  <Link to={`/inventory/${id}`} className="table__data--edit">
+                  <Link to={`/inventory/${id}`} className="warehouse-list-table__data--edit">
                     <img src={editIcon} alt="Pencil Blue Color Icon" />
                   </Link>
                 </td>

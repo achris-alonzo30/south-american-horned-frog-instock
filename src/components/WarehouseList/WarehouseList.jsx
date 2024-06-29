@@ -37,55 +37,55 @@ export const WarehouseList = ({ warehouses, setWarehouses }) => {
         />
       )}
 
-      <table className="table">
-      <thead className="table__header">
-          <tr className="table__header--row">
-            <th className="table__header--cells">
-              <div className="table__header--content">
+      <table className="warehouse-list-table">
+        <thead className="warehouse-list-table__header">
+          <tr className="warehouse-list-table__header--row">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--flex">
                 WAREHOUSE
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--cells">
-              <div className="table__header--content">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--flex">
                 ADDRESS
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--cells">
-              <div className="table__header--content">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--flex">
                 CONTACT NAME
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--cells">
-              <div className="table__header--content">
+            <th className="warehouse-list-table__header--cells">
+              <div className="warehouse-list-table__header--flex">
                 CONTACT INFORMATION
                 <img
                   src={sortIcon}
-                  className="table__header--icon"
+                  className="warehouse-list-table__header--icon"
                   alt="Two Arrows Point Up and Down"
                 />
               </div>
             </th>
-            <th className="table__header--end">
-              <div className="table__header--content ">ACTIONS</div>
+            <th className="warehouse-list-table__header--cells warehouse-list-table__header--end">
+              <div className="warehouse-list-table__header--flex">ACTIONS</div>
             </th>
           </tr>
         </thead>
-        <tbody className="table__body">
+        <tbody className="warehouse-list-table__body">
           {warehouses.map(
             (
               {
@@ -100,54 +100,71 @@ export const WarehouseList = ({ warehouses, setWarehouses }) => {
               },
               index
             ) => (
-              <tr key={id} className={`table__body--row ${
-                index === warehouses.length - 1  ? "table__body--remove-border-bottom" : ""
-              }`}>
-                <td className="table__data--cells table__data--location">
-                  <h4 className="table__data--header table__data--hidden ">
+              <tr
+                key={id}
+                className={`warehouse-list-table__body--row ${
+                  index === warehouses.length - 1
+                    ? "warehouse-list-table__body--remove-border-bottom"
+                    : ""
+                }`}
+              >
+                <td className={`warehouse-list-table__data--cells warehouse-list-table__data--location`}>
+                  <h4 className="warehouse-list-table__data--header warehouse-list-table__data--hidden ">
                     WAREHOUSE
                   </h4>
-                  <Link to={`/warehouse/${id}`} className="table__data--link">
+                  <Link
+                    to={`/warehouse/${id}`}
+                    className="warehouse-list-table__data--link"
+                  >
                     {warehouse_name}
-                    <img src={chevronRight} alt="Arrow Point To Right" className="arrow-animation" />
+                    <img
+                      src={chevronRight}
+                      alt="Arrow Point To Right"
+                      className="arrow-animation"
+                    />
                   </Link>
                 </td>
-                <td className="table__data--cells table__data--address">
-                  <h2 className="table__data--header table__data--hidden">
+                <td className="warehouse-list-table__data--cells warehouse-list-table__data--address ">
+                  <h2 className="warehouse-list-table__data--header warehouse-list-table__data--hidden ">
                     ADDRESS
                   </h2>
-                  <hgroup className="table__data--fulladdress">
-                    <p className="table__data--content">
+                  <hgroup className="warehouse-list-table__data--fulladdress ">
+                    <p className="warehouse-list-table__data--content">
                       {address},
                     </p>
-                    <p className="table__data--content"> {city}, {country}</p>
+                    <p className="warehouse-list-table__data--content">
+                      {" "}
+                      {city}, {country}
+                    </p>
                   </hgroup>
                 </td>
-                <td className="table__data--cells table__data--name">
-                  <h2 className="table__data--header table__data--hidden">
+                <td className="warehouse-list-table__data--cells warehouse-list-table__data--name ">
+                  <h2 className="warehouse-list-table__data--header warehouse-list-table__data--hidden ">
                     CONTACT NAME
                   </h2>
-                  <p className="table__data--content">{contact_name}</p>
+                  <p className="warehouse-list-table__data--content">
+                    {contact_name}
+                  </p>
                 </td>
-                <td className="table__data--cells table__data--contact">
-                  <h2 className="table__data--header table__data--hidden">
+                <td className="warehouse-list-table__data--cells warehouse-list-table__data--contact ">
+                  <h2 className="warehouse-list-table__data--header warehouse-list-table__data--hidden ">
                     CONTACT INFORMATION
                   </h2>
                   <hgroup>
-                    <p className="table__data--content table__data--margin">
+                    <p className="warehouse-list-table__data--content warehouse-list-table__data--margin">
                       {contact_phone}
                     </p>
                     <Link
                       to="mailto:paujla@instock.com"
-                      className="table__data--content table__data--email"
+                      className="warehouse-list-table__data--content warehouse-list-table__data--email"
                     >
                       {contact_email}
                     </Link>
                   </hgroup>
                 </td>
-                <td className="table__data--actions">
+                <td className="warehouse-list-table__data--actions">
                   <button
-                    className="table__data--delete"
+                    className="warehouse-list-table__data--delete"
                     onClick={() =>
                       handleOpenModal({ id, warehouseName: warehouse_name })
                     }
@@ -156,7 +173,7 @@ export const WarehouseList = ({ warehouses, setWarehouses }) => {
                   </button>
                   <Link
                     to={`/warehouse/${id}/edit`}
-                    className="table__data--edit"
+                    className="warehouse-list-table__data--edit"
                   >
                     <img src={editIcon} alt="Pencil Red Color Icon" />
                   </Link>
