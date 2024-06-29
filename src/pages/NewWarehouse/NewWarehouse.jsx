@@ -54,11 +54,12 @@ function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
 
     if (!validateEmail(formValues.contact_email)) {
       return alert("Invalid email format");
-    } else if (formValues.contact_phone.length < 11) {
-      return alert(
-        "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
-      );
     }
+    // else if (formValues.contact_phone.length < 11) {
+    //   return alert(
+    //     "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
+    //   );
+    // }
 
     return Object.keys(errors).length === 0;
   };

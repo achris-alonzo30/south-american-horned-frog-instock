@@ -75,7 +75,7 @@ const EditWarehouse = () => {
 
     if (!validateEmail(contactEmail)) {
       return alert("Invalid email format");
-    } else if (!validatePhone(contactPhn)) {
+    } else if (contactPhn < 11) {
       return alert(
         "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
       );
