@@ -2,6 +2,7 @@ import "./EditInventoryItem.scss";
 
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { getAllWarehouse } from "../../lib/api-warehouses";
 import { useNavigate, useParams } from "react-router-dom";
 
 import errorIcon from "../../assets/icons/error-24px.svg";
@@ -10,8 +11,8 @@ import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
-import { getAllInventories } from "../../lib/api-inventories";
 import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
+
 
 export const EditInventoryItem = () => {
   const { inventoryId } = useParams();
@@ -66,7 +67,7 @@ export const EditInventoryItem = () => {
         alert("Error fetching inventory items");
       }
     };
-    getAllInventories(setAvailableWarehouses);
+    getAllWarehouse(setAvailableWarehouses);
     fetchInventoryItem();
   }, [inventoryId]);
 
@@ -151,11 +152,12 @@ export const EditInventoryItem = () => {
 
   if (!availableWarehouses.length) return <LoadingSpinner />;
 
-  const checkWarehouseAvailability = (option) => {
-    return !availableWarehouses.some(
-      (warehouse) => warehouse.warehouse_name === option
-    );
-  };
+  // const checkWarehouseAvailability = (option) => {
+  //   return !availableWarehouses.some(
+  //     (warehouse) => warehouse.warehouse_name === option
+  //   );
+  // };
+  console.log(availableWarehouses)
 
   return (
     <main className="main">
@@ -317,13 +319,9 @@ export const EditInventoryItem = () => {
                 placeholder="Please Select"
               >
                 <option>Select an Option</option>
-                {Object.keys(warehouseMap).map((warehouse) => (
-                  <option
-                    key={warehouseMap[warehouse]}
-                    value={warehouse}
-                    disabled={checkWarehouseAvailability(warehouse)}
-                  >
-                    {warehouse}
+                {availableWarehouses.map(({ warehouse_name, id }, index) => (
+                  <option key={id} value={warehouse_name}>
+                    {warehouse_name}
                   </option>
                 ))}
               </select>

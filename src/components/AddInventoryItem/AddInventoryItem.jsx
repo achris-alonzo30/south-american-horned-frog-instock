@@ -14,7 +14,6 @@ import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
 export const AddInventoryItem = () => {
   const navigate = useNavigate();
   const [availableWarehouses, setAvailableWarehouses] = useState([]);
-  const [isAvailable, setIsAvailable] = useState(false);
   const [itemId, setItemId] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -133,11 +132,6 @@ export const AddInventoryItem = () => {
 
   if (!availableWarehouses.length) return <LoadingSpinner />;
 
-  const checkWarehouseAvailability = (option) => {
-    return !availableWarehouses.some(
-      (warehouse) => warehouse.warehouse_name === option
-    );
-  };
 
   return (
     <form className="add-item__form" onSubmit={saveHandler}>
@@ -284,13 +278,12 @@ export const AddInventoryItem = () => {
             placeholder="Please Select"
           >
             <option>Select an Option</option>
-            {Object.keys(warehouseMap).map((warehouse) => (
+            {availableWarehouses.map(({warehouse_name, id}) => (
               <option
-                key={warehouseMap[warehouse]}
-                value={warehouse}
-                disabled={checkWarehouseAvailability(warehouse)}
+                key={id}
+                value={warehouse_name}
               >
-                {warehouse}
+                {warehouse_name}
               </option>
             ))}
           </select>
