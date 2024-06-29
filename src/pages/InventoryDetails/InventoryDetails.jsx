@@ -18,7 +18,7 @@ export const InventoryDetails = () => {
     getSingleInventory(setInventory, inventoryId);
   }, [inventoryId]);
 
-  if (!inventory) return <LoadingSpinner />;
+  if (!inventory.length) return <LoadingSpinner />;
 
   return (
     <main className="main">
