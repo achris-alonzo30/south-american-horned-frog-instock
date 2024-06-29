@@ -1,13 +1,15 @@
 import "./EditWarehouseItem.scss"
-import axios from "axios"
-import {useNavigate, useParams} from 'react-router-dom'
-import {useState, useEffect} from 'react'
-import { Card } from "../Card/Card"
-import { CardHeader } from "../CardHeader/CardHeader"
-import { DynamicButton } from "../DynamicButton/DynamicButton"
-import errorIcon from "../../assets/icons/error-24px.svg"
 
-const EditWarehouseItem = () => {
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import errorIcon from "../../assets/icons/error-24px.svg";
+
+import { Card } from "../../components/Card/Card";
+import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+
+export const EditWarehouseItem = () => {
 
     const { warehouseId } = useParams();
     const navigate = useNavigate();
@@ -176,4 +178,3 @@ const EditWarehouseItem = () => {
     )
 }
 
-export default EditWarehouseItem;

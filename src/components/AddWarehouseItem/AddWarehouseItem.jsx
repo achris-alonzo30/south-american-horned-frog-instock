@@ -2,12 +2,12 @@ import "./AddWarehouseItem.scss";
 
 import errorIcon from "../../assets/icons/error-24px.svg";
 
-function AddWarehouseItem({
+export const AddWarehouseItem = () =>({
   formValues,
   setFormValues,
   handleSubmit,
   emptyFields,
-}) {
+}) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
@@ -181,5 +181,3 @@ function AddWarehouseItem({
     </form>
   );
 }
-
-export default AddWarehouseItem;

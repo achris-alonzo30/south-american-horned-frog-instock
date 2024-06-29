@@ -4,12 +4,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import errorIcon from "../../assets/icons/error-24px.svg";
+
 import { DynamicInput } from "../DynamicInput/DynamicInput";
 import { DynamicButton } from "../DynamicButton/DynamicButton";
 
-import errorIcon from "../../assets/icons/error-24px.svg";
-
-const AddInventoryItem = () => {
+export const AddInventoryItem = () => {
   const navigate = useNavigate();
 
   const warehouseMap = {
@@ -300,4 +300,3 @@ const AddInventoryItem = () => {
   );
 };
 
-export default AddInventoryItem;

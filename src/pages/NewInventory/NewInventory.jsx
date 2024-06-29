@@ -2,7 +2,7 @@ import "./NewInventory.scss";
 
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
-import AddInventoryItem from "../../components/AddInventoryItem/AddInventoryItem";
+import { AddInventoryItem } from "../../components/AddInventoryItem/AddInventoryItem";
 
 
 export const NewInventory = () => {

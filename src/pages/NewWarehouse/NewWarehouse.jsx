@@ -8,9 +8,9 @@ import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
-import AddWarehouseItem from "../../components/AddWarehouseItem/AddWarehouseItem";
+import { AddWarehouseItem } from "../../components/AddWarehouseItem/AddWarehouseItem";
 
-function NewWarehouse() {
+export const NewWarehouse = () => {
   const [formValues, setFormValues] = useState({
     warehouse_name: "",
     address: "",
@@ -95,4 +95,3 @@ function NewWarehouse() {
   );
 }
 
-export default NewWarehouse;

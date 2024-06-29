@@ -1,14 +1,16 @@
 import "./EditInventoryItem.scss";
+
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { DynamicInput } from "../DynamicInput/DynamicInput";
-import { DynamicButton } from "../DynamicButton/DynamicButton";
-import { Card } from "../Card/Card";
-import { CardHeader } from "../CardHeader/CardHeader";
+import { useNavigate, useParams } from "react-router-dom";
+
 import errorIcon from "../../assets/icons/error-24px.svg";
 
-const EditInventoryItem = () => {
+import { Card } from "../../components/Card/Card";
+import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
+import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+
+export const EditInventoryItem = () => {
   const { inventoryId } = useParams();
   const navigate = useNavigate();
 
@@ -334,4 +336,3 @@ const EditInventoryItem = () => {
   );
 };
 
-export default EditInventoryItem;

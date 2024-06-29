@@ -10,7 +10,7 @@ import {
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
-import WarehouseInventory from "../../components/WarehouseInventory/WarehouseInventory";
+import { WarehouseInventory } from "../../components/WarehouseInventory/WarehouseInventory";
 
 export const WarehouseDetails = () => {
   const { warehouseId } = useParams();

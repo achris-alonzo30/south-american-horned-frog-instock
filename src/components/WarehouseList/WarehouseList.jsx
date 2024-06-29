@@ -4,12 +4,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllWarehouse, deleteWarehouse } from "../../lib/api-warehouses";
 
-import { Modal } from "../Modal/Modal";
-
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import editIcon from "../../assets/icons/edit_indigo-24px.svg";
 import trashIcon from "../../assets/icons/delete_outline-24px.svg";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
+
+import { Modal } from "../Modal/Modal";
 
 export const WarehouseList = ({ warehouses, setWarehouses }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
