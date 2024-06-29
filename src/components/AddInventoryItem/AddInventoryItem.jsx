@@ -61,7 +61,6 @@ const AddInventoryItem = () => {
     if (!quantity) errors.quantity = true;
 
     setEmptyFields(errors);
-    console.log(emptyFields);
     return Object.keys(errors).length === 0;
   };
 

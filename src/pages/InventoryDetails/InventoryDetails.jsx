@@ -20,8 +20,6 @@ export const InventoryDetails = () => {
 
   if (!inventory) return <LoadingSpinner />;
 
-  console.log(inventory)
-
   return (
     <main className="main">
       <Card>
