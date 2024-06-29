@@ -1,6 +1,6 @@
 import "./Header.scss";
 
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 function Header() {
   const { pathname } = useLocation();
@@ -9,16 +9,16 @@ function Header() {
   return (
     <header className="header">
       <div className="header__content">
-      <Link to="/"><img
+      <NavLink to="/"><img
           src="/src/assets/logo/InStock-Logo.svg"
           alt="InStock-Logo"
           className="header__logo"
-        /></Link>
+        /></NavLink>
         <div className="header__buttons">
           <Link
             to="/"
             className={`header__button header__button--link ${
-              pathname === "/" ? "header__button--active" : ""
+              pathname === "/" || pathname.includes("warehouse") ? "header__button--active" : ""
             }`}
           >
             Warehouses
@@ -26,7 +26,7 @@ function Header() {
           <Link
             to="/inventory"
             className={`header__button header__button--link  ${
-              pathname !== "/" ? "header__button--active" : ""
+              pathname.includes("inventory") ? "header__button--active" : ""
             }`}
           >
             Inventory

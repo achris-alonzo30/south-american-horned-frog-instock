@@ -69,7 +69,7 @@
     margin-bottom: 1rem;
 
     @include tablet{
-        @include dynamicFont(600, $fontsize-td-llb, $lh-td-llb, $instock-black);
+        @include dynamicFont(400, $fontsize-td-llb, $lh-td-llb, $instock-black);
         padding-bottom: 0.50rem;
         height: 2.375rem;
     }
