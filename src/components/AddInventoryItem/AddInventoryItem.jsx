@@ -25,17 +25,6 @@ export const AddInventoryItem = () => {
 
   const [emptyFields, setEmptyFields] = useState({});
 
-  const warehouseMap = {
-    Manhattan: "1",
-    Washington: "2",
-    Jersey: "3",
-    SF: "4",
-    "Santa Monica": "5",
-    Seattle: "6",
-    Miami: "7",
-    Boston: "8",
-  };
-
   useEffect(() => {
     const fetchInventoryItem = async () => {
       try {

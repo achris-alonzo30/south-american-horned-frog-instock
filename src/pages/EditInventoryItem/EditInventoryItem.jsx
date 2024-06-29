@@ -152,13 +152,6 @@ export const EditInventoryItem = () => {
 
   if (!availableWarehouses.length) return <LoadingSpinner />;
 
-  // const checkWarehouseAvailability = (option) => {
-  //   return !availableWarehouses.some(
-  //     (warehouse) => warehouse.warehouse_name === option
-  //   );
-  // };
-  console.log(availableWarehouses)
-
   return (
     <main className="main">
       <Card>
