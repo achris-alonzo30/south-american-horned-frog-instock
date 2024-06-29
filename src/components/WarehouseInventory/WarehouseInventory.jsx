@@ -122,12 +122,13 @@ export const WarehouseInventory = ({ warehouseInventory }) => {
                 </p>
               </td>
               <td className="warehouse-inventory-table__data--actions">
+                
                 <img
                   src={trashIcon}
                   alt="Garbage Red Color Icon"
                   className="warehouse-inventory-table__content--delete"
                 />
-                <Link to={`/inventory/${id}`}>
+                <Link to={`/inventory/${id}`} className="warehouse-inventory-table__data--edit">
                   <img
                     src={editIcon}
                     alt="Pencil Blue Color Icon"
