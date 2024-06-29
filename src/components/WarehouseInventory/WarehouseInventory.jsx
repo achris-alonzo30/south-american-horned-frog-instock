@@ -144,16 +144,16 @@ export const WarehouseInventory = ({
                 </div>
               </td>
                     
-                <td className="table__data--cells table__data--qty">
-                  <h2 className="table__data--header table__data--hidden">
+                <td className="warehouse-inventory-table__data--cells warehouse-inventory-table__data--qty">
+                  <h2 className="warehouse-inventory-table__data--header warehouse-inventory-table__data--hidden">
                     QUANTITY
                   </h2>
 
-                  <p className="table__data--content">{quantity}</p>
+                  <p className="warehouse-inventory-table__data--content">{quantity}</p>
                 </td>
-                <td className="table__data--actions">
+                <td className="warehouse-inventory-table__data--actions">
                   <button
-                    className="table__data--delete"
+                    className="warehouse-inventory-table__data--delete"
                     onClick={() => handleOpenModal({ id, item_name })}
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
@@ -162,7 +162,7 @@ export const WarehouseInventory = ({
                     <img
                       src={editIcon}
                       alt="Pencil Blue Color Icon"
-                      className="table__content--edit"
+                      className="warehouse-inventory-table__content--edit"
                     />
                   </Link>
                 </td>

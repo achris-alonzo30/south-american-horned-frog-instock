@@ -89,6 +89,7 @@
         &--cells {
             flex: 1 1 50%;
             padding: 1rem 1rem 0.5rem;
+
             @include tablet {
                 flex: 1;
                 padding: 0;
@@ -149,6 +150,7 @@
             padding: 1rem;
             display: flex;
             justify-content: space-between;
+
             @include tablet {
                 flex: 1;
                 padding: 0;
@@ -171,7 +173,7 @@
             text-align: center;
             width: fit-content;
             vertical-align: middle;
-            
+
 
             @include tablet {
                 height: 1.75rem;
@@ -223,84 +225,5 @@
             order: 5;
         }
     }
-<<<<<<< HEAD
+
 }
-=======
-
-    &--stock {
-      height: 1.5rem;
-      text-align: center;
-      vertical-align: middle;
-      width: fit-content;
-
-      @include tablet {
-        height: 1.75rem;
-      }
-
-      &--in {
-        background-color: rgb(21, 132, 99, 0.07);
-        color: $green;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        border-radius: 1.25rem;
-      }
-
-      &--out {
-        background-color: rgb(201, 69, 21, 0.07);
-        color: $red;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        border-radius: 1.25rem;
-      }
-    }
-
-    &--status-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 1.5rem;
-      padding: 0 0.5rem;
-      border-radius: 1.25rem;
-
-      @include tablet {
-        height: 1.625rem;
-      }
-      &-in {
-        background-color: rgba(21, 132, 99, 0.07);
-        width: 4rem;
-      }
-      &-out {
-        background-color: rgba(201, 69, 21, 0.07);
-        width: 5.5rem;
-      }
-    }
-
-    &--status-in {
-      @include dynamicFont(600, 0.6875rem, 1rem, $green);
-    }
-    &--status-out {
-      @include dynamicFont(600, 0.6875rem, 1rem, $red);
-    }
-
-    &--inventory-item {
-      order: 1;
-    }
-
-    &--status {
-      order: 2;
-    }
-
-    &--category {
-      order: 3;
-    }
-
-    &--qty {
-      order: 4;
-    }
-
-    &--actions {
-      order: 5;
-    }
-  }
-}
->>>>>>> develop

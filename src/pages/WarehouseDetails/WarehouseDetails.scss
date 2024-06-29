@@ -9,17 +9,17 @@
   margin-top: -4.75rem;
 
   @include tablet {
-      heigth: 100%;
-      padding: 2rem;
-      margin-top: -7.85rem;
+    heigth: 100%;
+    padding: 2rem;
+    margin-top: -7.85rem;
   }
 
   @include desktop {
-      heigth: 100%;
-      display: flex;
-      margin: auto;
-      margin-top: -7.85rem;
-      max-width: 63.75rem;
+    max-width: 63.75rem;
+    heigth: 100%;
+    display: flex;
+    margin: auto;
+    margin-top: -7.85rem;
   }
 }
 
@@ -54,6 +54,7 @@
 
   &--flex {
     width: 100%;
+
     @include tablet {
       width: 45%;
     }
@@ -84,6 +85,7 @@
 
   &--contactInfo {
     margin-right: 1.5rem;
+
     @include tablet {
       flex: 1;
     }

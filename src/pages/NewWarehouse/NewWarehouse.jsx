@@ -10,11 +10,8 @@ import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { AddWarehouseItem } from "../../components/AddWarehouseItem/AddWarehouseItem";
 
-<<<<<<< HEAD
-export const NewWarehouse = () => {
-=======
-function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
->>>>>>> develop
+export const NewWarehouse = ({ setIsNewWarehouse }) => {
+
   const [formValues, setFormValues] = useState({
     warehouse_name: "",
     address: "",
@@ -49,20 +46,9 @@ function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
       return emailRegex.test(email);
     }
 
-    // function validatePhone(phone) {
-    //   const phoneRegex =
-    //     /^\+([0-9]{1})\s\(([0-9]{3})\)\s([0-9]{3})\-([0-9]{4})$/;
-    //   return phoneRegex.test(phone);
-    // }
-
     if (!validateEmail(formValues.contact_email)) {
       return alert("Invalid email format");
     }
-    // else if (formValues.contact_phone.length < 11) {
-    //   return alert(
-    //     "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
-    //   );
-    // }
 
     return Object.keys(errors).length === 0;
   };
@@ -78,7 +64,8 @@ function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
     if (!validateForm()) {
       return;
     }
-    postWarehouse(formValues);
+    
+    await postWarehouse(formValues);
     navigate(-1);
     setIsNewWarehouse((isNewWarehouse) => isNewWarehouse + 1);
   };

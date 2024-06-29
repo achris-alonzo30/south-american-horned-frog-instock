@@ -8,32 +8,27 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header__content">
-      <NavLink to="/"><img
-          src="/src/assets/logo/InStock-Logo.svg"
-          alt="InStock-Logo"
-          className="header__logo"
-        /></NavLink>
+        <NavLink to="/">
+          <img
+            src="/src/assets/logo/InStock-Logo.svg"
+            alt="InStock-Logo"
+            className="header__logo"
+          />
+        </NavLink>
         <div className="header__buttons">
           <Link
             to="/"
-<<<<<<< HEAD
-            className={`header__button header__button--link header__button--warehouses ${
-              pathname.includes("warehouse") ? "header__button--active" : ""
-=======
             className={`header__button header__button--link ${
-              pathname === "/" || pathname.includes("warehouse") ? "header__button--active" : ""
->>>>>>> develop
+              pathname === "/" || pathname.includes("warehouse")
+                ? "header__button--active"
+                : ""
             }`}
           >
             Warehouses
           </Link>
           <Link
             to="/inventory"
-<<<<<<< HEAD
-            className={`header__button header__button--link header__button--inventory  ${
-=======
             className={`header__button header__button--link  ${
->>>>>>> develop
               pathname.includes("inventory") ? "header__button--active" : ""
             }`}
           >
@@ -43,4 +38,4 @@ export const Header = () => {
       </div>
     </header>
   );
-}
+};

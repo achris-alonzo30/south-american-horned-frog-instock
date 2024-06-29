@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import errorIcon from "../../assets/icons/error-24px.svg";
 
 import { Card } from "../../components/Card/Card";
+import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 

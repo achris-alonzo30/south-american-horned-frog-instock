@@ -12,17 +12,6 @@ import { DynamicButton } from "../DynamicButton/DynamicButton";
 export const AddInventoryItem = () => {
   const navigate = useNavigate();
 
-  const warehouseMap = {
-    "Brooklyn Warehouse": "1",
-    Washington: "2",
-    Jersey: "3",
-    SF: "4",
-    "Santa Monica": "5",
-    Seattle: "6",
-    Miami: "7",
-    Boston: "8",
-  };
-
   const [itemId, setItemId] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -92,6 +81,7 @@ export const AddInventoryItem = () => {
   };
   const saveHandler = async (event) => {
     event.preventDefault();
+
     const parsedQuantity = parseInt(quantity);
     const updatedStockStatus =
       parsedQuantity === 0 ? "Out of Stock" : stockStatus;
@@ -114,7 +104,7 @@ export const AddInventoryItem = () => {
     };
 
     try {
-      await axios.post(`http://localhost:8080/api/inventories/`, newItem);
+      await axios.post(`http://localhost:8080/api/inventories`, newItem);
       alert("We have successfully added your item information!");
       navigate(-1);
     } catch (error) {

@@ -89,6 +89,7 @@
         &--cells {
             flex: 1 1 50%;
             padding: 1rem 1rem 0.5rem;
+
             @include tablet {
                 flex: 1 1 20%;
                 padding: 0;
@@ -151,6 +152,7 @@
             padding: 1rem;
             display: flex;
             justify-content: space-between;
+
             @include tablet {
                 flex: 1;
                 padding: 0;
@@ -168,29 +170,32 @@
             cursor: pointer;
         }
 
-        &--inventory-item {
-            order: 1;
+        @include mobile {
+            &--inventory-item {
+                order: 1;
+            }
+
+            &--status {
+                order: 2;
+            }
+
+            &--category {
+                order: 3;
+            }
+
+            &--qty {
+                order: 4;
+            }
+
+            &--warehouse {
+                order: 6;
+            }
+
+            &--actions {
+                order: 10;
+            }
         }
 
-        &--status {
-            order: 2;
-        }
-
-        &--category {
-            order: 3;
-        }
-
-        &--qty {
-            order: 4;
-        }
-
-        &--warehouse {
-            order: 7;
-        }
-
-        &--actions {
-            order: 8;
-        }
 
         &--status-wrapper {
             display: flex;
@@ -224,7 +229,7 @@
         }
 
         &--invisible {
-            order: 6;
+            order: 5;
 
             @include tablet {
                 display: none;

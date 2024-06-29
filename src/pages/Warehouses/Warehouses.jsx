@@ -22,7 +22,6 @@ export const Warehouses = ({ isNewWarehouse }) => {
   if (!warehouses) return <LoadingSpinner />;
 
   return (
-    <>
       <main className="main">
         <Card>
           <CardHeader flexStyle="flexCol" browserName="Warehouses">
@@ -44,6 +43,5 @@ export const Warehouses = ({ isNewWarehouse }) => {
           />
         </Card>
       </main>
-    </>
   );
 };

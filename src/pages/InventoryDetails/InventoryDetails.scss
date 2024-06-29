@@ -9,17 +9,16 @@
   margin-top: -4.75rem;
 
   @include tablet {
-      heigth: 100%;
-      padding: 2rem;
-      margin-top: -7.85rem;
+    heigth: 100%;
+    padding: 2rem;
+    margin-top: -7.85rem;
   }
 
   @include desktop {
-      heigth: 100%;
-      display: flex;
-      margin: auto;
-      margin-top: -7.85rem;
-      max-width: 63.75rem;
+    max-width: 63.75rem;
+    heigth: 100%;
+    display: flex;
+    margin: auto;
+    margin-top: -7.85rem;
   }
 }
-

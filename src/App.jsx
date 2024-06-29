@@ -1,5 +1,6 @@
 import "./App.scss";
 
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Header } from "./components/Header/Header";
@@ -16,12 +17,25 @@ import { InventoryDetails } from "./pages/InventoryDetails/InventoryDetails";
 import { EditInventoryItem } from "./pages/EditInventoryItem/EditInventoryItem";
 
 function App() {
+  const [isNewWarehouse, setIsNewWarehouse] = useState(0);
+
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Warehouses />} />
-        <Route path="/warehouse/post" element={<NewWarehouse />} />
+        <Route
+          path="/"
+          element={<Warehouses isNewWarehouse={isNewWarehouse} />}
+        />
+        <Route
+          path="/warehouse/post"
+          element={
+            <NewWarehouse
+              isNewWarehouse={isNewWarehouse}
+              setIsNewWarehouse={setIsNewWarehouse}
+            />
+          }
+        />
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
         <Route
           path="/warehouse/:warehouseId/edit"

@@ -7,9 +7,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import errorIcon from "../../assets/icons/error-24px.svg";
 
 import { Card } from "../../components/Card/Card";
+import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 
-const EditWarehouse = () => {
+export const EditWarehouseItem = () => {
   const { warehouseId } = useParams();
   const navigate = useNavigate();
 

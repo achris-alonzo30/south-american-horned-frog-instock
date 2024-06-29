@@ -2,7 +2,7 @@ import "./AddWarehouseItem.scss";
 
 import errorIcon from "../../assets/icons/error-24px.svg";
 
-export const AddWarehouseItem = () =>({
+export const AddWarehouseItem = ({
   formValues,
   setFormValues,
   handleSubmit,
@@ -153,16 +153,11 @@ export const AddWarehouseItem = () =>({
 
         <div
           className={`${
-            emptyFields.contact_phone || formValues.contact_phone.length < 11
-              ? "error-message"
-              : "error-message_hide"
+            emptyFields.contact_phone ? "error-message" : "error-message_hide"
           }`}
         >
           <img className="error_icon" src={errorIcon} />
-          {formValues.contact_phone.length < 11 &&
-          formValues.contact_phone.length !== 0
-            ? "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
-            : "This field is required"}
+          This field is required
         </div>
         <label className="form__label">Email</label>
         <input
@@ -186,4 +181,4 @@ export const AddWarehouseItem = () =>({
       </div>
     </form>
   );
-}
+};

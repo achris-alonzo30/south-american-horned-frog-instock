@@ -108,7 +108,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
                 }`}
               >
                 <td className="inventory-list-table__data--cells table__data--inventory-item">
-                  <h4 className="inventory-list-table__data--header table__data--hidden ">
+                  <h4 className="inventory-list-table__data--header inventory-list-table__data--hidden ">
                     INVENTORY ITEM
                   </h4>
                   <Link to={`/inventory/${id}`} className="inventory-list-table__data--link">
@@ -117,13 +117,13 @@ export const InventoryList = ({ inventories, setInventories }) => {
                   </Link>
                 </td>
                 <td className="inventory-list-table__data--cells table__data--category">
-                  <h2 className="inventory-list-table__data--header table__data--hidden">
+                  <h2 className="inventory-list-table__data--header inventory-list-table__data--hidden">
                     CATEGORY
                   </h2>
                   <p className="inventory-list-table__data--content">{category}</p>
                 </td>
                 <td className="inventory-list-table__data--cells table__data--status">
-                  <h2 className="inventory-list-table__data--header table__data--hidden">
+                  <h2 className="inventory-list-table__data--header inventory-list-table__data--hidden">
                     STATUS
                   </h2>
                   <div
@@ -134,7 +134,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
                     }`}
                   >
                     <p
-                      className={`table__data--content ${
+                      className={`inventory-list-table__data--content ${
                         status.toLowerCase() === "in stock"
                           ? "inventory-list-table__data--status-in"
                           : "inventory-list-table__data--status-out"
@@ -144,8 +144,8 @@ export const InventoryList = ({ inventories, setInventories }) => {
                     </p>
                   </div>
                 </td>
-                <td className="inventory-list-table__data--cells table__data--qty">
-                  <h2 className="inventory-list-table__data--header table__data--hidden">
+                <td className="inventory-list-table__data--cells inventory-list-table__data--qty">
+                  <h2 className="inventory-list-table__data--header inventory-list-table__data--hidden">
                     QTY
                   </h2>
                   <p className="inventory-list-table__data--content">{quantity}</p>
@@ -153,8 +153,8 @@ export const InventoryList = ({ inventories, setInventories }) => {
                 <td className="inventory-list-table__data--cells inventory-list-table__data--invisible">
                   <h2 className="inventory-list-table__data--header inventory-list-table__data--hidden"></h2>
                 </td>
-                <td className="inventory-list-table__data--cells table__data--warehouse">
-                  <h2 className="inventory-list-table__data--header table__data--hidden">
+                <td className="inventory-list-table__data--cells inventory-list-table__data--warehouse">
+                  <h2 className="inventory-list-table__data--header inventory-list-table__data--hidden">
                     WAREHOUSE
                   </h2>
                   <p className="inventory-list-table__data--content">{warehouse_name}</p>
@@ -166,7 +166,7 @@ export const InventoryList = ({ inventories, setInventories }) => {
                   >
                     <img src={trashIcon} alt="Garbage Red Color Icon" />
                   </button>
-                  <Link to={`/inventory/${id}`} className="inventory-list-table__data--edit">
+                  <Link to={`/inventory/${id}/edit`} className="inventory-list-table__data--edit">
                     <img src={editIcon} alt="Pencil Blue Color Icon" />
                   </Link>
                 </td>

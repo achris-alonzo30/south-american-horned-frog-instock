@@ -16,10 +16,10 @@
     }
 
     @include desktop {
+        max-width: 63.75rem;
         height: 100%;
         display: flex;
         margin: auto;
         margin-top: -7.85rem;
-        max-width: 63.75rem;
     }
 }

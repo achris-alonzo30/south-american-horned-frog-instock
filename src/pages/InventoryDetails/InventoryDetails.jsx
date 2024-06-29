@@ -12,14 +12,14 @@ import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const InventoryDetails = () => {
   const { inventoryId } = useParams();
-  const [inventory, setInventory] = useState([]);
+  const [inventory, setInventory] = useState(null);
 
   useEffect(() => {
     getSingleInventory(setInventory, inventoryId);
   }, [inventoryId]);
 
-  if (!inventory.length) return <LoadingSpinner />;
-
+  if (!inventory) return <LoadingSpinner />;
+  
   return (
     <main className="main">
       <Card>
@@ -27,14 +27,14 @@ export const InventoryDetails = () => {
           withArrow
           tabletHeaderBorder
           flexStyle="flexRow"
-          browserName={inventory[0].item_name}
+          browserName={inventory.item_name}
         >
           <DynamicButton
             variant="edit"
             href={`/inventory/${inventoryId}/edit`}
           />
         </CardHeader>
-        <InventoryItem inventory={inventory[0]} />
+        <InventoryItem inventory={inventory} />
       </Card>
     </main>
   );
