@@ -157,7 +157,7 @@ export const AddWarehouseItem = ({
           }`}
         >
           <img className="error_icon" src={errorIcon} />
-          This field is required
+          {emptyFields.contact_phone}
         </div>
         <label className="form__label">Email</label>
         <input
@@ -176,7 +176,7 @@ export const AddWarehouseItem = ({
           }`}
         >
           <img className="error_icon" src={errorIcon} />
-          This field is required
+          {emptyFields.contact_email}
         </div>
       </div>
     </form>

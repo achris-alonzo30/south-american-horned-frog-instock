@@ -11,7 +11,6 @@ import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { AddWarehouseItem } from "../../components/AddWarehouseItem/AddWarehouseItem";
 
 export const NewWarehouse = ({ setIsNewWarehouse }) => {
-
   const [formValues, setFormValues] = useState({
     warehouse_name: "",
     address: "",
@@ -29,26 +28,33 @@ export const NewWarehouse = ({ setIsNewWarehouse }) => {
 
   const validateForm = () => {
     const errors = {};
-    if (!formValues.warehouse_name) errors.warehouse_name = true;
-    if (!formValues.address) errors.address = true;
-    if (!formValues.city) errors.city = true;
-    if (!formValues.country) errors.country = true;
-    if (!formValues.contact_name) errors.contact_name = true;
-    if (!formValues.contact_position) errors.contact_position = true;
-    if (!formValues.contact_phone) errors.contact_phone = true;
-    if (!formValues.contact_email) errors.contact_email = true;
+    if (!formValues.warehouse_name)
+      errors.warehouse_name = "This field is required";
+    if (!formValues.address) errors.address = "This field is required";
+    if (!formValues.city) errors.city = "This field is required";
+    if (!formValues.country) errors.country = "This field is required";
+    if (!formValues.contact_name)
+      errors.contact_name = "This field is required";
+    if (!formValues.contact_position)
+      errors.contact_position = "This field is required";
+    if (!formValues.contact_phone) {
+      errors.contact_phone = "This field is required";
+    } else if (!/^\d{11}$/.test(formValues.contact_phone)) {
+      errors.contact_phone = "Phone number must be 11 digits";
+    }
+
+    const validateEmail = (email) => {
+      const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+      return emailRegex.test(email);
+    };
+
+    if (!formValues.contact_email) {
+      errors.contact_email = "This field is required";
+    } else if (!validateEmail(formValues.contact_email)) {
+      errors.contact_email = "Invalid email format";
+    }
 
     setEmptyFields(errors);
-
-    function validateEmail(email) {
-      const emailRegex =
-        /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      return emailRegex.test(email);
-    }
-
-    if (!validateEmail(formValues.contact_email)) {
-      return alert("Invalid email format");
-    }
 
     return Object.keys(errors).length === 0;
   };
@@ -64,15 +70,14 @@ export const NewWarehouse = ({ setIsNewWarehouse }) => {
     if (!validateForm()) {
       return;
     }
-    
-    await postWarehouse(formValues);
-    navigate(-1);
-    setIsNewWarehouse((isNewWarehouse) => isNewWarehouse + 1);
-  };
 
-  const handleCancel = (e) => {
-    e.preventDefault();
-    navigate("/");
+    try {
+      await postWarehouse(formValues);
+      setIsNewWarehouse((isNewWarehouse) => isNewWarehouse + 1);
+      navigate(-1);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -94,7 +99,7 @@ export const NewWarehouse = ({ setIsNewWarehouse }) => {
         <CardFooter>
           <DynamicButton
             variant="cancel"
-            onClick={handleCancel}
+            onClick={() => navigate("/")}
           ></DynamicButton>
           <DynamicButton
             variant="add"
@@ -106,5 +111,4 @@ export const NewWarehouse = ({ setIsNewWarehouse }) => {
       </Card>
     </main>
   );
-}
-
+};
