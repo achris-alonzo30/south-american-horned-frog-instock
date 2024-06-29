@@ -1,218 +1,226 @@
-// @use "../../styles/partials/mixin" as *;
-// @use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
 
-// .table {
-//   width: 100%;
-//   height: 100%;
-//   overflow-x: auto;
-//   background-color: $white;
-//   border-collapse: collapse;
+.warehouse-inventory-table {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
 
-//   &__header {
-//     display: none;
-//     background: $light-grey;
+    &__header {
+        width: 100%;
+        display: none;
+        padding: 0.5rem 2rem;
+        background-color: $light-grey;
 
-//     @include tablet {
-//       display: table-header-group;
-//     }
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+        }
 
-//     &--row {
-//       display: table-row;
-//     }
+        &--row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-//     &--cells {
-//       padding: 1rem;
-//       text-align: start;
-//       display: table-cell;
-//       vertical-align: middle;
-//       @include dynamicFont(600, 0.6875rem, 1rem, $slate);
+        &--cells {
+            flex: 1;
+            text-align: start;
+            @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+        }
 
-//       @include tablet {
-//         padding: 1rem 1rem 1rem 1.5rem;
-//         @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
-//       }
-//     }
+        &--flex {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
 
-//     &--end {
-//       text-align: end;
-//       display: table-cell;
-//       padding: 0.5rem 1rem;
-//       vertical-align: middle;
-//       @include dynamicFont(600, 0.6875rem, 1rem, $graphite);
+        &--end {
+            flex: 0.9;
+            display: flex;
+            justify-content: flex-end;
 
-//       @include tablet {
-//         padding: 0.5rem 1.5rem;
-//         @include dynamicFont(600, 0.75rem, 1.125rem, $graphite);
-//       }
-//     }
+            @include desktop {
+                flex: 1;
+            }
+        }
 
-//     &--content {
-//       gap: 0.25rem;
-//       align-items: center;
-//       white-space: nowrap;
-//       display: inline-flex;
-//     }
+    }
 
-//     &--icon {
-//       width: 1rem;
-//       height: 1rem;
-//     }
-//   }
+    &__body {
+        display: flex;
+        flex-direction: column;
 
-//   &__body {
-//     display: table-row-group;
+        &--row {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: start;
+            border-bottom: 1px solid $cloud;
 
-//     &--row {
-//       display: flex;
-//       flex-wrap: wrap;
+            &:hover {
+                background-color: rgba(189, 197, 213, 0.5);
+                transition: background-color 0.2s ease-in-out;
+            }
+
+            @include tablet {
+                align-items: center;
+                padding: 1rem 2rem;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+            }
+        }
+
+        &--remove-border-bottom {
+            border-bottom: 0;
+        }
+    }
+
+    &__data {
+        &--hidden {
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &--cells {
+            flex: 1 1 50%;
+            padding: 1rem 1rem 0.5rem;
+            @include tablet {
+                flex: 1;
+                padding: 0;
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &--header {
+            text-align: left;
+            display: table-cell;
+            white-space: nowrap;
+            padding-bottom: 0.25rem;
+            @include dynamicFont(600, 0.6875rem, 1rem, $slate);
+
+            @include tablet {
+                display: none;
+                @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+            }
+        }
 
 
-//       &:hover {
-//         background-color: rgba(189, 197, 213, 0.5);
-//         transition: background-color 0.2s ease-in-out;
-//       }
+        &--link {
+            gap: 0.25rem;
+            display: flex;
+            white-space: nowrap;
+            align-items: center;
+            text-decoration: none;
+            @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
 
-//       @include tablet {
-//         display: table-row;
-//       }
-//     }
-//   }
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: inherit;
 
-//   &__data {
-//     &--cells {
-//       flex: 1 1 50%;
-//       display: block;
-//       box-sizing: border-box;
-//       padding: 1rem 0.75rem 0 1rem;
+                .arrow-animation {
+                    transform: translateX(4px);
+                    transition: transform 0.3s ease;
+                }
+            }
 
-//       @include tablet {
-//         display: table-cell;
-//         padding: 1rem 1.5rem;
-//         vertical-align: middle;
-//       }
-//     }
+            @include tablet {
+                @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
+            }
+        }
 
-//     &--header {
-//       text-align: left;
-//       display: table-cell;
-//       white-space: nowrap;
-//       padding-bottom: 0.25rem;
-//       @include dynamicFont(600, 0.6875rem, 1rem, $slate);
+        &--content {
+            @include dynamicFont(400, 0.8125rem, 1.25rem, $instock-black);
 
-//       @include tablet {
-//         @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
-//       }
-//     }
+            @include tablet {
+                @include dynamicFont(400, 0.875rem, 1.375rem, $instock-black);
+            }
+        }
 
-//     &--text {
-//       &:hover {
-//         text-decoration: underline;
-//         text-decoration-color: $instock-indigo;
-//       }
-//     }
 
-//     &--link {
-//       gap: 0.25rem;
-//       display: flex;
-//       align-items: center;
-//       text-decoration: none;
-//       @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
+        &--actions {
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            @include tablet {
+                flex: 1;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
 
-//       &:hover {
-//         text-decoration: underline;
-//         text-decoration-color: inherit;
+        }
 
-//         .arrow-animation {
-//           transform: translateX(4px);
-//           transition: transform 0.3s ease;
-//         }
-//       }
+        &--edit,
+        &--delete {
+            all: unset;
+            cursor: pointer;
+        }
 
-//       @include tablet {
-//         @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
-//       }
-//     }
+        &--stock {
+            height: 1.5rem;
+            text-align: center;
+            width: fit-content;
+            vertical-align: middle;
+            
 
-//     &--content {
-//       @include dynamicFont(400, 0.6875rem, 1rem, $instock-black);
+            @include tablet {
+                height: 1.75rem;
+                padding-top: 0.25rem;
+            }
 
-//       @include tablet {
-//         @include dynamicFont(400, 0.75rem, 1.125rem, $instock-black);
-//       }
-//     }
+            &--in {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                border-radius: 1.25rem;
+                background-color: rgb(21, 132, 99, 0.07);
+                @include dynamicFont(600, 0.6875rem, 1rem, $green);
 
-//     &--hidden {
-//       @include tablet {
-//         display: none;
-//       }
-//     }
+                @include tablet {
+                    @include dynamicFont(600, .75rem, 1.125rem, $green);
+                }
+            }
 
-//     &--actions {
-//       width: 100%;
-//       display: flex;
-//       padding: 1rem;
-//       justify-content: space-between;
+            &--out {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                border-radius: 1.25rem;
+                background-color: rgb(201, 69, 21, 0.07);
+                @include dynamicFont(600, 0.6875rem, 1rem, $red);
 
-//       @include tablet {
-//         gap: 1rem;
-//         display: flex;
-//         padding: 1.5rem;
-//         align-items: center;
-//         text-align: center;
-//         justify-content: flex-end;
-//       }
-//     }
+                @include tablet {
+                    @include dynamicFont(600, .75rem, 1.125rem, $red);
+                }
+            }
+        }
 
-//     &--edit,
-//     &--delete {
-//       cursor: pointer;
-//     }
+        &--inventory-item {
+            order: 1;
+        }
 
-//     &--stock {
-//       height: 1.5rem;
-//       text-align: center;
-//       vertical-align: middle;
-//       width: fit-content;
+        &--status {
+            order: 2;
+        }
 
-//       @include tablet {
-//         height: 1.75rem;
-//       }
+        &--category {
+            order: 3;
+        }
 
-//       &--in {
-//         background-color: rgb(21, 132, 99, 0.07);
-//         color: $green;
-//         padding-left: 0.5rem;
-//         padding-right: 0.5rem;
-//         border-radius: 1.25rem;
-//       }
+        &--qty {
+            order: 4;
+        }
 
-//       &--out {
-//         background-color: rgb(201, 69, 21, 0.07);
-//         color: $red;
-//         padding-left: 0.5rem;
-//         padding-right: 0.5rem;
-//         border-radius: 1.25rem;
-//       }
-//     }
-
-//     &--inventory-item {
-//       order: 1;
-//     }
-
-//     &--status {
-//       order: 2;
-//     }
-
-//     &--category {
-//       order: 3;
-//     }
-
-//     &--qty {
-//       order: 4;
-//     }
-
-//     &--actions {
-//       order: 5;
-//     }
-//   }
-// }
+        &--actions {
+            order: 5;
+        }
+    }
+}

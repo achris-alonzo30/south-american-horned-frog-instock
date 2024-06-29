@@ -60,10 +60,15 @@
             align-items: start;
             border-bottom: 1px solid $cloud;
 
+            &:hover {
+                background-color: rgba(189, 197, 213, 0.5);
+                transition: background-color 0.2s ease-in-out;
+            }
+
             @include tablet {
-                align-items: center;
-                padding: 0.5rem 2rem;
                 flex-wrap: nowrap;
+                align-items: center;
+                padding: 1rem 2rem;
                 justify-content: space-between;
             }
         }
@@ -170,6 +175,28 @@
             &:hover {
                 color: inherit;
                 text-decoration: underline;
+            }
+        }
+
+        @include mobile {
+            &--location {
+                order: 1;
+            }
+
+            &--name {
+                order: 2;
+            }
+
+            &--address {
+                order: 3;
+            }
+
+            &--contact {
+                order: 4;
+            }
+
+            &--actions {
+                order: 5;
             }
         }
     }
