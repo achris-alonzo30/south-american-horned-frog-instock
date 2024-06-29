@@ -1,6 +1,21 @@
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/colors" as *;
 
+.table-header--start {
+    padding: 1rem;
+    text-align: start;
+    display: table-cell;
+    vertical-align: middle;
+    @include dynamicFont(600, .75rem, 1.125rem, $slate);
+}
+
+.table-header--end {
+    text-align: start;
+    display: table-cell;
+    vertical-align: middle;
+    @include dynamicFont(600, .75rem, 1.125rem, $slate);
+}
+
 .table {
     width: 100%;
     height: 100%;
@@ -38,11 +53,11 @@
             display: table-cell;
             padding: 0.5rem 1rem;
             vertical-align: middle;
-            @include dynamicFont(600, .6875rem, 1rem, $graphite);
+            @include dynamicFont(600, .6875rem, 1rem, $slate);
 
             @include tablet {
                 padding: 0.5rem 1.5rem;
-                @include dynamicFont(600, .75rem, 1.125rem, $graphite);
+                @include dynamicFont(600, .75rem, 1.125rem, $slate);
             }
         }
 
@@ -65,6 +80,7 @@
         &--row {
             display: flex;
             flex-wrap: wrap;
+            border-bottom: 1px solid $cloud;
 
             &:hover {
                 background-color: rgba(189, 197, 213, 0.5);
@@ -87,12 +103,12 @@
             display: block;
             box-sizing: border-box;
             padding: 1rem 0.75rem 0 1rem;
+        }
 
-            @include tablet {
-                display: table-cell;
-                padding: 1rem 1.5rem;
-                vertical-align: middle;
-            }
+        @include tablet {
+            display: table-cell;
+            padding: 1rem 2rem;
+            vertical-align: middle;
         }
 
 
@@ -132,6 +148,7 @@
                 text-decoration: underline;
                 text-decoration-color: inherit;
             }
+
             @include tablet {
                 @include dynamicFont(600, .875rem, 1.375rem, $instock-indigo);
             }
@@ -143,6 +160,13 @@
             @include tablet {
                 @include dynamicFont(400, .875rem, 1.375rem, $instock-black);
             }
+        }
+
+        &--flex {
+            @include tablet {
+                width: 100%;
+            }
+
         }
 
         &--hidden {
@@ -182,26 +206,29 @@
             cursor: pointer;
         }
 
-        @include tablet {
-            &--location {
-                order: 1;
-            }
-
-            &--address {
-                order: 2;
-            }
-
-            &--name {
-                order: 3;
-            }
-
-            &--contact {
-                order: 4;
-            }
-
-            &--actions {
-                order: 5;
-            }
+        &--location {
+            order: 1;
         }
+
+        &--name {
+            order: 2;
+        }
+
+
+        &--address {
+            order: 3;
+            white-space: nowrap;
+        }
+
+
+        &--contact {
+            order: 4;
+        }
+
+        &--actions {
+            order: 5;
+        }
+
+
     }
 }

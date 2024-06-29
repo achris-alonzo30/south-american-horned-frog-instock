@@ -38,7 +38,7 @@ export const WarehouseList = ({ warehouses, setWarehouses }) => {
       )}
 
       <table className="table">
-        <thead className="table__header">
+      <thead className="table__header">
           <tr className="table__header--row">
             <th className="table__header--cells">
               <div className="table__header--content">
@@ -112,21 +112,22 @@ export const WarehouseList = ({ warehouses, setWarehouses }) => {
                     <img src={chevronRight} alt="Arrow Point To Right" />
                   </Link>
                 </td>
+                <td className="table__data--cells table__data--address">
+                  <h2 className="table__data--header table__data--hidden">
+                    ADDRESS
+                  </h2>
+                  <hgroup className="table__data--fulladdress">
+                    <p className="table__data--content">
+                      {address},
+                    </p>
+                    <p className="table__data--content"> {city}, {country}</p>
+                  </hgroup>
+                </td>
                 <td className="table__data--cells table__data--name">
                   <h2 className="table__data--header table__data--hidden">
                     CONTACT NAME
                   </h2>
                   <p className="table__data--content">{contact_name}</p>
-                </td>
-                <td className="table__data--cells">
-                  <h2 className="table__data--header table__data--hidden">
-                    ADDRESS
-                  </h2>
-                  <hgroup className="table__data--address">
-                    <p className="table__data--content">
-                      {address}, {city}, {country}
-                    </p>
-                  </hgroup>
                 </td>
                 <td className="table__data--cells table__data--contact">
                   <h2 className="table__data--header table__data--hidden">

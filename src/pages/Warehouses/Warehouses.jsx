@@ -25,7 +25,7 @@ export const Warehouses = () => {
     <>
       <main className="main">
         <Card>
-          <CardHeader flexStyle="flexCol" browserName="Warehouse">
+          <CardHeader flexStyle="flexCol" browserName="Warehouses">
             <DynamicInput
               type="text"
               id="search"
