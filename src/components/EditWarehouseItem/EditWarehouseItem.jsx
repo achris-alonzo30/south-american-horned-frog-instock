@@ -1,4 +1,4 @@
-import "./EditWarehouse.scss"
+import "./EditWarehouseItem.scss"
 import axios from "axios"
 import {useNavigate, useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
@@ -7,7 +7,7 @@ import { CardHeader } from "../CardHeader/CardHeader"
 import { DynamicButton } from "../DynamicButton/DynamicButton"
 import errorIcon from "../../assets/icons/error-24px.svg"
 
-const EditWarehouse = () => {
+const EditWarehouseItem = () => {
 
     const { warehouseId } = useParams();
     const navigate = useNavigate();
@@ -176,4 +176,4 @@ const EditWarehouse = () => {
     )
 }
 
-export default EditWarehouse;
+export default EditWarehouseItem;

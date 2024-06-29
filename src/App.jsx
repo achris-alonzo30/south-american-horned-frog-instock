@@ -3,7 +3,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Warehouses } from "./pages/Warehouses/Warehouses";
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import EditWarehouseItem from "./components/EditWarehouseItem/EditWarehouseItem";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 
@@ -23,7 +23,7 @@ function App() {
         <Route path="/" element={<Warehouses />} />
         <Route
           path="/warehouse/:warehouseId/edit"
-          element={<EditWarehouse />}
+          element={<EditWarehouseItem />}
         />
         <Route path="/warehouse/:warehouseId" element={<WarehouseDetails />} />
         <Route path="/warehouse/post" element={<NewWarehouse />} />
