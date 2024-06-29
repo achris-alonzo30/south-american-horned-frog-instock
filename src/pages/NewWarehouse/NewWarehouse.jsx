@@ -11,7 +11,7 @@ import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import NewWarehouseForm from "../../components/NewWarehouseForm/NewWarehouseForm";
 // import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
-function NewWarehouse() {
+function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
   const [formValues, setFormValues] = useState({
     warehouse_name: "",
     address: "",
@@ -40,6 +40,27 @@ function NewWarehouse() {
 
     setEmptyFields(errors);
 
+    function validateEmail(email) {
+      const emailRegex =
+        /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return emailRegex.test(email);
+    }
+
+    // function validatePhone(phone) {
+    //   const phoneRegex =
+    //     /^\+([0-9]{1})\s\(([0-9]{3})\)\s([0-9]{3})\-([0-9]{4})$/;
+    //   return phoneRegex.test(phone);
+    // }
+
+    if (!validateEmail(formValues.contact_email)) {
+      return alert("Invalid email format");
+    }
+    // else if (formValues.contact_phone.length < 11) {
+    //   return alert(
+    //     "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
+    //   );
+    // }
+
     return Object.keys(errors).length === 0;
   };
 
@@ -55,7 +76,8 @@ function NewWarehouse() {
       return;
     }
     postWarehouse(formValues);
-    navigate("/");
+    navigate(-1);
+    setIsNewWarehouse((isNewWarehouse) => isNewWarehouse + 1);
   };
 
   const handleCancel = (e) => {

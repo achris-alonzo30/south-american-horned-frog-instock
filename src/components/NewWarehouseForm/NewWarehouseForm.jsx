@@ -152,13 +152,19 @@ function NewWarehouseForm({
           onChange={handleInputChange}
           placeholder="Phone Number"
         />
+
         <div
           className={`${
-            emptyFields.contact_phone ? "error-message" : "error-message_hide"
+            emptyFields.contact_phone || formValues.contact_phone.length < 11
+              ? "error-message"
+              : "error-message_hide"
           }`}
         >
           <img className="error_icon" src={errorIcon} />
-          This field is required
+          {formValues.contact_phone.length < 11 &&
+          formValues.contact_phone.length !== 0
+            ? "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
+            : "This field is required"}
         </div>
         <label className="form__label">Email</label>
         <input

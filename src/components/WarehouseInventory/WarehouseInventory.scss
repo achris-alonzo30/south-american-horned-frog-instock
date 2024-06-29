@@ -186,6 +186,34 @@
       }
     }
 
+    &--status-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 1.5rem;
+      padding: 0 0.5rem;
+      border-radius: 1.25rem;
+
+      @include tablet {
+        height: 1.625rem;
+      }
+      &-in {
+        background-color: rgba(21, 132, 99, 0.07);
+        width: 4rem;
+      }
+      &-out {
+        background-color: rgba(201, 69, 21, 0.07);
+        width: 5.5rem;
+      }
+    }
+
+    &--status-in {
+      @include dynamicFont(600, 0.6875rem, 1rem, $green);
+    }
+    &--status-out {
+      @include dynamicFont(600, 0.6875rem, 1rem, $red);
+    }
+
     &--inventory-item {
       order: 1;
     }

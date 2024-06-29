@@ -70,7 +70,11 @@ export const WarehouseDetails = () => {
             </hgroup>
           </aside>
         </section>
-        <WarehouseInventory warehouseInventory={warehouseInventory} />
+        <WarehouseInventory
+          warehouseInventory={warehouseInventory}
+          setWarehouseInventory={setWarehouseInventory}
+          warehouseId={warehouseId}
+        />
       </Card>
     </main>
   );
