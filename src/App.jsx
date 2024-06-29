@@ -5,8 +5,6 @@ import Footer from "./components/Footer/Footer";
 import { Warehouses } from "./pages/Warehouses/Warehouses";
 import EditWarehouseItem from "./components/EditWarehouseItem/EditWarehouseItem";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
-import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
-
 import { WarehouseDetails } from "./pages/WarehouseDetails/WarehouseDetails";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
