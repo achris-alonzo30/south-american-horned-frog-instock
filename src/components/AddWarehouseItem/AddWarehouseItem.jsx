@@ -7,7 +7,6 @@ function AddWarehouseItem({
   setFormValues,
   handleSubmit,
   emptyFields,
-  setEmptyFields,
 }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;

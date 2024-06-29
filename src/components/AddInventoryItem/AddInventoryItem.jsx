@@ -1,7 +1,9 @@
 import "./AddInventoryItem.scss";
+
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { DynamicInput } from "../DynamicInput/DynamicInput";
 import { DynamicButton } from "../DynamicButton/DynamicButton";
 

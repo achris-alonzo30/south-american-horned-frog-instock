@@ -1,7 +1,8 @@
 import "./DynamicButton.scss";
 
-import editIcon from "../../assets/icons/edit_white-24px.svg";
 import { Link } from "react-router-dom";
+
+import editIcon from "../../assets/icons/edit_white-24px.svg";
 
 export const DynamicButton = ({
   href,

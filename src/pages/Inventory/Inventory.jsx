@@ -7,7 +7,6 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
-import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { InventoryList } from "../../components/InventoryList/InventoryList";

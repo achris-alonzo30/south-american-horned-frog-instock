@@ -113,7 +113,6 @@ const EditInventoryItem = () => {
     const updatedQuantity =
       updatedStockStatus === "Out of Stock" ? 0 : parsedQuantity;
 
-    // Calculate stock status based on parsed quantity
     if (!validateForm()) {
       return;
     }
@@ -142,7 +141,6 @@ const EditInventoryItem = () => {
   };
 
   const cancelHandler = () => {
-    // event.preventDefault();
     navigate("/inventory");
   };
 

@@ -1,7 +1,7 @@
 import "./NewWarehouse.scss";
 
-import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { postWarehouse } from "../../lib/api-warehouses";
 
 import { Card } from "../../components/Card/Card";
