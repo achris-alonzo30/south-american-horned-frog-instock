@@ -86,7 +86,7 @@
         }
 
         &--cells {
-            flex: 1 1 50%;
+            flex: 1 1 40%;
             padding: 1rem 1rem 0.5rem;
 
             @include tablet {
@@ -136,10 +136,10 @@
         }
 
         &--content {
-            @include dynamicFont(400, 0.6875rem, 1rem, $instock-black);
+            @include dynamicFont(400, .8125rem, 1.25rem, $instock-black);
 
             @include tablet {
-                @include dynamicFont(400, 0.75rem, 1.125rem, $instock-black);
+                @include dynamicFont(400, .875rem, 1.375rem, $instock-black);
             }
         }
 
