@@ -1,9 +1,8 @@
-import "./NewWarehouseForm.scss";
+import "./AddWarehouseItem.scss";
 
-import { useState, useEffect } from "react";
 import errorIcon from "../../assets/icons/error-24px.svg";
 
-function NewWarehouseForm({
+function AddWarehouseItem({
   formValues,
   setFormValues,
   handleSubmit,
@@ -184,4 +183,4 @@ function NewWarehouseForm({
   );
 }
 
-export default NewWarehouseForm;
+export default AddWarehouseItem;

@@ -8,8 +8,7 @@ import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
-import NewWarehouseForm from "../../components/NewWarehouseForm/NewWarehouseForm";
-// import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
+import AddWarehouseItem from "../../components/AddWarehouseItem/AddWarehouseItem";
 
 function NewWarehouse() {
   const [formValues, setFormValues] = useState({
@@ -72,13 +71,13 @@ function NewWarehouse() {
           withArrow
           tabletHeaderBorder
         ></CardHeader>
-        <NewWarehouseForm
+        <AddWarehouseItem
           formValues={formValues}
           setFormValues={setFormValues}
           handleSubmit={handleSubmit}
           emptyFields={emptyFields}
           setEmptyFields={setEmptyFields}
-        ></NewWarehouseForm>
+        ></AddWarehouseItem>
         <CardFooter>
           <DynamicButton
             variant="cancel"
