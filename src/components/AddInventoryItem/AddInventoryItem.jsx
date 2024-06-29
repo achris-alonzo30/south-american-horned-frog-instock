@@ -13,7 +13,8 @@ import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
 
 export const AddInventoryItem = () => {
   const navigate = useNavigate();
-  const [availableWarehouses, setAvailableWarehouses] = useState([])
+  const [availableWarehouses, setAvailableWarehouses] = useState([]);
+  const [isAvailable, setIsAvailable] = useState(false);
   const [itemId, setItemId] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -24,6 +25,17 @@ export const AddInventoryItem = () => {
   const [quantity, setQuantity] = useState("0");
 
   const [emptyFields, setEmptyFields] = useState({});
+
+  const warehouseMap = {
+    Manhattan: "1",
+    Washington: "2",
+    Jersey: "3",
+    SF: "4",
+    "Santa Monica": "5",
+    Seattle: "6",
+    Miami: "7",
+    Boston: "8",
+  };
 
   useEffect(() => {
     const fetchInventoryItem = async () => {
@@ -119,7 +131,13 @@ export const AddInventoryItem = () => {
     navigate("/");
   };
 
-  if (!availableWarehouses.length) return <LoadingSpinner />
+  if (!availableWarehouses.length) return <LoadingSpinner />;
+
+  const checkWarehouseAvailability = (option) => {
+    return !availableWarehouses.some(
+      (warehouse) => warehouse.warehouse_name === option
+    );
+  };
 
   return (
     <form className="add-item__form" onSubmit={saveHandler}>
@@ -266,11 +284,15 @@ export const AddInventoryItem = () => {
             placeholder="Please Select"
           >
             <option>Select an Option</option>
-            {availableWarehouses.map(({warehouse_name, warehouse_id}) => (
-              <option key={warehouse_id} value={warehouse_name}>{warehouse_name}</option>
-            ))
-
-}
+            {Object.keys(warehouseMap).map((warehouse) => (
+              <option
+                key={warehouseMap[warehouse]}
+                value={warehouse}
+                disabled={checkWarehouseAvailability(warehouse)}
+              >
+                {warehouse}
+              </option>
+            ))}
           </select>
           <div
             className={`${
@@ -290,4 +312,3 @@ export const AddInventoryItem = () => {
     </form>
   );
 };
-

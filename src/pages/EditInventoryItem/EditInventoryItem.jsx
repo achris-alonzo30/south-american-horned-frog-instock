@@ -10,11 +10,13 @@ import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+import { getAllInventories } from "../../lib/api-inventories";
+import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 
 export const EditInventoryItem = () => {
   const { inventoryId } = useParams();
   const navigate = useNavigate();
-
+  const [availableWarehouses, setAvailableWarehouses] = useState([]);
 
   const warehouseMap = {
     "Brooklyn Warehouse": "1",
@@ -64,7 +66,7 @@ export const EditInventoryItem = () => {
         alert("Error fetching inventory items");
       }
     };
-
+    getAllInventories(setAvailableWarehouses);
     fetchInventoryItem();
   }, [inventoryId]);
 
@@ -145,6 +147,14 @@ export const EditInventoryItem = () => {
 
   const cancelHandler = () => {
     navigate("/inventory");
+  };
+
+  if (!availableWarehouses.length) return <LoadingSpinner />;
+
+  const checkWarehouseAvailability = (option) => {
+    return !availableWarehouses.some(
+      (warehouse) => warehouse.warehouse_name === option
+    );
   };
 
   return (
@@ -307,14 +317,15 @@ export const EditInventoryItem = () => {
                 placeholder="Please Select"
               >
                 <option>Select an Option</option>
-                <option value="Brooklyn Warehouse">New York</option>
-                <option value="Washington">Washington</option>
-                <option value="Jersey">New Jersey</option>
-                <option value="SF">San Francisco</option>
-                <option value="Santa Monica"> Santa Monica</option>
-                <option value="Seattle"> Seattle</option>
-                <option value="Miami"> Miami</option>
-                <option value="Boston">Boston</option>
+                {Object.keys(warehouseMap).map((warehouse) => (
+                  <option
+                    key={warehouseMap[warehouse]}
+                    value={warehouse}
+                    disabled={checkWarehouseAvailability(warehouse)}
+                  >
+                    {warehouse}
+                  </option>
+                ))}
               </select>
               <div
                 className={`${
@@ -336,4 +347,3 @@ export const EditInventoryItem = () => {
     </main>
   );
 };
-
