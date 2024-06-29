@@ -1,229 +1,229 @@
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/colors" as *;
 
-// .table {
-//   width: 100%;
-//   height: 100%;
-//   overflow-x: auto;
-//   background-color: $white;
-//   border-collapse: collapse;
+.table {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  background-color: $white;
+  border-collapse: collapse;
 
-//   &__header {
-//     display: none;
-//     background: $light-grey;
+  &__header {
+    display: none;
+    background: $light-grey;
 
-//     @include tablet {
-//       display: table-header-group;
-//     }
+    @include tablet {
+      display: table-header-group;
+    }
 
-//     &--row {
-//       display: table-row;
-//     }
+    &--row {
+      display: table-row;
+    }
 
-//     &--cells {
-//       padding: 1rem;
-//       text-align: start;
-//       display: table-cell;
-//       vertical-align: middle;
-//       padding: 1rem 0rem 1rem 1.5rem;
-//         @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
-//     }
+    &--cells {
+      padding: 1rem;
+      text-align: start;
+      display: table-cell;
+      vertical-align: middle;
+      padding: 1rem 0rem 1rem 1.5rem;
+        @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+    }
 
-//     &--end {
-//       text-align: center;
-//       display: table-cell;
-//       vertical-align: middle;
-//        padding-right: -5rem;
-//         @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
-//     }
+    &--end {
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+       padding-right: -5rem;
+        @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+    }
 
-//     &--content {
-//       gap: 0.25rem;
-//       align-items: center;
-//       white-space: nowrap;
-//       display: inline-flex;
-//     }
+    &--content {
+      gap: 0.25rem;
+      align-items: center;
+      white-space: nowrap;
+      display: inline-flex;
+    }
 
-//     &--icon {
-//       width: 1rem;
-//       height: 1rem;
-//     }
-//   }
+    &--icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
 
-//   &__body {
-//     display: table-row-group;
+  &__body {
+    display: table-row-group;
 
-//     &--row {
-//       display: flex;
-//       flex-wrap: wrap;
-//       border-bottom: 1px solid $cloud;
+    &--row {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid $cloud;
 
-//       &:hover {
-//         background-color: rgba(189, 197, 213, 0.5);
-//         transition: background-color 0.2s ease-in-out;
-//       }
+      &:hover {
+        background-color: rgba(189, 197, 213, 0.5);
+        transition: background-color 0.2s ease-in-out;
+      }
 
-//       @include tablet {
-//         display: table-row;
-//       }
-//     }
+      @include tablet {
+        display: table-row;
+      }
+    }
 
-//     &--remove-border-bottom {
-//       border-bottom: 0 !important;
-//     }
-//   }
+    &--remove-border-bottom {
+      border-bottom: 0 !important;
+    }
+  }
 
-//   &__data {
-//     &--cells {
-//       flex: 1 1 50%;
-//       display: block;
-//       box-sizing: border-box;
-//       padding: 1rem 0.75rem 0 1rem;
+  &__data {
+    &--cells {
+      flex: 1 1 50%;
+      display: block;
+      box-sizing: border-box;
+      padding: 1rem 0.75rem 0 1rem;
 
-//       @include tablet {
-//         display: table-cell;
-//         padding: 1rem 1.5rem;
-//         vertical-align: middle;
-//       }
-//     }
+      @include tablet {
+        display: table-cell;
+        padding: 1rem 1.5rem;
+        vertical-align: middle;
+      }
+    }
 
-//     &--header {
-//       text-align: left;
-//       display: table-cell;
-//       white-space: nowrap;
-//       padding-bottom: 0.25rem;
-//       @include dynamicFont(600, 0.6875rem, 1rem, $slate);
+    &--header {
+      text-align: left;
+      display: table-cell;
+      white-space: nowrap;
+      padding-bottom: 0.25rem;
+      @include dynamicFont(600, 0.6875rem, 1rem, $slate);
 
-//       @include tablet {
-//         @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
-//       }
-//     }
+      @include tablet {
+        @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+      }
+    }
 
-//     &--text {
-//       &:hover {
-//         text-decoration: underline;
-//         text-decoration-color: $instock-indigo;
-//       }
-//     }
+    &--text {
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: $instock-indigo;
+      }
+    }
 
-//     &--link {
-//       gap: 0.25rem;
-//       display: flex;
-//       align-items: center;
-//       text-decoration: none;
-//       @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
+    &--link {
+      gap: 0.25rem;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
 
-//       @include tablet {
-//         @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
-//       }
-//     }
+      @include tablet {
+        @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
+      }
+    }
 
-//     &--content {
-//       @include dynamicFont(400, 0.6875rem, 1rem, $instock-black);
+    &--content {
+      @include dynamicFont(400, 0.6875rem, 1rem, $instock-black);
 
-//       @include tablet {
-//         @include dynamicFont(400, 0.75rem, 1.125rem, $instock-black);
-//       }
-//     }
+      @include tablet {
+        @include dynamicFont(400, 0.75rem, 1.125rem, $instock-black);
+      }
+    }
 
-//     &--hidden {
-//       @include tablet {
-//         display: none;
-//       }
-//     }
+    &--hidden {
+      @include tablet {
+        display: none;
+      }
+    }
 
-//     &--breakpoint {
-//       @include tablet {
-//         width: 75%;
-//       }
+    &--breakpoint {
+      @include tablet {
+        width: 75%;
+      }
 
-//       @include desktop {
-//         width: 100%;
-//       }
-//     }
+      @include desktop {
+        width: 100%;
+      }
+    }
 
-//     &--actions {
-//       width: 100%;
-//       display: flex;
-//       padding: 1rem;
-//       justify-content: space-between;
+    &--actions {
+      width: 100%;
+      display: flex;
+      padding: 1rem;
+      justify-content: space-between;
 
-//       @include tablet {
-//         gap: 1rem;
-//         display: flex;
-//         padding: 1.5rem;
-//         align-items: center;
-//         text-align: center;
-//         justify-content: flex-end;
-//       }
-//     }
+      @include tablet {
+        gap: 1rem;
+        display: flex;
+        padding: 1.5rem;
+        align-items: center;
+        text-align: center;
+        justify-content: flex-end;
+      }
+    }
 
-//     &--edit,
-//     &--delete {
-//       cursor: pointer;
-//     }
+    &--edit,
+    &--delete {
+      cursor: pointer;
+    }
 
-//     &--inventory-item {
-//       order: 1;
-//     }
+    &--inventory-item {
+      order: 1;
+    }
 
-//     &--status {
-//       order: 2;
-//     }
+    &--status {
+      order: 2;
+    }
 
-//     &--category {
-//       order: 3;
-//     }
+    &--category {
+      order: 3;
+    }
 
-//     &--qty {
-//       order: 4;
-//     }
+    &--qty {
+      order: 4;
+    }
 
-//     &--warehouse {
-//       order: 7;
-//     }
+    &--warehouse {
+      order: 7;
+    }
 
-//     &--actions {
-//       order: 8;
-//     }
+    &--actions {
+      order: 8;
+    }
 
-//     &--status-wrapper {
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//       height: 1.5rem;
-//       padding: 0 0.5rem;
-//       border-radius: 1.25rem;
+    &--status-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 1.5rem;
+      padding: 0 0.5rem;
+      border-radius: 1.25rem;
 
-//       @include tablet {
-//         height: 1.625rem;
-//       }
+      @include tablet {
+        height: 1.625rem;
+      }
 
-//       &-in {
-//         background-color: rgba(21, 132, 99, 0.07);
-//         width: 4rem;
-//       }
+      &-in {
+        background-color: rgba(21, 132, 99, 0.07);
+        width: 4rem;
+      }
 
-//       &-out {
-//         background-color: rgba(201, 69, 21, 0.07);
-//         width: 5.5rem;
-//       }
-//     }
+      &-out {
+        background-color: rgba(201, 69, 21, 0.07);
+        width: 5.5rem;
+      }
+    }
 
-//     &--status-in {
-//       @include dynamicFont(600, 0.6875rem, 1rem, $green);
-//     }
+    &--status-in {
+      @include dynamicFont(600, 0.6875rem, 1rem, $green);
+    }
 
-//     &--status-out {
-//       @include dynamicFont(600, 0.6875rem, 1rem, $red);
-//     }
+    &--status-out {
+      @include dynamicFont(600, 0.6875rem, 1rem, $red);
+    }
 
-//     &--invisible {
-//       order: 6;
+    &--invisible {
+      order: 6;
 
-//       @include tablet {
-//         display: none;
-//       }
-//     }
-//   }
-// }
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+}
