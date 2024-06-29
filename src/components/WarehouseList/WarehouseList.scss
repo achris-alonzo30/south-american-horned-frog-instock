@@ -147,6 +147,11 @@
             &:hover {
                 text-decoration: underline;
                 text-decoration-color: inherit;
+
+                .arrow-animation {
+                    transform: translateX(4px);
+                    transition: transform 0.3s ease;
+                }
             }
 
             @include tablet {

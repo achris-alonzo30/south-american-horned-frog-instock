@@ -109,7 +109,7 @@ export const WarehouseList = ({ warehouses, setWarehouses }) => {
                   </h4>
                   <Link to={`/warehouse/${id}`} className="table__data--link">
                     {warehouse_name}
-                    <img src={chevronRight} alt="Arrow Point To Right" />
+                    <img src={chevronRight} alt="Arrow Point To Right" className="arrow-animation" />
                   </Link>
                 </td>
                 <td className="table__data--cells table__data--address">
