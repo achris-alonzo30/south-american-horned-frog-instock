@@ -79,6 +79,7 @@
       }
     }
     &:focus {
+      border: 0;
       outline: 1px solid $instock-indigo;
     }
     &--error {
