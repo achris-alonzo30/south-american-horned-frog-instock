@@ -1,0 +1,112 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  }
+  &__title {
+    font-family: "Titillium Web";
+    @include dynamicFont(
+      600,
+      $fontsize-mob-page-header,
+      $lh-mob-page-header,
+      $instock-black
+    );
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    text-align: left;
+    @include tablet {
+      @include dynamicFont(600, $fontsize-td-sub-header, $lh-td-sub-header, $instock-black);
+      padding-top: 0;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    @include tablet {
+      margin: 1.5rem 0;
+      padding-bottom: 0;
+      width: 50%;
+    }
+    @include desktop {
+      padding: 0 2.5rem 1.5rem 2.5rem;
+    }
+    &--contact-details {
+      border-top: 0.0625rem solid $cloud;
+      @include tablet {
+        border-top: none;
+        border-left: 0.0625rem solid $cloud;
+      }
+    }
+  }
+  &__label {
+    @include dynamicFont(600, $fontsize-mob-llb, $lh-mob-llb, $instock-black);
+  }
+  &__input {
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    border: 1px solid $cloud;
+    padding: 0 1rem;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      height: 2.375rem;
+    }
+    &::placeholder {
+      @include dynamicFont(
+        400,
+        $fontsize-mob-body-medium,
+        $lh-mob-body-medium,
+        $slate
+      );
+      @include tablet {
+        @include dynamicFont(
+          400,
+          $fontsize-td-body-medium,
+          $lh-td-body-medium,
+          $slate
+        );
+      }
+    }
+    &:focus {
+      border: 0;
+      outline: 1px solid $instock-indigo;
+    }
+    &--error {
+      margin-bottom: 0;
+      border: 0.0625rem solid $red;
+    }
+  }
+}
+
+.error {
+  border-color: $red;
+  margin-bottom: 0rem;
+
+  &_icon {
+    height: 0.9375rem;
+  }
+}
+
+.error-message {
+  font-size: 11px;
+  align-content: center;
+  display: flex;
+  padding-top: 4px;
+  gap: 0.25rem;
+  color: $red;
+  padding-bottom: 0.5rem;
+
+  &_hide {
+    display: none;
+  }
+}

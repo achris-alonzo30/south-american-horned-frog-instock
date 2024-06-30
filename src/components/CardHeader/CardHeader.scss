@@ -1,0 +1,81 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.flexRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header {
+  width: 100%;
+  padding: 2rem 1rem 1rem;
+  border-bottom: 1px solid $cloud;
+
+  @include tablet {
+    border-bottom: 0;
+    padding: 1rem 2rem;
+  }
+
+  &--tablet-border {
+    @include tablet {
+      border-bottom: 1px solid $cloud;
+      padding: 2rem 2rem 1.3rem;
+    }
+  }
+
+  &__left {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      flex: 0.675;
+    }
+
+    @include desktop {
+      flex: 0.7;
+    }
+
+    &--arrow {
+      cursor: pointer;
+    }
+
+    &--title {
+      text-transform: capitalize;
+      @include dynamicFont(600, 1.75rem, 2.25rem, $instock-black);
+
+      @include tablet {
+        @include dynamicFont(600, 2rem, 2.5rem, $instock-black);
+      }
+    }
+  }
+
+  &__right {
+    gap: 1rem;
+    display: flex;
+    padding: 1rem 0 0.5rem;
+    flex-direction: column;
+
+    @include tablet {
+      flex: 1;
+      flex-direction: row;
+    }
+  }
+}

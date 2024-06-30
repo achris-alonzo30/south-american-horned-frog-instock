@@ -39,9 +39,9 @@
 
   &__buttons {
     display: flex;
-
+    gap: 1rem;
     @include mobile {
-      padding: 0 1.5rem;
+      padding: 0 1rem;
       width: 100%;
     }
 
@@ -50,29 +50,39 @@
   }
 
   &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 1.25rem;
     background-color: $graphite;
     border: none;
 
     @include mobile {
-      width: 50%;
+      width: 100%;
       height: 2.25rem;
-
       @include dynamicFont(400, 0.8125rem, 1.25rem, $cloud);
-
-      &--warehouses {
-        margin-right: 1rem;
-      }
     }
 
     @include tablet {
       height: 2.375rem;
-      padding: 0 1rem;
       @include dynamicFont(400, 0.875rem, 1.375rem, $cloud);
 
       &--warehouses {
-        margin-right: 0.5rem;
+        padding: 0 1rem;
       }
+
+      &--inventory {
+        padding: 0 0 0 0.5rem;
+
+        &:hover {
+          padding: 0 1rem;
+        }
+      }
+    }
+
+    @include desktop {
+      padding: 0 1rem;
     }
 
     &:hover {
@@ -80,9 +90,23 @@
       color: $white;
     }
 
+    &--link {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        color: $white;
+      }
+    }
+
     &--active {
       background-color: $instock-black;
       color: $white;
+
+      @include tablet {
+        padding: 0 1rem;
+      }
     }
+
   }
 }

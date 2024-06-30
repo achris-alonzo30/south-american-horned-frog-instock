@@ -1,0 +1,209 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+
+.warehouse-list-table {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+
+    &__header {
+        width: 100%;
+        display: none;
+        padding: 0.5rem 2rem;
+        background-color: $light-grey;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &--cells {
+            flex: 1;
+            @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+        }
+
+        &--flex {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        &--end {
+            flex: 0.9;
+            display: flex;
+            justify-content: flex-end;
+
+            @include desktop {
+                flex: 1;
+            }
+        }
+
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+
+        &--row {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: start;
+            border-bottom: 1px solid $cloud;
+
+            &:hover {
+                background-color: rgba(189, 197, 213, 0.5);
+                transition: background-color 0.2s ease-in-out;
+            }
+
+            @include tablet {
+                flex-wrap: nowrap;
+                align-items: center;
+                padding: 1rem 2rem;
+                justify-content: space-between;
+            }
+        }
+
+        &--remove-border-bottom {
+            border-bottom: 0;
+        }
+    }
+
+    &__data {
+        &--hidden {
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &--cells {
+            flex: 1 1 40%;
+            padding: 1rem 1rem 0.5rem;
+
+            @include tablet {
+                padding: 0;
+                flex: 1 1 2%;
+                display: flex;
+                align-items: center;
+            }
+
+            @include desktop {
+                flex: 1;
+            }
+        }
+
+        &--header {
+            text-align: left;
+            display: table-cell;
+            white-space: nowrap;
+            padding-bottom: 0.25rem;
+            @include dynamicFont(600, 0.6875rem, 1rem, $slate);
+
+            @include tablet {
+                display: none;
+                @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+            }
+        }
+
+
+        &--link {
+            gap: 0.25rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
+
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: inherit;
+
+                .arrow-animation {
+                    transform: translateX(4px);
+                    transition: transform 0.3s ease;
+                }
+            }
+
+            @include tablet {
+                @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
+            }
+
+            @include desktop {
+                white-space: nowrap;
+            }
+        }
+
+        &--content {
+            @include dynamicFont(400, .8125rem, 1.25rem, $instock-black);
+
+            @include tablet {
+                @include dynamicFont(400, .8125rem, 1.25rem, $instock-black);
+            }
+        }
+
+        &--actions {
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            @include tablet {
+                flex: 1;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+        }
+
+        &--delete,
+        &--edit {
+            all: unset;
+            cursor: pointer;
+        }
+
+        &--margin {
+            margin-bottom: -0.25rem;
+        }
+
+        &--email {
+            text-decoration: none;
+
+            &:hover {
+                color: inherit;
+                text-decoration: underline;
+            }
+        }
+
+        @include mobile {
+            &--location {
+                order: 1;
+            }
+
+            &--name {
+                order: 2;
+            }
+
+            &--address {
+                order: 3;
+            }
+
+            &--contact {
+                order: 4;
+            }
+
+            &--actions {
+                order: 5;
+            }
+        }
+    }
+}

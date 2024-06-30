@@ -1,0 +1,239 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.add-item__header {
+    font-family: 'Titillium Web';
+    @include dynamicFont(600, $fontsize-mob-page-header, $lh-mob-page-header, $instock-black);
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    @include tablet{
+        @include dynamicFont(600, $fontsize-td-page-header, $lh-td-page-header, $instock-black);
+    }
+
+}
+
+.details-sections {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+
+
+    @include tablet{
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.add-item__form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.add-item__subheader {
+    font-family: 'Titillium Web';
+    @include dynamicFont(600, $fontsize-mob-sub-header, $lh-mob-sub-header, $instock-black);
+    width: 100%;
+    text-align: left;
+    padding-bottom: 1.5rem;
+    @include tablet{
+        padding: 0rem 0rem 1.5rem 0rem;
+        @include dynamicFont(600, $fontsize-td-sub-header, $lh-td-sub-header, $instock-black);
+    }
+}
+
+.add-item__label {
+    font-family: 'Titillium Web';
+    @include dynamicFont(600, $fontsize-mob-llb, $lh-mob-llb, $instock-black);
+    width: 100%;
+    padding-bottom: .25rem;
+    text-align: left;
+    @include tablet{
+        @include dynamicFont(600, $fontsize-td-llb, $lh-td-llb, $instock-black);
+    }
+}
+
+.add-item__input {
+    font-family: 'Titillium Web';
+    @include dynamicFont(400, $fontsize-mob-llb, $lh-mob-llb, $instock-black);
+    width: 100%;
+    padding: 0.50rem 1rem;
+    text-align: left;
+    border-radius: 1.25rem;
+    border: 1px solid $cloud;
+    height: 2.25rem;
+    margin-bottom: 1rem;
+
+    @include tablet{
+        @include dynamicFont(400, $fontsize-td-llb, $lh-td-llb, $instock-black);
+        padding-bottom: 0.50rem;
+        height: 2.375rem;
+    }
+
+    &:active{
+        border-color: $instock-indigo
+    }
+
+
+    &::placeholder{
+        color: $slate;
+    }
+
+    &:focus{
+        border-color: $instock-indigo;
+        outline: none;
+    }
+}
+
+.item-status__container{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin-bottom: 1rem;
+
+}
+
+.add-item__textareaInput{
+    font-family: 'Titillium Web';
+    @include dynamicFont(400, $fontsize-mob-llb, $lh-mob-llb, $instock-black);
+    width: 100%;
+    padding: 0.50rem 1rem;
+    text-align: left;
+    border-radius: 1.25rem;
+    border: 1px solid $cloud;
+    height: 6.25rem;
+    margin-bottom: 1rem;
+    resize:none;
+
+    @include tablet{
+        @include dynamicFont(400, $fontsize-td-llb, $lh-td-llb, $instock-black);
+        padding-bottom: 0.50rem;
+        height: 6.25rem;
+    }
+
+    &:active{
+        border-color: $instock-indigo
+    }
+
+
+    &::placeholder{
+        color: $slate;
+    }
+
+    &:focus{
+        border-color: $instock-indigo;
+        outline: none;
+    }
+
+}
+
+.add-item__form-section{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+
+    @include tablet{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+}
+
+.item-availability{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid $cloud;
+
+    @include tablet{
+        border-left: 1px solid $cloud;
+        padding-top: unset;
+        margin-top: unset;
+        border-top: unset;
+    }
+
+}
+
+.item-details{
+    border-top: unset;
+}
+
+
+.cancel-submit__container {
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: $light-grey;
+}
+
+
+
+.add-item__select {
+    width: 100%;
+    outline: none;
+    padding: 0 1rem;
+    height: 2.25rem;
+    border-radius: 20px;
+    -moz-appearance: none;
+    border: 1px solid $cloud;
+    -webkit-appearance: none;
+    background-position-x: 95%;
+    background-position-y: .3125rem;
+    background-repeat: no-repeat;
+    @include dynamicFont(400, .8125rem, 1.25rem, $graphite);
+    background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+
+    &:focus {
+        border: 1px solid $instock-indigo;
+    }
+
+    &__error {
+        border: 1px solid $red;
+    }
+
+    &::placeholder{
+        color: $slate;
+    }
+}
+
+.error{
+    border-color: $red;
+    margin-bottom: 0rem;
+
+    &_icon{
+        height: .9375rem;
+    }
+}
+
+
+.error-message{
+    font-size: 11px;
+    align-content: center;
+    display: flex;
+    padding-top: 4px;
+    gap: 0.25rem;
+    color: $red;
+    padding-bottom: 0.5rem;
+
+    &_hide{
+        display: none;
+    }
+}
+
+.ifStock--request_quantity{
+    display: flex;
+    flex-direction: column;
+
+    &--hide{
+        display:none;
+    }
+}
+

@@ -1,0 +1,89 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/colors" as *;
+
+.default-button-styles {
+  gap: 0.5rem;
+  display: flex;
+  height: 2.25rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  @include dynamicFont(600, 0.8125rem, 1.25rem, $white);
+
+  @include tablet {
+    height: 2.375rem;
+    @include dynamicFont(600, 0.875rem, 1.375rem, $white);
+  }
+}
+
+.primary {
+  width: 100%;
+  border: none;
+  @extend .default-button-styles;
+  background-color: $instock-indigo;
+  text-decoration: none;
+
+  @include tablet {
+    width: auto;
+  }
+
+  &:hover {
+    background-color: $graphite;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__text {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &--edit {
+    text-decoration: none;
+    @include mobile {
+      height: auto;
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+  }
+}
+
+.destructive {
+  width: 100%;
+  border: none;
+  background-color: $red;
+  @extend .default-button-styles;
+
+  @include tablet {
+    width: auto;
+  }
+
+  &:hover {
+    background-color: $graphite;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.secondary {
+  width: 100%;
+  border: none;
+  color: $slate;
+  background-color: $white;
+  border: 1px solid $cloud;
+  @extend .default-button-styles;
+
+  @include tablet {
+    width: auto;
+  }
+
+  &:hover {
+    color: $instock-indigo;
+    border-color: $instock-indigo;
+    transition: all 0.2s ease-in-out;
+  }
+}

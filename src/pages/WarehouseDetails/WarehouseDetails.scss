@@ -1,0 +1,105 @@
+@import "../../styles/partials/mixin";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/variables";
+
+.main {
+  height: 100%;
+  padding: 1rem 1rem 0;
+  margin-top: -4.75rem;
+
+  @include tablet {
+    heigth: 100%;
+    padding: 2rem;
+    margin-top: -7.85rem;
+  }
+
+  @include desktop {
+    max-width: 63.75rem;
+    heigth: 100%;
+    display: flex;
+    margin: auto;
+    margin-top: -7.85rem;
+  }
+}
+
+.card__details {
+  gap: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    padding: 2rem;
+    border-top: 1px solid $cloud;
+  }
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &--address {
+    @include tablet {
+      flex: 0.75;
+      border-right: 1px solid $cloud;
+    }
+  }
+
+  &--contacts {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--flex {
+    width: 100%;
+
+    @include tablet {
+      width: 45%;
+    }
+  }
+
+  &--theader {
+    padding-bottom: 0.25rem;
+    @include dynamicFont(600, 0.6875rem, 1rem, $slate);
+
+    @include tablet {
+      @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+    }
+  }
+
+  &--content {
+    @include dynamicFont(400, .8125rem, 1.25rem, $instock-black);
+
+    @include tablet {
+      @include dynamicFont(400, .875rem, 1.375rem, $instock-black);
+    }
+  }
+
+  &--contactName {
+    @include tablet {
+      flex: 1;
+    }
+  }
+
+  &--contactInfo {
+    margin-right: 1.5rem;
+
+    @include tablet {
+      flex: 1;
+    }
+  }
+
+  &--margin {
+    margin-bottom: -0.3rem;
+  }
+
+  &--link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

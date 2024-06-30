@@ -1,25 +1,41 @@
 import "./Header.scss";
 
-function Header() {
+import { NavLink, Link, useLocation } from "react-router-dom";
+
+export const Header = () => {
+  const { pathname } = useLocation();
+
   return (
     <header className="header">
       <div className="header__content">
-        <img
-          src="/src/assets/logo/InStock-Logo.svg"
-          alt="InStock-Logo"
-          className="header__logo"
-        />
+        <NavLink to="/">
+          <img
+            src="/src/assets/logo/InStock-Logo.svg"
+            alt="InStock-Logo"
+            className="header__logo"
+          />
+        </NavLink>
         <div className="header__buttons">
-          <button className="header__button header__button--warehouses header__button--active">
+          <Link
+            to="/"
+            className={`header__button header__button--link ${
+              pathname === "/" || pathname.includes("warehouse")
+                ? "header__button--active"
+                : ""
+            }`}
+          >
             Warehouses
-          </button>
-          <button className="header__button header__button--inventory">
+          </Link>
+          <Link
+            to="/inventory"
+            className={`header__button header__button--link  ${
+              pathname.includes("inventory") ? "header__button--active" : ""
+            }`}
+          >
             Inventory
-          </button>
+          </Link>
         </div>
       </div>
     </header>
   );
-}
-
-export default Header;
+};
