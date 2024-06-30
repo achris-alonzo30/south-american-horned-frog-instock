@@ -91,8 +91,8 @@
             padding: 1rem 1rem 0.5rem;
 
             @include tablet {
-                flex: 1 1 20%;
                 padding: 0;
+                flex: 1 1 20%;
                 display: flex;
                 align-items: center;
             }
