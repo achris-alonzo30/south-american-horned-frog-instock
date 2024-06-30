@@ -277,7 +277,7 @@ export const EditWarehouseItem = () => {
               </label>
               <input
                 className={`edit-wh__input ${
-                  emptyFields.contact_phone ? "error" : ""
+                  emptyFields.contactPhn ? "error" : ""
                 }`}
                 type="text"
                 id="wh-contact-phn"
@@ -287,7 +287,7 @@ export const EditWarehouseItem = () => {
               />
               <div
                 className={`${
-                  emptyFields.contactPhone
+                  emptyFields.contactPhn
                     ? "error-message"
                     : "error-message_hide"
                 }`}

@@ -115,7 +115,6 @@
         &--link {
             gap: 0.25rem;
             display: flex;
-            white-space: nowrap;
             align-items: center;
             text-decoration: none;
             @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
@@ -132,6 +131,10 @@
 
             @include tablet {
                 @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
+            }
+
+            @include desktop {
+                white-space: nowrap;
             }
         }
 
