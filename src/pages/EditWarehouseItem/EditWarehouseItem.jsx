@@ -1,4 +1,4 @@
-import "./EditWarehouseItem.scss"
+import "./EditWarehouseItem.scss";
 
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -53,36 +53,30 @@ export const EditWarehouseItem = () => {
 
   const validateForm = () => {
     const errors = {};
-    if (!whName) errors.whName = true;
-    if (!whAddress) errors.whAddress = true;
-    if (!whCity) errors.whCity = true;
-    if (!whCountry) errors.whCountry = true;
-    if (!contactName) errors.contactName = true;
-    if (!contactPosition) errors.contactPosition = true;
-    if (!contactPhn) errors.contactPhn = true;
-    if (!contactEmail) errors.contactEmail = true;
+    if (!whName) errors.whName = "This field is required";
+    if (!whAddress) errors.whAddress = "This field is required";
+    if (!whCity) errors.whCity = "This field is required";
+    if (!whCountry) errors.whCountry = "This field is required";
+    if (!contactName) errors.contactName = "This field is required";
+    if (!contactPosition) errors.contactPosition = "This field is required";
+    if (!contactPhn) {
+      errors.contactPhn = "This field is required";
+    } else if (!/^\d{11}$/.test(contactPhn)) {
+      errors.contactPhn = "Phone number must be 11 digits";
+    }
+
+    const validateEmail = (email) => {
+      const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+      return emailRegex.test(email);
+    };
+
+    if (!contactEmail) {
+      errors.contactEmail = "This field is required";
+    } else if (!validateEmail(contactEmail)) {
+      errors.contactEmail = "Invalid email format";
+    }
 
     setEmptyFields(errors);
-
-    function validateEmail(email) {
-      const emailRegex =
-        /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      return emailRegex.test(email);
-    }
-
-    function validatePhone(phone) {
-      const phoneRegex =
-        /^\+([0-9]{1})\s\(([0-9]{3})\)\s([0-9]{3})\-([0-9]{4})$/;
-      return phoneRegex.test(phone);
-    }
-
-    if (!validateEmail(contactEmail)) {
-      return alert("Invalid email format");
-    } else if (contactPhn < 11) {
-      return alert(
-        "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
-      );
-    }
 
     return Object.keys(errors).length === 0;
   };
@@ -293,7 +287,7 @@ export const EditWarehouseItem = () => {
                 }`}
               >
                 <img className="error_icon" src={errorIcon} />
-                This field is required
+                {emptyFields.contactPhn}
               </div>
               <label className="edit-wh__label" htmlFor="wh-email">
                 Email{" "}
@@ -316,7 +310,7 @@ export const EditWarehouseItem = () => {
                 }`}
               >
                 <img className="error_icon" src={errorIcon} />
-                This field is required
+                {emptyFields.contactEmail}
               </div>
             </div>
           </div>
@@ -330,4 +324,3 @@ export const EditWarehouseItem = () => {
     </main>
   );
 };
-
