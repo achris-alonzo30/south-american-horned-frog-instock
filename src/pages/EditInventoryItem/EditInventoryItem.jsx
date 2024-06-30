@@ -1,17 +1,23 @@
 import "./EditInventoryItem.scss";
+
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { DynamicInput } from "../DynamicInput/DynamicInput";
-import { DynamicButton } from "../DynamicButton/DynamicButton";
-import { Card } from "../Card/Card";
-import { CardHeader } from "../CardHeader/CardHeader";
+import { getAllWarehouse } from "../../lib/api-warehouses";
+import { useNavigate, useParams } from "react-router-dom";
+
 import errorIcon from "../../assets/icons/error-24px.svg";
 
-const EditInventoryItem = () => {
-  const { itemId } = useParams();
+import { Card } from "../../components/Card/Card";
+import { CardHeader } from "../../components/CardHeader/CardHeader";
+import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
+import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
+
+
+export const EditInventoryItem = () => {
+  const { inventoryId } = useParams();
   const navigate = useNavigate();
-  // const itemId = "3";
+  const [availableWarehouses, setAvailableWarehouses] = useState([]);
 
   const warehouseMap = {
     "Brooklyn Warehouse": "1",
@@ -42,7 +48,7 @@ const EditInventoryItem = () => {
         );
         const items = response.data;
 
-        const item = items.find((item) => item.id.toString() == itemId);
+        const item = items.find((item) => item.id.toString() == inventoryId);
 
         if (item) {
           setName(item.item_name);
@@ -61,9 +67,9 @@ const EditInventoryItem = () => {
         alert("Error fetching inventory items");
       }
     };
-
+    getAllWarehouse(setAvailableWarehouses);
     fetchInventoryItem();
-  }, [itemId]);
+  }, [inventoryId]);
 
   const validateForm = () => {
     const errors = {};
@@ -113,13 +119,12 @@ const EditInventoryItem = () => {
     const updatedQuantity =
       updatedStockStatus === "Out of Stock" ? 0 : parsedQuantity;
 
-    // Calculate stock status based on parsed quantity
     if (!validateForm()) {
       return;
     }
 
     const itemEditInfo = {
-      id: itemId,
+      id: inventoryId,
       warehouse_id: warehouseId,
       item_name: name,
       category: category,
@@ -131,7 +136,7 @@ const EditInventoryItem = () => {
 
     try {
       await axios.put(
-        `http://localhost:8080/api/inventories/${itemId}`,
+        `http://localhost:8080/api/inventories/${inventoryId}`,
         itemEditInfo
       );
       alert("We have successfully edited your item information!");
@@ -142,9 +147,10 @@ const EditInventoryItem = () => {
   };
 
   const cancelHandler = () => {
-    // event.preventDefault();
     navigate("/inventory");
   };
+
+  if (!availableWarehouses.length) return <LoadingSpinner />;
 
   return (
     <main className="main">
@@ -306,14 +312,11 @@ const EditInventoryItem = () => {
                 placeholder="Please Select"
               >
                 <option>Select an Option</option>
-                <option value="Brooklyn Warehouse">New York</option>
-                <option value="Washington">Washington</option>
-                <option value="Jersey">New Jersey</option>
-                <option value="SF">San Francisco</option>
-                <option value="Santa Monica"> Santa Monica</option>
-                <option value="Seattle"> Seattle</option>
-                <option value="Miami"> Miami</option>
-                <option value="Boston">Boston</option>
+                {availableWarehouses.map(({ warehouse_name, id }, index) => (
+                  <option key={id} value={warehouse_name}>
+                    {warehouse_name}
+                  </option>
+                ))}
               </select>
               <div
                 className={`${
@@ -335,5 +338,3 @@ const EditInventoryItem = () => {
     </main>
   );
 };
-
-export default EditInventoryItem;

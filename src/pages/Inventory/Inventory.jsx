@@ -7,7 +7,6 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
-import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicInput } from "../../components/DynamicInput/DynamicInput";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
 import { InventoryList } from "../../components/InventoryList/InventoryList";
@@ -32,13 +31,12 @@ export const Inventory = () => {
             icon={searchIcon}
             placeholder="Search..."
           />
-          <DynamicButton href={`/inventory/add-new-item`} variant="add" addButtonName="Add New Item" />
+          <DynamicButton href={`/inventory/post`} variant="add" addButtonName="Add New Item" />
         </CardHeader>
         <InventoryList
           inventories={inventories}
           setInventories={setInventories}
         />
-        <CardFooter></CardFooter>
       </Card>
     </main>
   );

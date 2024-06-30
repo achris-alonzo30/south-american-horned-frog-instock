@@ -22,10 +22,9 @@ export const Warehouses = ({ isNewWarehouse }) => {
   if (!warehouses) return <LoadingSpinner />;
 
   return (
-    <>
       <main className="main">
         <Card>
-          <CardHeader flexStyle="flexCol" browserName="Warehouse">
+          <CardHeader flexStyle="flexCol" browserName="Warehouses">
             <DynamicInput
               type="text"
               id="search"
@@ -44,6 +43,5 @@ export const Warehouses = ({ isNewWarehouse }) => {
           />
         </Card>
       </main>
-    </>
   );
 };

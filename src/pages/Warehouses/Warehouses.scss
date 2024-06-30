@@ -5,18 +5,21 @@
 @import "../../styles/partials/variables";
 
 .main {
-    padding: 1rem;
-    margin-top: -4rem;
+    height: 100%;
+    padding: 1rem 1rem 0;
+    margin-top: -4.75rem;
 
     @include tablet {
+        heigth: 100%;
         padding: 2rem;
-        margin-top: -8rem;
+        margin-top: -7.85rem;
     }
 
     @include desktop {
+        heigth: 100%;
         display: flex;
         margin: auto;
-        margin-top: -8rem;
+        margin-top: -7.85rem;
         max-width: 63.75rem;
     }
 }

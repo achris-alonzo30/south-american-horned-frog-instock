@@ -41,7 +41,7 @@
     display: flex;
     gap: 1rem;
     @include mobile {
-      padding: 0 1.5rem;
+      padding: 0 1rem;
       width: 100%;
     }
 
@@ -59,24 +59,30 @@
     border: none;
 
     @include mobile {
-      width: 50%;
+      width: 100%;
       height: 2.25rem;
-
       @include dynamicFont(400, 0.8125rem, 1.25rem, $cloud);
-
-      &--warehouses {
-        margin-right: 1rem;
-      }
     }
 
     @include tablet {
       height: 2.375rem;
-      padding: 0 1rem;
       @include dynamicFont(400, 0.875rem, 1.375rem, $cloud);
 
       &--warehouses {
-        margin-right: 0.5rem;
+        padding: 0 1rem;
       }
+
+      &--inventory {
+        padding: 0 0 0 0.5rem;
+
+        &:hover {
+          padding: 0 1rem;
+        }
+      }
+    }
+
+    @include desktop {
+      padding: 0 1rem;
     }
 
     &:hover {
@@ -96,6 +102,11 @@
     &--active {
       background-color: $instock-black;
       color: $white;
+
+      @include tablet {
+        padding: 0 1rem;
+      }
     }
+
   }
 }

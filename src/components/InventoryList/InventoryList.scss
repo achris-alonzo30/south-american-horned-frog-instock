@@ -1,231 +1,243 @@
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/colors" as *;
 
-.table {
-  width: 100%;
-  height: 100%;
-  overflow-x: auto;
-  background-color: $white;
-  border-collapse: collapse;
+.inventory-list-table {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
 
-  &__header {
-    display: none;
-    background: $light-grey;
-
-    @include tablet {
-      display: table-header-group;
-    }
-
-    &--row {
-      display: table-row;
-    }
-
-    &--cells {
-      padding: 1rem;
-      text-align: start;
-      display: table-cell;
-      vertical-align: middle;
-      @include dynamicFont(600, 0.6875rem, 1rem, $slate);
-
-      @include tablet {
-        padding: 1rem 1rem 1rem 1.5rem;
-        @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
-      }
-    }
-
-    &--end {
-      text-align: end;
-      display: table-cell;
-      padding: 0.5rem 1rem;
-      vertical-align: middle;
-      @include dynamicFont(600, 0.6875rem, 1rem, $graphite);
-
-      @include tablet {
-        padding: 0.5rem 1.5rem;
-        @include dynamicFont(600, 0.75rem, 1.125rem, $graphite);
-      }
-    }
-
-    &--content {
-      gap: 0.25rem;
-      align-items: center;
-      white-space: nowrap;
-      display: inline-flex;
-    }
-
-    &--icon {
-      width: 1rem;
-      height: 1rem;
-    }
-  }
-
-  &__body {
-    display: table-row-group;
-    border-bottom: 1px solid $cloud;
-
-    &--row {
-      display: flex;
-      flex-wrap: wrap;
-      border-bottom: 1px solid $cloud;
-
-      &:hover {
-        background-color: rgba(189, 197, 213, 0.5);
-        transition: background-color 0.2s ease-in-out;
-      }
-
-      @include tablet {
-        display: table-row;
-      }
-    }
-  }
-
-  &__data {
-    &--cells {
-      flex: 1 1 50%;
-      display: block;
-      box-sizing: border-box;
-      padding: 1rem 0.75rem 0 1rem;
-
-      @include tablet {
-        display: table-cell;
-        padding: 1rem 1.5rem;
-        vertical-align: middle;
-      }
-    }
-
-    &--header {
-      text-align: left;
-      display: table-cell;
-      white-space: nowrap;
-      padding-bottom: 0.25rem;
-      @include dynamicFont(600, 0.6875rem, 1rem, $slate);
-
-      @include tablet {
-        @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
-      }
-    }
-
-    &--text {
-      &:hover {
-        text-decoration: underline;
-        text-decoration-color: $instock-indigo;
-      }
-    }
-
-    &--link {
-      gap: 0.25rem;
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
-
-      @include tablet {
-        @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
-      }
-    }
-
-    &--content {
-      @include dynamicFont(400, 0.6875rem, 1rem, $instock-black);
-
-      @include tablet {
-        @include dynamicFont(400, 0.75rem, 1.125rem, $instock-black);
-      }
-    }
-
-    &--hidden {
-      @include tablet {
-        display: none;
-      }
-    }
-
-    &--breakpoint {
-      @include tablet {
-        width: 75%;
-      }
-
-      @include desktop {
+    &__header {
         width: 100%;
-      }
-    }
-
-    &--actions {
-      width: 100%;
-      display: flex;
-      padding: 1rem;
-      justify-content: space-between;
-
-      @include tablet {
-        gap: 1rem;
-        display: flex;
-        padding: 1.5rem;
-        align-items: center;
-        text-align: center;
-        justify-content: flex-end;
-      }
-    }
-
-    &--edit,
-    &--delete {
-      cursor: pointer;
-    }
-
-    &--inventory-item {
-      order: 1;
-    }
-
-    &--status {
-      order: 2;
-    }
-
-    &--category {
-      order: 3;
-    }
-
-    &--qty {
-      order: 4;
-    }
-
-    &--warehouse {
-      order: 7;
-    }
-
-    &--actions {
-      order: 8;
-    }
-
-    &--status-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 1.5rem;
-      padding: 0 0.5rem;
-      border-radius: 1.25rem;
-
-      @include tablet {
-        height: 1.625rem;
-      }
-      &-in {
-        background-color: rgba(21, 132, 99, 0.07);
-        width: 4rem;
-      }
-      &-out {
-        background-color: rgba(201, 69, 21, 0.07);
-        width: 5.5rem;
-      }
-    }
-
-    &--status-in {
-      @include dynamicFont(600, 0.6875rem, 1rem, $green);
-    }
-    &--status-out {
-      @include dynamicFont(600, 0.6875rem, 1rem, $red);
-    }
-    &--invisible {
-      order: 6;
-
-      @include tablet {
         display: none;
-      }
+        padding: 0.5rem 2rem;
+        background-color: $light-grey;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &--cells {
+            flex: 1;
+            text-align: start;
+            @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+        }
+
+        &--flex {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        &--end {
+            flex: 0.5;
+            display: flex;
+            justify-content: flex-end;
+
+            @include desktop {
+                flex: 1;
+            }
+        }
+
     }
-  }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+
+        &--row {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: start;
+            border-bottom: 1px solid $cloud;
+
+            &:hover {
+                background-color: rgba(189, 197, 213, 0.5);
+                transition: background-color 0.2s ease-in-out;
+            }
+
+            @include tablet {
+                align-items: center;
+                padding: 1rem 2rem;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+            }
+        }
+
+        &--remove-border-bottom {
+            border-bottom: 0;
+        }
+    }
+
+    &__data {
+        &--hidden {
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &--cells {
+            flex: 1 1 50%;
+            padding: 1rem 1rem 0.5rem;
+
+            @include tablet {
+                padding: 0;
+                flex: 1 1 20%;
+                display: flex;
+                align-items: center;
+            }
+
+            @include desktop {
+                flex: 1;
+            }
+        }
+
+        &--header {
+            text-align: left;
+            display: table-cell;
+            white-space: nowrap;
+            padding-bottom: 0.25rem;
+            @include dynamicFont(600, 0.6875rem, 1rem, $slate);
+
+            @include tablet {
+                display: none;
+                @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+            }
+        }
+
+
+        &--link {
+            gap: 0.25rem;
+            display: flex;
+            white-space: nowrap;
+            align-items: center;
+            text-decoration: none;
+            @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
+
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: inherit;
+
+                .arrow-animation {
+                    transform: translateX(4px);
+                    transition: transform 0.3s ease;
+                }
+            }
+
+            @include tablet {
+                @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
+            }
+
+            @include desktop {
+                white-space: nowrap;
+            }
+        }
+
+        &--content {
+            @include dynamicFont(400, .8125rem, 1.25rem, $instock-black);
+
+            @include tablet {
+                @include dynamicFont(400, .875rem, 1.375rem, $instock-black);
+            }
+        }
+
+        &--actions {
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            @include tablet {
+                flex: 1;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+        }
+
+        &--edit,
+        &--delete {
+            all: unset;
+            cursor: pointer;
+        }
+
+        @include mobile {
+            &--inventory-item {
+                order: 1;
+            }
+
+            &--status {
+                order: 2;
+            }
+
+            &--category {
+                order: 3;
+            }
+
+            &--qty {
+                order: 4;
+            }
+
+            &--warehouse {
+                order: 6;
+            }
+
+            &--actions {
+                order: 10;
+            }
+        }
+
+
+        &--status-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1.5rem;
+            padding: 0 0.5rem;
+            border-radius: 1.25rem;
+
+            @include tablet {
+                height: 1.625rem;
+            }
+
+            &-in {
+                background-color: rgba(21, 132, 99, 0.07);
+                width: 4rem;
+            }
+
+            &-out {
+                background-color: rgba(201, 69, 21, 0.07);
+                width: 5.5rem;
+            }
+        }
+
+        &--status-in {
+            @include dynamicFont(600, 0.6875rem, 1rem, $green);
+        }
+
+        &--status-out {
+            @include dynamicFont(600, 0.6875rem, 1rem, $red);
+        }
+
+        &--invisible {
+            order: 5;
+
+            @include tablet {
+                display: none;
+            }
+        }
+    }
 }

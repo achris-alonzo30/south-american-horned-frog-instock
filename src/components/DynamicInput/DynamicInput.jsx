@@ -14,7 +14,9 @@ export const DynamicInput = ({
     return (
       <div
         htmlFor={id}
-        className={`field__radio ${disabled && "field__radio--inactive"}`}
+        className={`field__radio ${
+          checked ? "field__radio--active" : "field__radio--inactive"
+        }`}
       >
         <input
           id={id}
@@ -24,7 +26,11 @@ export const DynamicInput = ({
           checked={checked}
           onChange={onChange}
           disabled={disabled}
-          className="field__radio--button"
+          className={`field__radio--button ${
+            checked
+              ? "field__radio--button-active"
+              : "field__radio--button-inactive"
+          }`}
         />
         {radioName}
       </div>

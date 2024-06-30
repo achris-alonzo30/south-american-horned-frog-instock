@@ -1,13 +1,16 @@
-import "./EditWarehouse.scss";
+import "./EditWarehouseItem.scss"
+
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Card } from "../Card/Card";
-import { CardHeader } from "../CardHeader/CardHeader";
-import { DynamicButton } from "../DynamicButton/DynamicButton";
+import { useNavigate, useParams } from "react-router-dom";
+
 import errorIcon from "../../assets/icons/error-24px.svg";
 
-const EditWarehouse = () => {
+import { Card } from "../../components/Card/Card";
+import { CardHeader } from "../../components/CardHeader/CardHeader";
+import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
+
+export const EditWarehouseItem = () => {
   const { warehouseId } = useParams();
   const navigate = useNavigate();
 
@@ -274,7 +277,7 @@ const EditWarehouse = () => {
               </label>
               <input
                 className={`edit-wh__input ${
-                  emptyFields.contact_phone ? "error" : ""
+                  emptyFields.contactPhn ? "error" : ""
                 }`}
                 type="text"
                 id="wh-contact-phn"
@@ -284,7 +287,7 @@ const EditWarehouse = () => {
               />
               <div
                 className={`${
-                  emptyFields.contactPhone
+                  emptyFields.contactPhn
                     ? "error-message"
                     : "error-message_hide"
                 }`}
@@ -328,4 +331,3 @@ const EditWarehouse = () => {
   );
 };
 
-export default EditWarehouse;

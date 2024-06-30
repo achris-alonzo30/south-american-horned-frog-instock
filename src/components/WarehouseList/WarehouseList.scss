@@ -1,70 +1,63 @@
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/colors" as *;
 
-.table {
+.warehouse-list-table {
     width: 100%;
     height: 100%;
-    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
     background-color: $white;
-    border-collapse: collapse;
 
     &__header {
+        width: 100%;
         display: none;
-        background: $light-grey;
+        padding: 0.5rem 2rem;
+        background-color: $light-grey;
 
         @include tablet {
-            display: table-header-group;
+            display: flex;
+            flex-direction: column;
         }
 
         &--row {
-            display: table-row;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         &--cells {
-            padding: 1rem;
-            text-align: start;
-            display: table-cell;
-            vertical-align: middle;
-            @include dynamicFont(600, .6875rem, 1rem, $slate);
+            flex: 1;
+            @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
+        }
 
-            @include tablet {
-                padding: 1rem 1rem 1rem 1.5rem;
-                @include dynamicFont(600, .75rem, 1.125rem, $slate);
-            }
+        &--flex {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
         }
 
         &--end {
-            text-align: end;
-            display: table-cell;
-            padding: 0.5rem 1rem;
-            vertical-align: middle;
-            @include dynamicFont(600, .6875rem, 1rem, $graphite);
+            flex: 0.9;
+            display: flex;
+            justify-content: flex-end;
 
-            @include tablet {
-                padding: 0.5rem 1.5rem;
-                @include dynamicFont(600, .75rem, 1.125rem, $graphite);
+            @include desktop {
+                flex: 1;
             }
         }
 
-        &--content {
-            gap: 0.25rem;
-            align-items: center;
-            white-space: nowrap;
-            display: inline-flex;
-        }
-
-        &--icon {
-            width: 1rem;
-            height: 1rem;
-        }
     }
 
     &__body {
-        display: table-row-group;
+        display: flex;
+        flex-direction: column;
 
         &--row {
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
+            align-items: start;
             border-bottom: 1px solid $cloud;
 
             &:hover {
@@ -73,29 +66,39 @@
             }
 
             @include tablet {
-                display: table-row;
+                flex-wrap: nowrap;
+                align-items: center;
+                padding: 1rem 2rem;
+                justify-content: space-between;
             }
+        }
+
+        &--remove-border-bottom {
+            border-bottom: 0;
         }
     }
 
     &__data {
-        &--cells {
-            flex: 1 1 50%;
-            display: block;
-            box-sizing: border-box;
-            padding: 1rem 0.75rem 0 1rem;
-
+        &--hidden {
             @include tablet {
-                display: table-cell;
-                padding: 1rem 1.5rem;
-                vertical-align: middle;
+                display: none;
             }
         }
 
-        &--address {
-            display: flex;
-            flex-direction: column;
+        &--cells {
+            flex: 1 1 40%;
+            padding: 1rem 1rem 0.5rem;
 
+            @include tablet {
+                padding: 0;
+                flex: 1 1 2%;
+                display: flex;
+                align-items: center;
+            }
+
+            @include desktop {
+                flex: 1;
+            }
         }
 
         &--header {
@@ -103,96 +106,94 @@
             display: table-cell;
             white-space: nowrap;
             padding-bottom: 0.25rem;
-            @include dynamicFont(600, .6875rem, 1rem, $slate);
+            @include dynamicFont(600, 0.6875rem, 1rem, $slate);
 
             @include tablet {
-                @include dynamicFont(600, .75rem, 1.125rem, $slate);
+                display: none;
+                @include dynamicFont(600, 0.75rem, 1.125rem, $slate);
             }
         }
 
-        &--text {
-            &:hover {
-                text-decoration: underline;
-                text-decoration-color: $instock-indigo;
-            }
-        }
-
-        &--margin {
-            margin-bottom: -0.3rem;
-        }
 
         &--link {
             gap: 0.25rem;
             display: flex;
-            white-space: nowrap;
             align-items: center;
             text-decoration: none;
-            @include dynamicFont(600, .8125rem, 1.25rem, $instock-indigo);
+            @include dynamicFont(600, 0.8125rem, 1.25rem, $instock-indigo);
 
             &:hover {
                 text-decoration: underline;
                 text-decoration-color: inherit;
+
+                .arrow-animation {
+                    transform: translateX(4px);
+                    transition: transform 0.3s ease;
+                }
             }
+
             @include tablet {
-                @include dynamicFont(600, .875rem, 1.375rem, $instock-indigo);
+                @include dynamicFont(600, 0.875rem, 1.375rem, $instock-indigo);
+            }
+
+            @include desktop {
+                white-space: nowrap;
             }
         }
 
         &--content {
-            @include dynamicFont(400, .6875rem, 1rem, $instock-black);
+            @include dynamicFont(400, .8125rem, 1.25rem, $instock-black);
 
             @include tablet {
-                @include dynamicFont(400, .75rem, 1.125rem, $instock-black);
+                @include dynamicFont(400, .8125rem, 1.25rem, $instock-black);
             }
         }
 
-        &--hidden {
+        &--actions {
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
             @include tablet {
-                display: none;
+                flex: 1;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
             }
+
+        }
+
+        &--delete,
+        &--edit {
+            all: unset;
+            cursor: pointer;
+        }
+
+        &--margin {
+            margin-bottom: -0.25rem;
         }
 
         &--email {
             text-decoration: none;
 
             &:hover {
+                color: inherit;
                 text-decoration: underline;
             }
         }
 
-        &--actions {
-            width: 100%;
-            display: flex;
-            padding: 1rem;
-            justify-content: space-between;
-
-
-            @include tablet {
-                gap: 1rem;
-                display: flex;
-                padding: 1.5rem;
-                align-items: center;
-                text-align: center;
-                justify-content: flex-end;
-            }
-        }
-
-        &--edit,
-        &--delete {
-            all: unset;
-            cursor: pointer;
-        }
-
-        @include tablet {
+        @include mobile {
             &--location {
                 order: 1;
             }
 
-            &--address {
+            &--name {
                 order: 2;
             }
 
-            &--name {
+            &--address {
                 order: 3;
             }
 
@@ -205,8 +206,4 @@
             }
         }
     }
-}
-
-.remove-bottom-border {
-    border-bottom: 0;
 }

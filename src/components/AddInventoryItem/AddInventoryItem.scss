@@ -1,4 +1,3 @@
-
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/colors" as *;
@@ -25,6 +24,7 @@
 
     @include tablet{
         flex-direction: row;
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -41,7 +41,7 @@
     text-align: left;
     padding-bottom: 1.5rem;
     @include tablet{
-        padding: 1rem 0rem 1.5rem 0rem;
+        padding: 0rem 0rem 1.5rem 0rem;
         @include dynamicFont(600, $fontsize-td-sub-header, $lh-td-sub-header, $instock-black);
     }
 }
@@ -54,7 +54,6 @@
     text-align: left;
     @include tablet{
         @include dynamicFont(600, $fontsize-td-llb, $lh-td-llb, $instock-black);
-        padding-bottom: 0.0313rem;
     }
 }
 
@@ -142,6 +141,7 @@
     @include tablet{
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+        padding-bottom: 0.5rem;
     }
 
 }

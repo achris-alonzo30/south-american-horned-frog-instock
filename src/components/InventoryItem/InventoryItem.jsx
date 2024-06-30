@@ -1,6 +1,6 @@
 import "./InventoryItem.scss";
 
-function InventoryItem({ inventory }) {
+export const InventoryItem = ({ inventory }) => {
   return (
     <main className="inventory-item">
       <div className="inventory-item__content--left">
@@ -25,7 +25,6 @@ function InventoryItem({ inventory }) {
                     : "inventory-item--stock--out"
                 }`}
               >
-                {console.log(inventory)}
                 {inventory.status ? inventory.status.toUpperCase() : ""}
               </p>
             </div>
@@ -43,5 +42,3 @@ function InventoryItem({ inventory }) {
     </main>
   );
 }
-
-export default InventoryItem;

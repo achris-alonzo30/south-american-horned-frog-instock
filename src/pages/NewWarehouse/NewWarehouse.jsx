@@ -1,17 +1,16 @@
 import "./NewWarehouse.scss";
 
-import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { postWarehouse } from "../../lib/api-warehouses";
 
 import { Card } from "../../components/Card/Card";
 import { CardHeader } from "../../components/CardHeader/CardHeader";
 import { CardFooter } from "../../components/CardFooter/CardFooter";
 import { DynamicButton } from "../../components/DynamicButton/DynamicButton";
-import NewWarehouseForm from "../../components/NewWarehouseForm/NewWarehouseForm";
-// import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
+import { AddWarehouseItem } from "../../components/AddWarehouseItem/AddWarehouseItem";
 
-function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
+export const NewWarehouse = ({ setIsNewWarehouse }) => {
   const [formValues, setFormValues] = useState({
     warehouse_name: "",
     address: "",
@@ -29,37 +28,33 @@ function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
 
   const validateForm = () => {
     const errors = {};
-    if (!formValues.warehouse_name) errors.warehouse_name = true;
-    if (!formValues.address) errors.address = true;
-    if (!formValues.city) errors.city = true;
-    if (!formValues.country) errors.country = true;
-    if (!formValues.contact_name) errors.contact_name = true;
-    if (!formValues.contact_position) errors.contact_position = true;
-    if (!formValues.contact_phone) errors.contact_phone = true;
-    if (!formValues.contact_email) errors.contact_email = true;
+    if (!formValues.warehouse_name)
+      errors.warehouse_name = "This field is required";
+    if (!formValues.address) errors.address = "This field is required";
+    if (!formValues.city) errors.city = "This field is required";
+    if (!formValues.country) errors.country = "This field is required";
+    if (!formValues.contact_name)
+      errors.contact_name = "This field is required";
+    if (!formValues.contact_position)
+      errors.contact_position = "This field is required";
+    if (!formValues.contact_phone) {
+      errors.contact_phone = "This field is required";
+    } else if (!/^\d{11}$/.test(formValues.contact_phone)) {
+      errors.contact_phone = "Phone number must be 11 digits";
+    }
+
+    const validateEmail = (email) => {
+      const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+      return emailRegex.test(email);
+    };
+
+    if (!formValues.contact_email) {
+      errors.contact_email = "This field is required";
+    } else if (!validateEmail(formValues.contact_email)) {
+      errors.contact_email = "Invalid email format";
+    }
 
     setEmptyFields(errors);
-
-    function validateEmail(email) {
-      const emailRegex =
-        /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      return emailRegex.test(email);
-    }
-
-    // function validatePhone(phone) {
-    //   const phoneRegex =
-    //     /^\+([0-9]{1})\s\(([0-9]{3})\)\s([0-9]{3})\-([0-9]{4})$/;
-    //   return phoneRegex.test(phone);
-    // }
-
-    if (!validateEmail(formValues.contact_email)) {
-      return alert("Invalid email format");
-    }
-    // else if (formValues.contact_phone.length < 11) {
-    //   return alert(
-    //     "Invalid phone number format. Correct phone number format: +X (XXX) XXX-XXXX"
-    //   );
-    // }
 
     return Object.keys(errors).length === 0;
   };
@@ -75,14 +70,14 @@ function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
     if (!validateForm()) {
       return;
     }
-    postWarehouse(formValues);
-    navigate(-1);
-    setIsNewWarehouse((isNewWarehouse) => isNewWarehouse + 1);
-  };
 
-  const handleCancel = (e) => {
-    e.preventDefault();
-    navigate("/");
+    try {
+      await postWarehouse(formValues);
+      setIsNewWarehouse((isNewWarehouse) => isNewWarehouse + 1);
+      navigate(-1);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -94,17 +89,17 @@ function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
           withArrow
           tabletHeaderBorder
         ></CardHeader>
-        <NewWarehouseForm
+        <AddWarehouseItem
           formValues={formValues}
           setFormValues={setFormValues}
           handleSubmit={handleSubmit}
           emptyFields={emptyFields}
           setEmptyFields={setEmptyFields}
-        ></NewWarehouseForm>
+        ></AddWarehouseItem>
         <CardFooter>
           <DynamicButton
             variant="cancel"
-            onClick={handleCancel}
+            onClick={() => navigate("/")}
           ></DynamicButton>
           <DynamicButton
             variant="add"
@@ -116,6 +111,4 @@ function NewWarehouse({ isNewWarehouse, setIsNewWarehouse }) {
       </Card>
     </main>
   );
-}
-
-export default NewWarehouse;
+};
